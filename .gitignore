@@ -1,0 +1,7 @@
+## Dev-specific files
+tmp/
+log/
+
+## IDE files
+brunch_dashboard.iml
+.idea/
