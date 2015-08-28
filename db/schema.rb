@@ -12,16 +12,33 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 20150823150546) do
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "assignments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "assignment_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "assignments", ["assignment_id"], name: "index_assignments_on_assignment_id", using: :btree
+  add_index "assignments", ["user_id"], name: "index_assignments_on_user_id", using: :btree
+
+  create_table "events", force: :cascade do |t|
+    t.date     "date"
+    t.string   "status"
+    t.integer  "number_of_volunteers"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
   create_table "users", force: :cascade do |t|
-    t.string   "first_name", limit: 25
-    t.string   "last_name",  limit: 50
-    t.string   "email",                 default: "", null: false
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.string   "email"
+    t.string   "first_name"
+    t.string   "surname"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
