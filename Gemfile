@@ -46,5 +46,6 @@ group :development, :test do
 
   # Shows better errors, apparently
   gem 'better_errors'
+
 end
 
