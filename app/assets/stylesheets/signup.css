@@ -6,6 +6,16 @@
 .BrunchLogo {
 	display: block;
 	margin: 0 auto;
-	padding: 10px 0;
+	padding: 5px 0;
+}
+
+.SignUpBox {
+	background-color: #EEEEEE;
+	max-width: 500px;
+	margin: 10px auto;
+}
+
+p {
+	text-align: center;
 }
 
