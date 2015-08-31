@@ -1,8 +1,19 @@
 <div class="SignUpBox">
 	<p>
-	Welcome To the Brunch Dash Board
+	Welcome
 	</p>
-	  
+	</br>
+	<p>
+	Enter your email in here and we will send you a link to login
+	</p>
+	 <%= form_tag(:action => @signUpAction) do %>
+  	  <%= text_field_tag(:email, @email) %>
+  	  <% if !@isCurrentUser  %>
+  	    <p> This seems to be your first time logging in. Please provide your name here </p>
+  	    <%= text_field_tag(:first_name, @first_name) %>
+  	  <% end %>
+      <%= submit_tag (@singUpButton) %>
+    <% end %>
  
  
 

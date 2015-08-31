@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
   get "/signup", to: "signup#index" 
+  get "/signup", to: "signup#index" 
 
+  post "/loginnew", to: "signup#log_in" 
+  get "/signup_new_user", to: "signup#new_user"
+  post "/signupNew", to: "signup#sign_up"
+
+  get "/index", to: "welcome#index"
   resources :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -56,4 +62,7 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+get '*path' => redirect('/')
+
 end
