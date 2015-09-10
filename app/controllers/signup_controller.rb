@@ -38,4 +38,16 @@ class SignupController < ApplicationController
     render('welcome/index')
 
   end
+
+  def log_in_with_token
+    token = params[:token]
+    @user = User.find_by(token: token)
+    if @user 
+      session[:current_user_id] = @user.id 
+      redirect_to :controller => 'welcome', :action => 'index'
+    else
+      render('signup/index')
+    end
+  end
+
 end

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   post "/signupNew", to: "signup#sign_up"
 
   get "/index", to: "welcome#index"
+  get "/login_with_token", to: "signup#log_in_with_token"
   resources :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -63,6 +64,6 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-get '*path' => redirect('/')
+#get '*path' => redirect('/')
 
 end

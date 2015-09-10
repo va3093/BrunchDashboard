@@ -14713,3 +14713,1800 @@ Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bd
 
 
 Started GET "/assets/logo-2689d7212a2c23911df645c4031e7d1d88db42153244c391eb4fd8ea6a2ee9cc.svg" for ::1 at 2015-09-09 07:04:05 +0100
+
+
+Started GET "/signup" for ::1 at 2015-09-10 06:37:57 +0100
+Processing by SignupController#index as HTML
+  Rendered signup/index.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 73ms (Views: 72.2ms | ActiveRecord: 0.0ms)
+  [1m[36m (5048.8ms)[0m  [1mDROP DATABASE IF EXISTS "brunch_dashboard_development"[0m
+PG::ObjectInUse: ERROR:  database "brunch_dashboard_development" is being accessed by other users
+DETAIL:  There is 1 other session using the database.
+: DROP DATABASE IF EXISTS "brunch_dashboard_development"
+  [1m[35m (115.4ms)[0m  DROP DATABASE IF EXISTS "brunch_dashboard_test"
+  [1m[36m (0.5ms)[0m  [1mCREATE DATABASE "brunch_dashboard_development" ENCODING = 'unicode'[0m
+PG::DuplicateDatabase: ERROR:  database "brunch_dashboard_development" already exists
+: CREATE DATABASE "brunch_dashboard_development" ENCODING = 'unicode'
+  [1m[35m (310.0ms)[0m  CREATE DATABASE "brunch_dashboard_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.2ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (8.0ms)[0m  DROP TABLE "assignments" CASCADE
+  [1m[36m (13.2ms)[0m  [1mCREATE TABLE "assignments" ("id" serial primary key, "user_id" integer, "assignment_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.0ms)[0m  CREATE  INDEX  "index_assignments_on_assignment_id" ON "assignments" USING btree ("assignment_id")
+  [1m[36m (0.7ms)[0m  [1mCREATE  INDEX  "index_assignments_on_user_id" ON "assignments" USING btree ("user_id")[0m
+  [1m[35m (1.3ms)[0m  DROP TABLE "events" CASCADE
+  [1m[36m (2.3ms)[0m  [1mCREATE TABLE "events" ("id" serial primary key, "date" date, "status" character varying, "number_of_volunteers" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.7ms)[0m  DROP TABLE "users" CASCADE
+  [1m[36m (2.6ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "first_name" character varying(25), "last_name" character varying(50), "email" character varying DEFAULT '' NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "token" character varying) [0m
+  [1m[35m (0.2ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (0.2ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (3.4ms)[0m  CREATE TABLE "assignments" ("id" serial primary key, "user_id" integer, "assignment_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.7ms)[0m  [1mCREATE  INDEX  "index_assignments_on_assignment_id" ON "assignments" USING btree ("assignment_id")[0m
+  [1m[35m (0.7ms)[0m  CREATE  INDEX  "index_assignments_on_user_id" ON "assignments" USING btree ("user_id")
+  [1m[36m (2.4ms)[0m  [1mCREATE TABLE "events" ("id" serial primary key, "date" date, "status" character varying, "number_of_volunteers" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.7ms)[0m  CREATE TABLE "users" ("id" serial primary key, "first_name" character varying(25), "last_name" character varying(50), "email" character varying DEFAULT '' NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "token" character varying) 
+  [1m[36m (1.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (1.0ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150908060158')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150823150241')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150823150546')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150823154004')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (2.1ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'assignments'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.7ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'events'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.5ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+
+
+Started POST "/loginnew" for ::1 at 2015-09-10 06:49:28 +0100
+Processing by SignupController#log_in as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZbmhWXlaIibIgUfK72DQtmE+5xQyvckUjcMJKYecr3VlwqoG1zVdhWfRe18D5AyzhRUBKxLM06+VMvJemBwayw==", "email"=>"va30932@gmail.com", "commit"=>"Submit"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "va30932@gmail.com"]]
+Redirected to http://localhost:3000/signup_new_user?email=va30932%40gmail.com
+Completed 302 Found in 8ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/signup_new_user?email=va30932%40gmail.com" for ::1 at 2015-09-10 06:49:28 +0100
+Processing by SignupController#new_user as HTML
+  Parameters: {"email"=>"va30932@gmail.com"}
+  Rendered signup/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 48ms (Views: 47.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/signupNew" for ::1 at 2015-09-10 06:49:34 +0100
+Processing by SignupController#sign_up as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/wM5mWFDpQikcEurVBMQKi9foLS00Xk62CosowLOMnf/eDLGzyzaqwsgdz64l8wvy3RGi5SgY4HA29fUHU6HyQ==", "email"=>"va30932@gmail.com", "first_name"=>"villy", "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("first_name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["first_name", "villy"], ["email", "va30932@gmail.com"], ["created_at", "2015-09-10 05:49:34.805424"], ["updated_at", "2015-09-10 05:49:34.805424"]]
+  [1m[35m (5.8ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "token" = $1, "updated_at" = $2 WHERE "users"."id" = $3  [["token", "884a964eed1c89a777ab104d586faf40"], ["updated_at", "2015-09-10 05:49:34.813286"], ["id", 1]]
+  [1m[36m (5.0ms)[0m  [1mCOMMIT[0m
+Set new token for user 1
+DEPRECATION WARNING: `#deliver` is deprecated and will be removed in Rails 5. Use `#deliver_now` to deliver immediately or `#deliver_later` to deliver through Active Job. (called from sign_up at /Users/Wilhelm/Dropbox/Work/Personal/brunch_dashboard/app/controllers/signup_controller.rb:36)
+  Rendered user_mailer/loginUser.html.erb within layouts/mailer (0.5ms)
+
+UserMailer#loginUser: processed outbound mail in 12.7ms
+
+Sent mail to va30932@gmail.com (1757.6ms)
+Date: Thu, 10 Sep 2015 06:49:34 +0100
+From: notifications@example.com
+To: va30932@gmail.com
+Message-ID: <55f119eecdf1c_5b593fd7a306ad14463e5@Wilhelms-MacBook-Pro.local.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hey villy</h1>
+    <p>
+      Just click into this link to log in to the brunch dashboard http://localhost:3000/login_with_token?token=884a964eed1c89a777ab104d586faf40.<br>
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+  Rendered welcome/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 1847ms (Views: 47.1ms | ActiveRecord: 12.3ms)
+
+
+Started GET "/login_with_token?token=884a964eed1c89a777ab104d586faf40" for ::1 at 2015-09-10 06:49:47 +0100
+
+
+Started GET "/" for ::1 at 2015-09-10 06:49:47 +0100
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/railties-4.2.3/lib/rails/templates/rails/welcome/index.html.erb (0.0ms)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login_with_token?token=884a964eed1c89a777ab104d586faf40" for ::1 at 2015-09-10 06:51:07 +0100
+
+
+Started GET "/" for ::1 at 2015-09-10 06:51:07 +0100
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/railties-4.2.3/lib/rails/templates/rails/welcome/index.html.erb (0.0ms)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login_with_token?token=884a964eed1c89a777ab104d586faf40" for ::1 at 2015-09-10 06:51:21 +0100
+
+
+Started GET "/" for ::1 at 2015-09-10 06:51:21 +0100
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/railties-4.2.3/lib/rails/templates/rails/welcome/index.html.erb (0.1ms)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login_with_token?token=884a964eed1c89a777ab104d586faf40" for ::1 at 2015-09-10 06:55:11 +0100
+
+
+Started GET "/" for ::1 at 2015-09-10 06:55:11 +0100
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/railties-4.2.3/lib/rails/templates/rails/welcome/index.html.erb (0.0ms)
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.0ms)
+  [1m[36m (5052.7ms)[0m  [1mDROP DATABASE IF EXISTS "brunch_dashboard_development"[0m
+PG::ObjectInUse: ERROR:  database "brunch_dashboard_development" is being accessed by other users
+DETAIL:  There is 1 other session using the database.
+: DROP DATABASE IF EXISTS "brunch_dashboard_development"
+  [1m[35m (115.2ms)[0m  DROP DATABASE IF EXISTS "brunch_dashboard_test"
+  [1m[36m (0.5ms)[0m  [1mCREATE DATABASE "brunch_dashboard_development" ENCODING = 'unicode'[0m
+PG::DuplicateDatabase: ERROR:  database "brunch_dashboard_development" already exists
+: CREATE DATABASE "brunch_dashboard_development" ENCODING = 'unicode'
+  [1m[35m (321.7ms)[0m  CREATE DATABASE "brunch_dashboard_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.2ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (7.9ms)[0m  DROP TABLE "assignments" CASCADE
+  [1m[36m (13.4ms)[0m  [1mCREATE TABLE "assignments" ("id" serial primary key, "user_id" integer, "assignment_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.0ms)[0m  CREATE  INDEX  "index_assignments_on_assignment_id" ON "assignments" USING btree ("assignment_id")
+  [1m[36m (0.8ms)[0m  [1mCREATE  INDEX  "index_assignments_on_user_id" ON "assignments" USING btree ("user_id")[0m
+  [1m[35m (1.7ms)[0m  DROP TABLE "events" CASCADE
+  [1m[36m (2.9ms)[0m  [1mCREATE TABLE "events" ("id" serial primary key, "date" date, "status" character varying, "number_of_volunteers" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.7ms)[0m  DROP TABLE "users" CASCADE
+  [1m[36m (2.3ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "first_name" character varying(25), "last_name" character varying(50), "email" character varying DEFAULT '' NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "token" character varying) [0m
+  [1m[35m (0.2ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (0.2ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (3.1ms)[0m  CREATE TABLE "assignments" ("id" serial primary key, "user_id" integer, "assignment_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.7ms)[0m  [1mCREATE  INDEX  "index_assignments_on_assignment_id" ON "assignments" USING btree ("assignment_id")[0m
+  [1m[35m (0.8ms)[0m  CREATE  INDEX  "index_assignments_on_user_id" ON "assignments" USING btree ("user_id")
+  [1m[36m (2.4ms)[0m  [1mCREATE TABLE "events" ("id" serial primary key, "date" date, "status" character varying, "number_of_volunteers" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.4ms)[0m  CREATE TABLE "users" ("id" serial primary key, "first_name" character varying(25), "last_name" character varying(50), "email" character varying DEFAULT '' NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "token" character varying) 
+  [1m[36m (1.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (1.1ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150908060158')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150823150241')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150823150546')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150823154004')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (2.3ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'assignments'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.7ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'events'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.5ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+
+
+Started GET "/welcome" for ::1 at 2015-09-10 06:58:39 +0100
+
+
+Started GET "/" for ::1 at 2015-09-10 06:58:39 +0100
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/railties-4.2.3/lib/rails/templates/rails/welcome/index.html.erb (0.0ms)
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/demo/index" for ::1 at 2015-09-10 06:58:51 +0100
+
+
+Started GET "/" for ::1 at 2015-09-10 06:58:51 +0100
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/railties-4.2.3/lib/rails/templates/rails/welcome/index.html.erb (0.0ms)
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for ::1 at 2015-09-10 06:58:57 +0100
+Processing by SignupController#index as HTML
+  Rendered signup/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 46ms (Views: 45.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/loginnew" for ::1 at 2015-09-10 06:59:09 +0100
+Processing by SignupController#log_in as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oiPaAG3tqnXZ7KZIAvEWEGap9bYBbnVgbcne5FmXFK+iWNFfw4LV1na8mt3udcoVgoITiSEfb9t1OCWTRhehEQ==", "email"=>"va30932@gmail.com", "commit"=>"Submit"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "va30932@gmail.com"]]
+Redirected to http://localhost:3000/signup_new_user?email=va30932%40gmail.com
+Completed 302 Found in 5ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/signup_new_user?email=va30932%40gmail.com" for ::1 at 2015-09-10 06:59:09 +0100
+Processing by SignupController#new_user as HTML
+  Parameters: {"email"=>"va30932@gmail.com"}
+  Rendered signup/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 41ms (Views: 40.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/signupNew" for ::1 at 2015-09-10 06:59:18 +0100
+Processing by SignupController#sign_up as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dp3+YHz/Vuas53RVbhpix6yqJeGmmPQGXUgNi7LOA9V25vU/0pApRQO3SMCCnr7CSIHD3obp7r1Fufb8rU62aw==", "email"=>"va30932@gmail.com", "first_name"=>"villy", "commit"=>"Submit"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("first_name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["first_name", "villy"], ["email", "va30932@gmail.com"], ["created_at", "2015-09-10 05:59:18.387312"], ["updated_at", "2015-09-10 05:59:18.387312"]]
+  [1m[36m (5.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["token", "36a58f3a35dde6a32d9049ef383f8bda"], ["updated_at", "2015-09-10 05:59:18.395174"], ["id", 1]]
+  [1m[35m (5.1ms)[0m  COMMIT
+Set new token for user 1
+DEPRECATION WARNING: `#deliver` is deprecated and will be removed in Rails 5. Use `#deliver_now` to deliver immediately or `#deliver_later` to deliver through Active Job. (called from sign_up at /Users/Wilhelm/Dropbox/Work/Personal/brunch_dashboard/app/controllers/signup_controller.rb:36)
+  Rendered user_mailer/loginUser.html.erb within layouts/mailer (0.1ms)
+
+UserMailer#loginUser: processed outbound mail in 12.0ms
+
+Sent mail to va30932@gmail.com (1637.0ms)
+Date: Thu, 10 Sep 2015 06:59:18 +0100
+From: notifications@example.com
+To: va30932@gmail.com
+Message-ID: <55f11c36679f9_5b593fd79e90bd8846449@Wilhelms-MacBook-Pro.local.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hey villy</h1>
+    <p>
+      Just click into this link to log in to the brunch dashboard http://localhost:3000/login_with_token/?token=36a58f3a35dde6a32d9049ef383f8bda.<br>
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 1723ms (Views: 44.5ms | ActiveRecord: 12.6ms)
+
+
+Started POST "/signupNew" for ::1 at 2015-09-10 06:59:20 +0100
+Processing by SignupController#sign_up as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dp3+YHz/Vuas53RVbhpix6yqJeGmmPQGXUgNi7LOA9V25vU/0pApRQO3SMCCnr7CSIHD3obp7r1Fufb8rU62aw==", "email"=>"va30932@gmail.com", "first_name"=>"villy", "commit"=>"Submit"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("first_name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["first_name", "villy"], ["email", "va30932@gmail.com"], ["created_at", "2015-09-10 05:59:20.110245"], ["updated_at", "2015-09-10 05:59:20.110245"]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["token", "eb64e180b6aa1fe638ee154d78c61da3"], ["updated_at", "2015-09-10 05:59:20.112564"], ["id", 2]]
+  [1m[35m (0.2ms)[0m  COMMIT
+Set new token for user 2
+DEPRECATION WARNING: `#deliver` is deprecated and will be removed in Rails 5. Use `#deliver_now` to deliver immediately or `#deliver_later` to deliver through Active Job. (called from sign_up at /Users/Wilhelm/Dropbox/Work/Personal/brunch_dashboard/app/controllers/signup_controller.rb:36)
+  Rendered user_mailer/loginUser.html.erb within layouts/mailer (0.1ms)
+
+UserMailer#loginUser: processed outbound mail in 11.6ms
+
+Sent mail to va30932@gmail.com (1013.2ms)
+Date: Thu, 10 Sep 2015 06:59:20 +0100
+From: notifications@example.com
+To: va30932@gmail.com
+Message-ID: <55f11c381efef_5b593fd7a22ac308465c0@Wilhelms-MacBook-Pro.local.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hey villy</h1>
+    <p>
+      Just click into this link to log in to the brunch dashboard http://localhost:3000/login_with_token/?token=eb64e180b6aa1fe638ee154d78c61da3.<br>
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 1078ms (Views: 47.3ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/login_with_token/?token=36a58f3a35dde6a32d9049ef383f8bda" for ::1 at 2015-09-10 06:59:52 +0100
+
+
+Started GET "/" for ::1 at 2015-09-10 06:59:52 +0100
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/railties-4.2.3/lib/rails/templates/rails/welcome/index.html.erb (6.5ms)
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login_with_token/?token=36a58f3a35dde6a32d9049ef383f8bda" for ::1 at 2015-09-10 07:00:32 +0100
+
+ActionController::RoutingError (No route matches [GET] "/login_with_token"):
+  actionpack (4.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.2.1) lib/web_console/middleware.rb:39:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.3) lib/rails/engine.rb:518:in `call'
+  railties (4.2.3) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.1ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/routes/_table.html.erb (9.0ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (99.5ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (50.5ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (113.2ms)
+
+
+Started GET "/login_with_token/?token=36a58f3a35dde6a32d9049ef383f8bda" for ::1 at 2015-09-10 07:02:02 +0100
+
+ActionController::RoutingError (No route matches [GET] "/login_with_token"):
+  actionpack (4.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.2.1) lib/web_console/middleware.rb:39:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.3) lib/rails/engine.rb:518:in `call'
+  railties (4.2.3) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.2ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.3ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (76.7ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (47.0ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (105.9ms)
+
+
+Started GET "/login_with_token/?token=36a58f3a35dde6a32d9049ef383f8bda" for ::1 at 2015-09-10 07:03:33 +0100
+Processing by SignupController#log_in_with_token as HTML
+  Parameters: {"token"=>"36a58f3a35dde6a32d9049ef383f8bda"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT 1[0m  [["token", "36a58f3a35dde6a32d9049ef383f8bda"]]
+  Rendered signup/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 62ms (Views: 52.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/application.self-4b72f52986864843ff3e658e95a113b958eea37c5c3f4cbac6a87c96fe315f66.css?body=1" for ::1 at 2015-09-10 07:03:33 +0100
+
+
+Started GET "/assets/assignments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-10 07:03:33 +0100
+
+
+Started GET "/assets/reset.self-e0f342360c42897e95d6a73aaf2373e8fd4e6b29498ae5e540a584fd4b252ec8.css?body=1" for ::1 at 2015-09-10 07:03:33 +0100
+
+
+Started GET "/assets/events.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-10 07:03:33 +0100
+
+
+Started GET "/assets/signup.self-17d3ece7cdd341ef58c79e925466edf04b2aec7a1dea9e501133e3db90f8ae3c.css?body=1" for ::1 at 2015-09-10 07:03:33 +0100
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-10 07:03:33 +0100
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-10 07:03:33 +0100
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-09-10 07:03:33 +0100
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for ::1 at 2015-09-10 07:03:33 +0100
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-09-10 07:03:33 +0100
+
+
+Started GET "/assets/assignments.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-10 07:03:33 +0100
+
+
+Started GET "/assets/events.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-10 07:03:33 +0100
+
+
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-10 07:03:33 +0100
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-10 07:03:33 +0100
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-10 07:03:33 +0100
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-09-10 07:03:33 +0100
+
+
+Started GET "/assets/logo-2689d7212a2c23911df645c4031e7d1d88db42153244c391eb4fd8ea6a2ee9cc.svg" for ::1 at 2015-09-10 07:03:33 +0100
+
+
+Started GET "/login_with_token/?token=36a58f3a35dde6a32d9049ef383f8bda" for ::1 at 2015-09-10 07:03:46 +0100
+Processing by SignupController#log_in_with_token as HTML
+  Parameters: {"token"=>"36a58f3a35dde6a32d9049ef383f8bda"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT 1  [["token", "36a58f3a35dde6a32d9049ef383f8bda"]]
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 1.4ms)
+
+ActionView::MissingTemplate - Missing template welcom/index with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/Wilhelm/Dropbox/Work/Personal/brunch_dashboard/app/views"
+:
+  actionview (4.2.3) lib/action_view/path_set.rb:46:in `find'
+  actionview (4.2.3) lib/action_view/lookup_context.rb:121:in `find'
+  actionview (4.2.3) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionview (4.2.3) lib/action_view/renderer/template_renderer.rb:40:in `determine_template'
+  actionview (4.2.3) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionview (4.2.3) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.2.3) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.2.3) lib/action_view/rendering.rb:100:in `_render_template'
+  actionpack (4.2.3) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.2.3) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.3) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.3) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.3) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.3) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.3) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+  activesupport (4.2.3) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/benchmark.rb:303:in `realtime'
+  activesupport (4.2.3) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.3) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+  actionpack (4.2.3) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+  activerecord (4.2.3) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.3) lib/action_controller/metal/instrumentation.rb:43:in `render'
+  app/controllers/signup_controller.rb:46:in `log_in_with_token'
+  actionpack (4.2.3) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.2.3) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.3) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.3) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:115:in `call'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:553:in `block (2 levels) in compile'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:503:in `call'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:88:in `run_callbacks'
+  actionpack (4.2.3) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.3) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.3) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.3) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.3) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.3) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.3) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.3) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.3) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.3) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.3) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.3) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.3) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.3) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.3) lib/action_dispatch/routing/route_set.rb:76:in `dispatch'
+  actionpack (4.2.3) lib/action_dispatch/routing/route_set.rb:45:in `serve'
+  actionpack (4.2.3) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.3) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.3) lib/action_dispatch/routing/route_set.rb:821:in `call'
+  rack (1.6.4) lib/rack/etag.rb:24:in `call'
+  rack (1.6.4) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.4) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.3) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.3) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:84:in `run_callbacks'
+  actionpack (4.2.3) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.2.1) lib/web_console/middleware.rb:39:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.3) lib/rails/engine.rb:518:in `call'
+  railties (4.2.3) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/fc8d301ea172ba42/variables" for ::1 at 2015-09-10 07:03:46 +0100
+
+
+Started GET "/login_with_token/?token=36a58f3a35dde6a32d9049ef383f8bda" for ::1 at 2015-09-10 07:03:57 +0100
+Processing by SignupController#log_in_with_token as HTML
+  Parameters: {"token"=>"36a58f3a35dde6a32d9049ef383f8bda"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT 1[0m  [["token", "36a58f3a35dde6a32d9049ef383f8bda"]]
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 59ms (Views: 50.1ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/assignments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-10 07:03:57 +0100
+
+
+Started GET "/assets/application.self-4b72f52986864843ff3e658e95a113b958eea37c5c3f4cbac6a87c96fe315f66.css?body=1" for ::1 at 2015-09-10 07:03:57 +0100
+
+
+Started GET "/assets/reset.self-e0f342360c42897e95d6a73aaf2373e8fd4e6b29498ae5e540a584fd4b252ec8.css?body=1" for ::1 at 2015-09-10 07:03:57 +0100
+
+
+Started GET "/assets/signup.self-17d3ece7cdd341ef58c79e925466edf04b2aec7a1dea9e501133e3db90f8ae3c.css?body=1" for ::1 at 2015-09-10 07:03:57 +0100
+
+
+Started GET "/assets/events.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-10 07:03:57 +0100
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-10 07:03:57 +0100
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-10 07:03:57 +0100
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-09-10 07:03:57 +0100
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for ::1 at 2015-09-10 07:03:57 +0100
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-09-10 07:03:57 +0100
+
+
+Started GET "/assets/assignments.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-10 07:03:57 +0100
+
+
+Started GET "/assets/events.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-10 07:03:57 +0100
+
+
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-10 07:03:57 +0100
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-10 07:03:57 +0100
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-10 07:03:57 +0100
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-09-10 07:03:57 +0100
+
+
+Started GET "/assets/logo-2689d7212a2c23911df645c4031e7d1d88db42153244c391eb4fd8ea6a2ee9cc.svg" for ::1 at 2015-09-10 07:03:57 +0100
+
+
+Started POST "/signupNew" for ::1 at 2015-09-10 07:15:31 +0100
+Processing by SignupController#sign_up as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dp3+YHz/Vuas53RVbhpix6yqJeGmmPQGXUgNi7LOA9V25vU/0pApRQO3SMCCnr7CSIHD3obp7r1Fufb8rU62aw==", "email"=>"va30932@gmail.com", "first_name"=>"villy", "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("first_name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["first_name", "villy"], ["email", "va30932@gmail.com"], ["created_at", "2015-09-10 06:15:31.095341"], ["updated_at", "2015-09-10 06:15:31.095341"]]
+  [1m[35m (1.0ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "token" = $1, "updated_at" = $2 WHERE "users"."id" = $3  [["token", "28937ecfae0e1558e8141e7477c62caf"], ["updated_at", "2015-09-10 06:15:31.098355"], ["id", 3]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Set new token for user 3
+DEPRECATION WARNING: `#deliver` is deprecated and will be removed in Rails 5. Use `#deliver_now` to deliver immediately or `#deliver_later` to deliver through Active Job. (called from sign_up at /Users/Wilhelm/Dropbox/Work/Personal/brunch_dashboard/app/controllers/signup_controller.rb:36)
+  Rendered user_mailer/loginUser.html.erb within layouts/mailer (0.1ms)
+
+UserMailer#loginUser: processed outbound mail in 12.0ms
+
+Sent mail to va30932@gmail.com (1913.4ms)
+Date: Thu, 10 Sep 2015 07:15:31 +0100
+From: notifications@example.com
+To: va30932@gmail.com
+Message-ID: <55f120031dcb9_5b593fd7a2f59c2c466ea@Wilhelms-MacBook-Pro.local.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hey villy</h1>
+    <p>
+      Just click into this link to log in to the brunch dashboard http://localhost:3000/login_with_token/?token=28937ecfae0e1558e8141e7477c62caf.<br>
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+  Rendered welcome/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 1997ms (Views: 50.6ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/assets/application.self-4b72f52986864843ff3e658e95a113b958eea37c5c3f4cbac6a87c96fe315f66.css?body=1" for ::1 at 2015-09-10 07:15:33 +0100
+
+
+Started GET "/assets/assignments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-10 07:15:33 +0100
+
+
+Started GET "/assets/events.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-10 07:15:33 +0100
+
+
+Started GET "/assets/reset.self-e0f342360c42897e95d6a73aaf2373e8fd4e6b29498ae5e540a584fd4b252ec8.css?body=1" for ::1 at 2015-09-10 07:15:33 +0100
+
+
+Started GET "/assets/signup.self-17d3ece7cdd341ef58c79e925466edf04b2aec7a1dea9e501133e3db90f8ae3c.css?body=1" for ::1 at 2015-09-10 07:15:33 +0100
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-10 07:15:33 +0100
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-10 07:15:33 +0100
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-09-10 07:15:33 +0100
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for ::1 at 2015-09-10 07:15:33 +0100
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-09-10 07:15:33 +0100
+
+
+Started GET "/assets/assignments.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-10 07:15:33 +0100
+
+
+Started GET "/assets/events.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-10 07:15:33 +0100
+
+
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-10 07:15:33 +0100
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-10 07:15:33 +0100
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-10 07:15:33 +0100
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-09-10 07:15:33 +0100
+
+
+Started GET "/assets/logo-2689d7212a2c23911df645c4031e7d1d88db42153244c391eb4fd8ea6a2ee9cc.svg" for ::1 at 2015-09-10 07:15:33 +0100
+
+
+Started POST "/signupNew" for ::1 at 2015-09-10 07:15:57 +0100
+Processing by SignupController#sign_up as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dp3+YHz/Vuas53RVbhpix6yqJeGmmPQGXUgNi7LOA9V25vU/0pApRQO3SMCCnr7CSIHD3obp7r1Fufb8rU62aw==", "email"=>"va30932@gmail.com", "first_name"=>"villy", "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("first_name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["first_name", "villy"], ["email", "va30932@gmail.com"], ["created_at", "2015-09-10 06:15:57.466076"], ["updated_at", "2015-09-10 06:15:57.466076"]]
+  [1m[35m (1.0ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  UPDATE "users" SET "token" = $1, "updated_at" = $2 WHERE "users"."id" = $3  [["token", "f1f98a59933e591b33f248e388d5356b"], ["updated_at", "2015-09-10 06:15:57.468851"], ["id", 4]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+Set new token for user 4
+DEPRECATION WARNING: `#deliver` is deprecated and will be removed in Rails 5. Use `#deliver_now` to deliver immediately or `#deliver_later` to deliver through Active Job. (called from sign_up at /Users/Wilhelm/Dropbox/Work/Personal/brunch_dashboard/app/controllers/signup_controller.rb:36)
+  Rendered user_mailer/loginUser.html.erb within layouts/mailer (0.1ms)
+
+UserMailer#loginUser: processed outbound mail in 11.9ms
+
+Sent mail to va30932@gmail.com (1152.9ms)
+Date: Thu, 10 Sep 2015 07:15:57 +0100
+From: notifications@example.com
+To: va30932@gmail.com
+Message-ID: <55f1201d77827_5b593fd7a2f58e6c467c4@Wilhelms-MacBook-Pro.local.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hey villy</h1>
+    <p>
+      Just click into this link to log in to the brunch dashboard http://localhost:3000/login_with_token/?token=f1f98a59933e591b33f248e388d5356b.<br>
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+  Rendered welcome/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 1231ms (Views: 47.4ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/application.self-4b72f52986864843ff3e658e95a113b958eea37c5c3f4cbac6a87c96fe315f66.css?body=1" for ::1 at 2015-09-10 07:15:58 +0100
+
+
+Started GET "/assets/assignments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-10 07:15:58 +0100
+
+
+Started GET "/assets/events.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-10 07:15:58 +0100
+
+
+Started GET "/assets/reset.self-e0f342360c42897e95d6a73aaf2373e8fd4e6b29498ae5e540a584fd4b252ec8.css?body=1" for ::1 at 2015-09-10 07:15:58 +0100
+
+
+Started GET "/assets/signup.self-17d3ece7cdd341ef58c79e925466edf04b2aec7a1dea9e501133e3db90f8ae3c.css?body=1" for ::1 at 2015-09-10 07:15:58 +0100
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-10 07:15:58 +0100
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-10 07:15:58 +0100
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-09-10 07:15:58 +0100
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for ::1 at 2015-09-10 07:15:58 +0100
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-09-10 07:15:58 +0100
+
+
+Started GET "/assets/assignments.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-10 07:15:58 +0100
+
+
+Started GET "/assets/events.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-10 07:15:58 +0100
+
+
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-10 07:15:58 +0100
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-10 07:15:58 +0100
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-10 07:15:58 +0100
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-09-10 07:15:58 +0100
+
+
+Started GET "/assets/logo-2689d7212a2c23911df645c4031e7d1d88db42153244c391eb4fd8ea6a2ee9cc.svg" for ::1 at 2015-09-10 07:15:58 +0100
+
+
+Started POST "/signupNew" for ::1 at 2015-09-10 07:16:26 +0100
+Processing by SignupController#sign_up as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dp3+YHz/Vuas53RVbhpix6yqJeGmmPQGXUgNi7LOA9V25vU/0pApRQO3SMCCnr7CSIHD3obp7r1Fufb8rU62aw==", "email"=>"va30932@gmail.com", "first_name"=>"villy", "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("first_name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["first_name", "villy"], ["email", "va30932@gmail.com"], ["created_at", "2015-09-10 06:16:26.773654"], ["updated_at", "2015-09-10 06:16:26.773654"]]
+  [1m[35m (1.0ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  UPDATE "users" SET "token" = $1, "updated_at" = $2 WHERE "users"."id" = $3  [["token", "07a6b7512f2e594b318906c102036ccd"], ["updated_at", "2015-09-10 06:16:26.776477"], ["id", 5]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Set new token for user 5
+DEPRECATION WARNING: `#deliver` is deprecated and will be removed in Rails 5. Use `#deliver_now` to deliver immediately or `#deliver_later` to deliver through Active Job. (called from sign_up at /Users/Wilhelm/Dropbox/Work/Personal/brunch_dashboard/app/controllers/signup_controller.rb:36)
+  Rendered user_mailer/loginUser.html.erb within layouts/mailer (0.1ms)
+
+UserMailer#loginUser: processed outbound mail in 14.8ms
+
+Sent mail to va30932@gmail.com (1327.7ms)
+Date: Thu, 10 Sep 2015 07:16:26 +0100
+From: notifications@example.com
+To: va30932@gmail.com
+Message-ID: <55f1203ac34bd_5b593fd7a2f59c2c4682f@Wilhelms-MacBook-Pro.local.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hey villy</h1>
+    <p>
+      Just click into this link to log in to the brunch dashboard http://localhost:3000/login_with_token/?token=07a6b7512f2e594b318906c102036ccd.<br>
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 1412ms (Views: 50.2ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/assets/application.self-4b72f52986864843ff3e658e95a113b958eea37c5c3f4cbac6a87c96fe315f66.css?body=1" for ::1 at 2015-09-10 07:16:28 +0100
+
+
+Started GET "/assets/events.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-10 07:16:28 +0100
+
+
+Started GET "/assets/assignments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-10 07:16:28 +0100
+
+
+Started GET "/assets/reset.self-e0f342360c42897e95d6a73aaf2373e8fd4e6b29498ae5e540a584fd4b252ec8.css?body=1" for ::1 at 2015-09-10 07:16:28 +0100
+
+
+Started GET "/assets/signup.self-17d3ece7cdd341ef58c79e925466edf04b2aec7a1dea9e501133e3db90f8ae3c.css?body=1" for ::1 at 2015-09-10 07:16:28 +0100
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-10 07:16:28 +0100
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-10 07:16:28 +0100
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-09-10 07:16:28 +0100
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for ::1 at 2015-09-10 07:16:28 +0100
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-09-10 07:16:28 +0100
+
+
+Started GET "/assets/assignments.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-10 07:16:28 +0100
+
+
+Started GET "/assets/events.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-10 07:16:28 +0100
+
+
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-10 07:16:28 +0100
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-10 07:16:28 +0100
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-10 07:16:28 +0100
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-09-10 07:16:28 +0100
+
+
+Started GET "/assets/logo-2689d7212a2c23911df645c4031e7d1d88db42153244c391eb4fd8ea6a2ee9cc.svg" for ::1 at 2015-09-10 07:16:28 +0100
+
+
+Started POST "/signupNew" for ::1 at 2015-09-10 07:16:55 +0100
+Processing by SignupController#sign_up as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dp3+YHz/Vuas53RVbhpix6yqJeGmmPQGXUgNi7LOA9V25vU/0pApRQO3SMCCnr7CSIHD3obp7r1Fufb8rU62aw==", "email"=>"va30932@gmail.com", "first_name"=>"villy", "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("first_name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["first_name", "villy"], ["email", "va30932@gmail.com"], ["created_at", "2015-09-10 06:16:55.508497"], ["updated_at", "2015-09-10 06:16:55.508497"]]
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  UPDATE "users" SET "token" = $1, "updated_at" = $2 WHERE "users"."id" = $3  [["token", "09a0cc9ba31a6c68637534bea09379f4"], ["updated_at", "2015-09-10 06:16:55.510939"], ["id", 6]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Set new token for user 6
+DEPRECATION WARNING: `#deliver` is deprecated and will be removed in Rails 5. Use `#deliver_now` to deliver immediately or `#deliver_later` to deliver through Active Job. (called from sign_up at /Users/Wilhelm/Dropbox/Work/Personal/brunch_dashboard/app/controllers/signup_controller.rb:36)
+  Rendered user_mailer/loginUser.html.erb within layouts/mailer (0.1ms)
+
+UserMailer#loginUser: processed outbound mail in 12.0ms
+
+Sent mail to va30932@gmail.com (1266.5ms)
+Date: Thu, 10 Sep 2015 07:16:55 +0100
+From: notifications@example.com
+To: va30932@gmail.com
+Message-ID: <55f1205781fde_5b593fd7a2f58e6c46922@Wilhelms-MacBook-Pro.local.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hey villy</h1>
+    <p>
+      Just click into this link to log in to the brunch dashboard http://localhost:3000/login_with_token/?token=09a0cc9ba31a6c68637534bea09379f4.<br>
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 1345ms (Views: 43.8ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/assets/application.self-4b72f52986864843ff3e658e95a113b958eea37c5c3f4cbac6a87c96fe315f66.css?body=1" for ::1 at 2015-09-10 07:16:56 +0100
+
+
+Started GET "/assets/assignments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-10 07:16:56 +0100
+
+
+Started GET "/assets/signup.self-17d3ece7cdd341ef58c79e925466edf04b2aec7a1dea9e501133e3db90f8ae3c.css?body=1" for ::1 at 2015-09-10 07:16:56 +0100
+
+
+Started GET "/assets/reset.self-e0f342360c42897e95d6a73aaf2373e8fd4e6b29498ae5e540a584fd4b252ec8.css?body=1" for ::1 at 2015-09-10 07:16:56 +0100
+
+
+Started GET "/assets/events.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-10 07:16:56 +0100
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-10 07:16:56 +0100
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-10 07:16:56 +0100
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-09-10 07:16:56 +0100
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for ::1 at 2015-09-10 07:16:56 +0100
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-09-10 07:16:56 +0100
+
+
+Started GET "/assets/assignments.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-10 07:16:56 +0100
+
+
+Started GET "/assets/events.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-10 07:16:56 +0100
+
+
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-10 07:16:56 +0100
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-10 07:16:56 +0100
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-10 07:16:56 +0100
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-09-10 07:16:56 +0100
+
+
+Started GET "/assets/logo-2689d7212a2c23911df645c4031e7d1d88db42153244c391eb4fd8ea6a2ee9cc.svg" for ::1 at 2015-09-10 07:16:56 +0100
+
+
+Started GET "/login_with_token/?token=36a58f3a35dde6a32d9049ef383f8bda" for ::1 at 2015-09-10 07:17:04 +0100
+Processing by SignupController#log_in_with_token as HTML
+  Parameters: {"token"=>"36a58f3a35dde6a32d9049ef383f8bda"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT 1  [["token", "36a58f3a35dde6a32d9049ef383f8bda"]]
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.2ms)
+
+NameError - undefined local variable or method `user' for #<SignupController:0x007faf45de2870>:
+  app/controllers/signup_controller.rb:46:in `log_in_with_token'
+  actionpack (4.2.3) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.2.3) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.3) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.3) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:115:in `call'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:553:in `block (2 levels) in compile'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:503:in `call'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:88:in `run_callbacks'
+  actionpack (4.2.3) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.3) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.3) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.3) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.3) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.3) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.3) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.3) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.3) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.3) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.3) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.3) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.3) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.3) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.3) lib/action_dispatch/routing/route_set.rb:76:in `dispatch'
+  actionpack (4.2.3) lib/action_dispatch/routing/route_set.rb:45:in `serve'
+  actionpack (4.2.3) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.3) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.3) lib/action_dispatch/routing/route_set.rb:821:in `call'
+  rack (1.6.4) lib/rack/etag.rb:24:in `call'
+  rack (1.6.4) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.4) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.3) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.3) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:84:in `run_callbacks'
+  actionpack (4.2.3) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.2.1) lib/web_console/middleware.rb:39:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.3) lib/rails/engine.rb:518:in `call'
+  railties (4.2.3) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/929e98663b3faf44/variables" for ::1 at 2015-09-10 07:17:04 +0100
+
+
+Started GET "/login_with_token/?token=36a58f3a35dde6a32d9049ef383f8bda" for ::1 at 2015-09-10 07:17:27 +0100
+Processing by SignupController#log_in_with_token as HTML
+  Parameters: {"token"=>"36a58f3a35dde6a32d9049ef383f8bda"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT 1[0m  [["token", "36a58f3a35dde6a32d9049ef383f8bda"]]
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 72ms (Views: 57.6ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/assets/application.self-4b72f52986864843ff3e658e95a113b958eea37c5c3f4cbac6a87c96fe315f66.css?body=1" for ::1 at 2015-09-10 07:17:27 +0100
+
+
+Started GET "/assets/events.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-10 07:17:27 +0100
+
+
+Started GET "/assets/assignments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-10 07:17:27 +0100
+
+
+Started GET "/assets/reset.self-e0f342360c42897e95d6a73aaf2373e8fd4e6b29498ae5e540a584fd4b252ec8.css?body=1" for ::1 at 2015-09-10 07:17:27 +0100
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-10 07:17:27 +0100
+
+
+Started GET "/assets/signup.self-17d3ece7cdd341ef58c79e925466edf04b2aec7a1dea9e501133e3db90f8ae3c.css?body=1" for ::1 at 2015-09-10 07:17:27 +0100
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-10 07:17:27 +0100
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-09-10 07:17:27 +0100
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for ::1 at 2015-09-10 07:17:27 +0100
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-09-10 07:17:27 +0100
+
+
+Started GET "/assets/assignments.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-10 07:17:27 +0100
+
+
+Started GET "/assets/events.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-10 07:17:27 +0100
+
+
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-10 07:17:27 +0100
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-10 07:17:27 +0100
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-10 07:17:27 +0100
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-09-10 07:17:27 +0100
+
+
+Started GET "/assets/logo-2689d7212a2c23911df645c4031e7d1d88db42153244c391eb4fd8ea6a2ee9cc.svg" for ::1 at 2015-09-10 07:17:27 +0100
+
+
+Started GET "/login_with_token/?token=36a58f3a35dde6a32d9049ef383f8bda" for ::1 at 2015-09-10 07:19:39 +0100
+
+SyntaxError - syntax error, unexpected keyword_else:
+  app/controllers/signup_controller.rb:48:in `'
+  activesupport (4.2.3) lib/active_support/dependencies.rb:457:in `block in load_file'
+  activesupport (4.2.3) lib/active_support/dependencies.rb:647:in `new_constants_in'
+  activesupport (4.2.3) lib/active_support/dependencies.rb:456:in `load_file'
+  activesupport (4.2.3) lib/active_support/dependencies.rb:354:in `require_or_load'
+  activesupport (4.2.3) lib/active_support/dependencies.rb:494:in `load_missing_constant'
+  activesupport (4.2.3) lib/active_support/dependencies.rb:184:in `const_missing'
+  activesupport (4.2.3) lib/active_support/inflector/methods.rb:261:in `block in constantize'
+  activesupport (4.2.3) lib/active_support/inflector/methods.rb:259:in `constantize'
+  activesupport (4.2.3) lib/active_support/dependencies.rb:566:in `get'
+  activesupport (4.2.3) lib/active_support/dependencies.rb:597:in `constantize'
+  actionpack (4.2.3) lib/action_dispatch/routing/route_set.rb:72:in `controller_reference'
+  actionpack (4.2.3) lib/action_dispatch/routing/route_set.rb:62:in `controller'
+  actionpack (4.2.3) lib/action_dispatch/routing/route_set.rb:41:in `serve'
+  actionpack (4.2.3) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.3) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.3) lib/action_dispatch/routing/route_set.rb:821:in `call'
+  rack (1.6.4) lib/rack/etag.rb:24:in `call'
+  rack (1.6.4) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.4) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.3) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.3) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:84:in `run_callbacks'
+  actionpack (4.2.3) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.2.1) lib/web_console/middleware.rb:39:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.3) lib/rails/engine.rb:518:in `call'
+  railties (4.2.3) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/2d5c10a8013f9f3a/variables" for ::1 at 2015-09-10 07:19:39 +0100
+
+
+Started GET "/login_with_token/?token=36a58f3a35dde6a32d9049ef383f8bda" for ::1 at 2015-09-10 07:21:13 +0100
+
+SyntaxError - syntax error, unexpected keyword_else:
+  app/controllers/signup_controller.rb:48:in `'
+  activesupport (4.2.3) lib/active_support/dependencies.rb:457:in `block in load_file'
+  activesupport (4.2.3) lib/active_support/dependencies.rb:647:in `new_constants_in'
+  activesupport (4.2.3) lib/active_support/dependencies.rb:456:in `load_file'
+  activesupport (4.2.3) lib/active_support/dependencies.rb:354:in `require_or_load'
+  activesupport (4.2.3) lib/active_support/dependencies.rb:494:in `load_missing_constant'
+  activesupport (4.2.3) lib/active_support/dependencies.rb:184:in `const_missing'
+  activesupport (4.2.3) lib/active_support/inflector/methods.rb:261:in `block in constantize'
+  activesupport (4.2.3) lib/active_support/inflector/methods.rb:259:in `constantize'
+  activesupport (4.2.3) lib/active_support/dependencies.rb:566:in `get'
+  activesupport (4.2.3) lib/active_support/dependencies.rb:597:in `constantize'
+  actionpack (4.2.3) lib/action_dispatch/routing/route_set.rb:72:in `controller_reference'
+  actionpack (4.2.3) lib/action_dispatch/routing/route_set.rb:62:in `controller'
+  actionpack (4.2.3) lib/action_dispatch/routing/route_set.rb:41:in `serve'
+  actionpack (4.2.3) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.3) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.3) lib/action_dispatch/routing/route_set.rb:821:in `call'
+  rack (1.6.4) lib/rack/etag.rb:24:in `call'
+  rack (1.6.4) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.4) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.3) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.3) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:84:in `run_callbacks'
+  actionpack (4.2.3) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.2.1) lib/web_console/middleware.rb:39:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.3) lib/rails/engine.rb:518:in `call'
+  railties (4.2.3) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/aeeaab60307a095c/variables" for ::1 at 2015-09-10 07:21:13 +0100
+
+
+Started GET "/login_with_token/?token=36a58f3a35dde6a32d9049ef383f8bda" for ::1 at 2015-09-10 07:22:43 +0100
+
+SyntaxError - syntax error, unexpected keyword_end:
+  app/controllers/signup_controller.rb:48:in `'
+  activesupport (4.2.3) lib/active_support/dependencies.rb:457:in `block in load_file'
+  activesupport (4.2.3) lib/active_support/dependencies.rb:647:in `new_constants_in'
+  activesupport (4.2.3) lib/active_support/dependencies.rb:456:in `load_file'
+  activesupport (4.2.3) lib/active_support/dependencies.rb:354:in `require_or_load'
+  activesupport (4.2.3) lib/active_support/dependencies.rb:494:in `load_missing_constant'
+  activesupport (4.2.3) lib/active_support/dependencies.rb:184:in `const_missing'
+  activesupport (4.2.3) lib/active_support/inflector/methods.rb:261:in `block in constantize'
+  activesupport (4.2.3) lib/active_support/inflector/methods.rb:259:in `constantize'
+  activesupport (4.2.3) lib/active_support/dependencies.rb:566:in `get'
+  activesupport (4.2.3) lib/active_support/dependencies.rb:597:in `constantize'
+  actionpack (4.2.3) lib/action_dispatch/routing/route_set.rb:72:in `controller_reference'
+  actionpack (4.2.3) lib/action_dispatch/routing/route_set.rb:62:in `controller'
+  actionpack (4.2.3) lib/action_dispatch/routing/route_set.rb:41:in `serve'
+  actionpack (4.2.3) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.3) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.3) lib/action_dispatch/routing/route_set.rb:821:in `call'
+  rack (1.6.4) lib/rack/etag.rb:24:in `call'
+  rack (1.6.4) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.4) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.3) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.3) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:84:in `run_callbacks'
+  actionpack (4.2.3) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.2.1) lib/web_console/middleware.rb:39:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.3) lib/rails/engine.rb:518:in `call'
+  railties (4.2.3) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/033f44309049c897/variables" for ::1 at 2015-09-10 07:22:43 +0100
+
+
+Started GET "/login_with_token/?token=36a58f3a35dde6a32d9049ef383f8bda" for ::1 at 2015-09-10 07:22:59 +0100
+
+SyntaxError - syntax error, unexpected keyword_end:
+  app/controllers/signup_controller.rb:48:in `'
+  activesupport (4.2.3) lib/active_support/dependencies.rb:457:in `block in load_file'
+  activesupport (4.2.3) lib/active_support/dependencies.rb:647:in `new_constants_in'
+  activesupport (4.2.3) lib/active_support/dependencies.rb:456:in `load_file'
+  activesupport (4.2.3) lib/active_support/dependencies.rb:354:in `require_or_load'
+  activesupport (4.2.3) lib/active_support/dependencies.rb:494:in `load_missing_constant'
+  activesupport (4.2.3) lib/active_support/dependencies.rb:184:in `const_missing'
+  activesupport (4.2.3) lib/active_support/inflector/methods.rb:261:in `block in constantize'
+  activesupport (4.2.3) lib/active_support/inflector/methods.rb:259:in `constantize'
+  activesupport (4.2.3) lib/active_support/dependencies.rb:566:in `get'
+  activesupport (4.2.3) lib/active_support/dependencies.rb:597:in `constantize'
+  actionpack (4.2.3) lib/action_dispatch/routing/route_set.rb:72:in `controller_reference'
+  actionpack (4.2.3) lib/action_dispatch/routing/route_set.rb:62:in `controller'
+  actionpack (4.2.3) lib/action_dispatch/routing/route_set.rb:41:in `serve'
+  actionpack (4.2.3) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.3) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.3) lib/action_dispatch/routing/route_set.rb:821:in `call'
+  rack (1.6.4) lib/rack/etag.rb:24:in `call'
+  rack (1.6.4) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.4) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.3) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.3) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:84:in `run_callbacks'
+  actionpack (4.2.3) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.2.1) lib/web_console/middleware.rb:39:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.3) lib/rails/engine.rb:518:in `call'
+  railties (4.2.3) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/275aed5578515049/variables" for ::1 at 2015-09-10 07:22:59 +0100
+
+
+Started GET "/login_with_token/?token=36a58f3a35dde6a32d9049ef383f8bda" for ::1 at 2015-09-10 07:23:16 +0100
+Processing by SignupController#log_in_with_token as HTML
+  Parameters: {"token"=>"36a58f3a35dde6a32d9049ef383f8bda"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT 1  [["token", "36a58f3a35dde6a32d9049ef383f8bda"]]
+Redirected to http://localhost:3000/index
+Completed 302 Found in 9ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/index" for ::1 at 2015-09-10 07:23:16 +0100
+
+SyntaxError - syntax error, unexpected keyword_end, expecting end-of-input:
+  app/controllers/welcome_controller.rb:13:in `'
+  activesupport (4.2.3) lib/active_support/dependencies.rb:457:in `block in load_file'
+  activesupport (4.2.3) lib/active_support/dependencies.rb:647:in `new_constants_in'
+  activesupport (4.2.3) lib/active_support/dependencies.rb:456:in `load_file'
+  activesupport (4.2.3) lib/active_support/dependencies.rb:354:in `require_or_load'
+  activesupport (4.2.3) lib/active_support/dependencies.rb:494:in `load_missing_constant'
+  activesupport (4.2.3) lib/active_support/dependencies.rb:184:in `const_missing'
+  activesupport (4.2.3) lib/active_support/inflector/methods.rb:261:in `block in constantize'
+  activesupport (4.2.3) lib/active_support/inflector/methods.rb:259:in `constantize'
+  activesupport (4.2.3) lib/active_support/dependencies.rb:566:in `get'
+  activesupport (4.2.3) lib/active_support/dependencies.rb:597:in `constantize'
+  actionpack (4.2.3) lib/action_dispatch/routing/route_set.rb:72:in `controller_reference'
+  actionpack (4.2.3) lib/action_dispatch/routing/route_set.rb:62:in `controller'
+  actionpack (4.2.3) lib/action_dispatch/routing/route_set.rb:41:in `serve'
+  actionpack (4.2.3) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.3) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.3) lib/action_dispatch/routing/route_set.rb:821:in `call'
+  rack (1.6.4) lib/rack/etag.rb:24:in `call'
+  rack (1.6.4) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.4) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.3) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.3) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:84:in `run_callbacks'
+  actionpack (4.2.3) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.2.1) lib/web_console/middleware.rb:39:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.3) lib/rails/engine.rb:518:in `call'
+  railties (4.2.3) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/15116e7287b8e308/variables" for ::1 at 2015-09-10 07:23:16 +0100
+
+
+Started GET "/index" for ::1 at 2015-09-10 07:23:47 +0100
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Redirected to http://localhost:3000/signup
+Completed 302 Found in 12ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/signup" for ::1 at 2015-09-10 07:23:47 +0100
+Processing by SignupController#index as HTML
+  Rendered signup/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 41ms (Views: 41.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/assignments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-10 07:23:47 +0100
+
+
+Started GET "/assets/application.self-4b72f52986864843ff3e658e95a113b958eea37c5c3f4cbac6a87c96fe315f66.css?body=1" for ::1 at 2015-09-10 07:23:47 +0100
+
+
+Started GET "/assets/reset.self-e0f342360c42897e95d6a73aaf2373e8fd4e6b29498ae5e540a584fd4b252ec8.css?body=1" for ::1 at 2015-09-10 07:23:47 +0100
+
+
+Started GET "/assets/events.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-10 07:23:47 +0100
+
+
+Started GET "/assets/signup.self-17d3ece7cdd341ef58c79e925466edf04b2aec7a1dea9e501133e3db90f8ae3c.css?body=1" for ::1 at 2015-09-10 07:23:47 +0100
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-10 07:23:48 +0100
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-10 07:23:48 +0100
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-09-10 07:23:48 +0100
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for ::1 at 2015-09-10 07:23:48 +0100
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-09-10 07:23:48 +0100
+
+
+Started GET "/assets/assignments.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-10 07:23:48 +0100
+
+
+Started GET "/assets/events.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-10 07:23:48 +0100
+
+
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-10 07:23:48 +0100
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-10 07:23:48 +0100
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-10 07:23:48 +0100
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-09-10 07:23:48 +0100
+
+
+Started GET "/assets/logo-2689d7212a2c23911df645c4031e7d1d88db42153244c391eb4fd8ea6a2ee9cc.svg" for ::1 at 2015-09-10 07:23:48 +0100
+
+
+Started GET "/signup" for ::1 at 2015-09-10 07:24:00 +0100
+Processing by SignupController#index as HTML
+  Rendered signup/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 42ms (Views: 41.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-4b72f52986864843ff3e658e95a113b958eea37c5c3f4cbac6a87c96fe315f66.css?body=1" for ::1 at 2015-09-10 07:24:00 +0100
+
+
+Started GET "/assets/events.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-10 07:24:00 +0100
+
+
+Started GET "/assets/assignments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-10 07:24:00 +0100
+
+
+Started GET "/assets/reset.self-e0f342360c42897e95d6a73aaf2373e8fd4e6b29498ae5e540a584fd4b252ec8.css?body=1" for ::1 at 2015-09-10 07:24:00 +0100
+
+
+Started GET "/assets/signup.self-17d3ece7cdd341ef58c79e925466edf04b2aec7a1dea9e501133e3db90f8ae3c.css?body=1" for ::1 at 2015-09-10 07:24:00 +0100
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-10 07:24:00 +0100
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-10 07:24:00 +0100
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-09-10 07:24:00 +0100
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for ::1 at 2015-09-10 07:24:00 +0100
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-09-10 07:24:00 +0100
+
+
+Started GET "/assets/assignments.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-10 07:24:00 +0100
+
+
+Started GET "/assets/events.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-10 07:24:00 +0100
+
+
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-10 07:24:00 +0100
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-10 07:24:00 +0100
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-10 07:24:00 +0100
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-09-10 07:24:00 +0100
+
+
+Started GET "/assets/logo-2689d7212a2c23911df645c4031e7d1d88db42153244c391eb4fd8ea6a2ee9cc.svg" for ::1 at 2015-09-10 07:24:00 +0100
+
+
+Started GET "/signup" for ::1 at 2015-09-10 07:24:01 +0100
+Processing by SignupController#index as HTML
+  Rendered signup/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 55ms (Views: 54.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-4b72f52986864843ff3e658e95a113b958eea37c5c3f4cbac6a87c96fe315f66.css?body=1" for ::1 at 2015-09-10 07:24:01 +0100
+
+
+Started GET "/assets/reset.self-e0f342360c42897e95d6a73aaf2373e8fd4e6b29498ae5e540a584fd4b252ec8.css?body=1" for ::1 at 2015-09-10 07:24:01 +0100
+
+
+Started GET "/assets/assignments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-10 07:24:01 +0100
+
+
+Started GET "/assets/events.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-10 07:24:01 +0100
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-10 07:24:01 +0100
+
+
+Started GET "/assets/signup.self-17d3ece7cdd341ef58c79e925466edf04b2aec7a1dea9e501133e3db90f8ae3c.css?body=1" for ::1 at 2015-09-10 07:24:01 +0100
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-10 07:24:01 +0100
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-09-10 07:24:01 +0100
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for ::1 at 2015-09-10 07:24:01 +0100
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-09-10 07:24:02 +0100
+
+
+Started GET "/assets/assignments.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-10 07:24:02 +0100
+
+
+Started GET "/assets/events.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-10 07:24:02 +0100
+
+
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-10 07:24:02 +0100
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-10 07:24:02 +0100
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-10 07:24:02 +0100
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-09-10 07:24:02 +0100
+
+
+Started GET "/assets/logo-2689d7212a2c23911df645c4031e7d1d88db42153244c391eb4fd8ea6a2ee9cc.svg" for ::1 at 2015-09-10 07:24:02 +0100
+
+
+Started GET "/login_with_token/?token=36a58f3a35dde6a32d9049ef383f8bda" for ::1 at 2015-09-10 07:24:06 +0100
+Processing by SignupController#log_in_with_token as HTML
+  Parameters: {"token"=>"36a58f3a35dde6a32d9049ef383f8bda"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT 1  [["token", "36a58f3a35dde6a32d9049ef383f8bda"]]
+Redirected to http://localhost:3000/index
+Completed 302 Found in 9ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/index" for ::1 at 2015-09-10 07:24:06 +0100
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 49ms (Views: 47.9ms | ActiveRecord: 0.2ms)
