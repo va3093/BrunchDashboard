@@ -33,9 +33,11 @@ class SignupController < ApplicationController
     email = params[:email]
     @user = User.create(first_name: name, email: email)
     @user.new_token!
+    @user.save
   	UserMailer.loginUser(@user).deliver
   	puts "about to login"
-    render('welcome/index')
+    render('signup/index')
+
 
   end
 

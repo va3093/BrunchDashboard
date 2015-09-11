@@ -1,14 +1,19 @@
 Rails.application.routes.draw do
-  get "/signup", to: "signup#index" 
-  get "/signup", to: "signup#index" 
+  root "welcome#index"
+  #get "/signup", to: "signup#index" 
+  #get "/signup", to: "signup#index" 
 
-  post "/loginnew", to: "signup#log_in" 
-  get "/signup_new_user", to: "signup#new_user"
-  post "/signupNew", to: "signup#sign_up"
+  #post "/loginnew", to: "signup#log_in" 
+  #get "/signup_new_user", to: "signup#new_user"
+  #post "/signupNew", to: "signup#sign_up"
 
-  get "/index", to: "welcome#index"
-  get "/login_with_token", to: "signup#log_in_with_token"
-  resources :users
+  #get "/index", to: "welcome#index"
+  #get "/login_with_token", to: "signup#log_in_with_token"
+  #resources :users
+
+  match ':controller(/:action(/:id))', :via => :get
+  match ':controller(/:action(/:id))', :via => :post
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -64,6 +69,6 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-#get '*path' => redirect('/')
+
 
 end
