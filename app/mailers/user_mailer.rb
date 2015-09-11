@@ -1,9 +1,9 @@
 class UserMailer < ApplicationMailer
-	 default from: 'notifications@example.com'
- 
-  def welcome_email(user)
+
+  def loginUser(user)
     @user = user
-    @url  = 'http://example.com/login'
+    @url  = 'http://localhost:3000/login_with_token/?token=' + user.token
     mail(to: @user.email, subject: 'Welcome to My Awesome Site')
   end
+
 end

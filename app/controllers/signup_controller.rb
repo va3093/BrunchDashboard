@@ -29,7 +29,25 @@ class SignupController < ApplicationController
   end
 
   def sign_up
-  	render('welcome/index')
+    name = params[:first_name]
+    email = params[:email]
+    @user = User.create(first_name: name, email: email)
+    @user.new_token!
+  	UserMailer.loginUser(@user).deliver
   	puts "about to login"
+    render('welcome/index')
+
   end
+
+  def log_in_with_token
+    token = params[:token]
+    @user = User.find_by(token: token)
+    if @user 
+      session[:current_user_id] = @user.id 
+      redirect_to :controller => 'welcome', :action => 'index'
+    else
+      render('signup/index')
+    end
+  end
+
 end
