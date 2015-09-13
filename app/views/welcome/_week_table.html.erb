@@ -1,10 +1,10 @@
 <table summary="Users for week">
   <tr>
     <th>
-    This Week
+    <%= event.date.day.to_s + " " + event.date.strftime("%B") %>
     </th>
   </tr>
-  <% @users.each do |user| %>
+  <% event.users.each do |user| %>
     <tr>
       <td>
         <%= user.first_name %>

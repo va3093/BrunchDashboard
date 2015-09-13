@@ -1,4 +1,10 @@
 <div>
-
-	<%= render(:partial => "week_table") %>
+	<% @events.each do |event| %>
+    <tr>
+      <td>
+        <%= render(:partial => "week_table", :locals => { :event => event}) %>
+      </td>
+    </tr>
+  <% end %>
+	
 </div>
