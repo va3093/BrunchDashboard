@@ -1,5 +1,15 @@
 == README
 
+h1. Getting started:
+
+1. Install Ruby on Rails on your platform.
+2. Install PostgreSQL on your platform.
+3. Create a user in your PostgreSQL instance with the name 'kxbrunch', password 'kxbrunch', and permissions to create databases.
+4. Run bundle in the root of your repository.
+5. Run rake db:setup in the root of your repository.
+6. Run rails server in the root of your repository.
+7. Go to localhost:3000 to see the site!
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
@@ -23,6 +33,6 @@ Things you may want to cover:
 
 * ...
 
-
 Please feel free to use a different markup language if you do not plan to run
+
 <tt>rake doc:app</tt>.
