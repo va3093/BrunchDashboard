@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
 
-  has_many :assignments
-  has_many :events, through: :assignments
+  has_and_belongs_to_many :events
 
   def new_token!
   	SecureRandom.hex(16).tap do |random_token|

@@ -1,0 +1,14 @@
+<table summary="Users for week">
+  <tr>
+    <th>
+    This Week
+    </th>
+  </tr>
+  <% @users.each do |user| %>
+    <tr>
+      <td>
+        <%= user.first_name %>
+      </td>
+    </tr>
+  <% end %>
+</table>

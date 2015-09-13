@@ -22740,3 +22740,975 @@ Processing by WelcomeController#index as HTML
   [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
   Rendered welcome/index.html.erb within layouts/application (0.1ms)
 Completed 200 OK in 59ms (Views: 57.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2015-09-13 10:27:33 +0100
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 48ms (Views: 46.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2015-09-13 10:43:52 +0100
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 74ms (Views: 64.7ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/application.self-b7efa9c9a192a453d81a8b1974e5e414985a9c8f941e0d03aae36fafaef38a81.css?body=1" for ::1 at 2015-09-13 10:43:53 +0100
+
+
+Started GET "/assets/assignments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-13 10:43:53 +0100
+
+
+Started GET "/assets/events.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-13 10:43:53 +0100
+
+
+Started GET "/assets/reset.self-e0f342360c42897e95d6a73aaf2373e8fd4e6b29498ae5e540a584fd4b252ec8.css?body=1" for ::1 at 2015-09-13 10:43:53 +0100
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-13 10:43:53 +0100
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-13 10:43:53 +0100
+
+
+Started GET "/assets/signup.self-03e555aa5e1ce2bb275bd90c162c436b99c203c5ae244c853b67cccb5c6f9dd9.css?body=1" for ::1 at 2015-09-13 10:43:53 +0100
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-09-13 10:43:53 +0100
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for ::1 at 2015-09-13 10:43:53 +0100
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-09-13 10:43:53 +0100
+
+
+Started GET "/assets/assignments.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:43:53 +0100
+
+
+Started GET "/assets/events.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:43:53 +0100
+
+
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:43:53 +0100
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:43:53 +0100
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:43:53 +0100
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-09-13 10:43:53 +0100
+
+
+Started GET "/assets/logo-2689d7212a2c23911df645c4031e7d1d88db42153244c391eb4fd8ea6a2ee9cc.svg" for ::1 at 2015-09-13 10:43:53 +0100
+
+
+Started GET "/" for ::1 at 2015-09-13 10:44:12 +0100
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered welcome/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 51ms (Views: 50.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/assignments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-13 10:44:12 +0100
+
+
+Started GET "/assets/application.self-b7efa9c9a192a453d81a8b1974e5e414985a9c8f941e0d03aae36fafaef38a81.css?body=1" for ::1 at 2015-09-13 10:44:12 +0100
+
+
+Started GET "/assets/events.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-13 10:44:12 +0100
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-13 10:44:12 +0100
+
+
+Started GET "/assets/signup.self-03e555aa5e1ce2bb275bd90c162c436b99c203c5ae244c853b67cccb5c6f9dd9.css?body=1" for ::1 at 2015-09-13 10:44:12 +0100
+
+
+Started GET "/assets/reset.self-e0f342360c42897e95d6a73aaf2373e8fd4e6b29498ae5e540a584fd4b252ec8.css?body=1" for ::1 at 2015-09-13 10:44:12 +0100
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-13 10:44:12 +0100
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-09-13 10:44:12 +0100
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for ::1 at 2015-09-13 10:44:12 +0100
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-09-13 10:44:12 +0100
+
+
+Started GET "/assets/assignments.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:44:12 +0100
+
+
+Started GET "/assets/events.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:44:12 +0100
+
+
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:44:12 +0100
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:44:12 +0100
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:44:12 +0100
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-09-13 10:44:12 +0100
+
+
+Started GET "/assets/logo-2689d7212a2c23911df645c4031e7d1d88db42153244c391eb4fd8ea6a2ee9cc.svg" for ::1 at 2015-09-13 10:44:12 +0100
+
+
+Started GET "/" for ::1 at 2015-09-13 10:44:32 +0100
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  Rendered welcome/_week_table.html.erb (0.9ms)
+  Rendered welcome/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 47ms (Views: 46.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-b7efa9c9a192a453d81a8b1974e5e414985a9c8f941e0d03aae36fafaef38a81.css?body=1" for ::1 at 2015-09-13 10:44:32 +0100
+
+
+Started GET "/assets/assignments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-13 10:44:32 +0100
+
+
+Started GET "/assets/signup.self-03e555aa5e1ce2bb275bd90c162c436b99c203c5ae244c853b67cccb5c6f9dd9.css?body=1" for ::1 at 2015-09-13 10:44:32 +0100
+
+
+Started GET "/assets/events.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-13 10:44:32 +0100
+
+
+Started GET "/assets/reset.self-e0f342360c42897e95d6a73aaf2373e8fd4e6b29498ae5e540a584fd4b252ec8.css?body=1" for ::1 at 2015-09-13 10:44:32 +0100
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-13 10:44:32 +0100
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-13 10:44:32 +0100
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-09-13 10:44:32 +0100
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for ::1 at 2015-09-13 10:44:32 +0100
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-09-13 10:44:32 +0100
+
+
+Started GET "/assets/assignments.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:44:32 +0100
+
+
+Started GET "/assets/events.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:44:32 +0100
+
+
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:44:32 +0100
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:44:32 +0100
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:44:32 +0100
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-09-13 10:44:32 +0100
+
+
+Started GET "/assets/logo-2689d7212a2c23911df645c4031e7d1d88db42153244c391eb4fd8ea6a2ee9cc.svg" for ::1 at 2015-09-13 10:44:32 +0100
+
+
+Started GET "/" for ::1 at 2015-09-13 10:45:55 +0100
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  Rendered welcome/_week_table.html.erb (0.6ms)
+  Rendered welcome/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 53ms (Views: 51.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.self-b7efa9c9a192a453d81a8b1974e5e414985a9c8f941e0d03aae36fafaef38a81.css?body=1" for ::1 at 2015-09-13 10:45:56 +0100
+
+
+Started GET "/assets/assignments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-13 10:45:56 +0100
+
+
+Started GET "/assets/events.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-13 10:45:56 +0100
+
+
+Started GET "/assets/reset.self-e0f342360c42897e95d6a73aaf2373e8fd4e6b29498ae5e540a584fd4b252ec8.css?body=1" for ::1 at 2015-09-13 10:45:56 +0100
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-13 10:45:56 +0100
+
+
+Started GET "/assets/signup.self-03e555aa5e1ce2bb275bd90c162c436b99c203c5ae244c853b67cccb5c6f9dd9.css?body=1" for ::1 at 2015-09-13 10:45:56 +0100
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-13 10:45:56 +0100
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-09-13 10:45:56 +0100
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for ::1 at 2015-09-13 10:45:56 +0100
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-09-13 10:45:56 +0100
+
+
+Started GET "/assets/assignments.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:45:56 +0100
+
+
+Started GET "/assets/events.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:45:56 +0100
+
+
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:45:56 +0100
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:45:56 +0100
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:45:56 +0100
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-09-13 10:45:56 +0100
+
+
+Started GET "/assets/logo-2689d7212a2c23911df645c4031e7d1d88db42153244c391eb4fd8ea6a2ee9cc.svg" for ::1 at 2015-09-13 10:45:56 +0100
+
+
+Started GET "/" for ::1 at 2015-09-13 10:46:41 +0100
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  Rendered welcome/_week_table.html.erb (0.6ms)
+  Rendered welcome/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 59ms (Views: 57.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-b7efa9c9a192a453d81a8b1974e5e414985a9c8f941e0d03aae36fafaef38a81.css?body=1" for ::1 at 2015-09-13 10:46:41 +0100
+
+
+Started GET "/assets/assignments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-13 10:46:41 +0100
+
+
+Started GET "/assets/events.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-13 10:46:41 +0100
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-13 10:46:41 +0100
+
+
+Started GET "/assets/signup.self-03e555aa5e1ce2bb275bd90c162c436b99c203c5ae244c853b67cccb5c6f9dd9.css?body=1" for ::1 at 2015-09-13 10:46:41 +0100
+
+
+Started GET "/assets/reset.self-e0f342360c42897e95d6a73aaf2373e8fd4e6b29498ae5e540a584fd4b252ec8.css?body=1" for ::1 at 2015-09-13 10:46:41 +0100
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-13 10:46:41 +0100
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-09-13 10:46:41 +0100
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for ::1 at 2015-09-13 10:46:41 +0100
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-09-13 10:46:41 +0100
+
+
+Started GET "/assets/assignments.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:46:41 +0100
+
+
+Started GET "/assets/events.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:46:41 +0100
+
+
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:46:41 +0100
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:46:41 +0100
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:46:41 +0100
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-09-13 10:46:41 +0100
+
+
+Started GET "/assets/logo-2689d7212a2c23911df645c4031e7d1d88db42153244c391eb4fd8ea6a2ee9cc.svg" for ::1 at 2015-09-13 10:46:41 +0100
+
+
+Started GET "/" for ::1 at 2015-09-13 10:48:42 +0100
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  Rendered welcome/_week_table.html.erb (0.5ms)
+  Rendered welcome/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 141ms (Views: 140.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-b7efa9c9a192a453d81a8b1974e5e414985a9c8f941e0d03aae36fafaef38a81.css?body=1" for ::1 at 2015-09-13 10:48:43 +0100
+
+
+Started GET "/assets/assignments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-13 10:48:43 +0100
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-13 10:48:43 +0100
+
+
+Started GET "/assets/events.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-13 10:48:43 +0100
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-09-13 10:48:43 +0100
+
+
+Started GET "/assets/reset.self-e0f342360c42897e95d6a73aaf2373e8fd4e6b29498ae5e540a584fd4b252ec8.css?body=1" for ::1 at 2015-09-13 10:48:43 +0100
+
+
+Started GET "/assets/welcome.self-ea1f26656565215fc9a684ab489a2cc810032cd0e9871dc58d535bac3287a413.css?body=1" for ::1 at 2015-09-13 10:48:43 +0100
+
+
+Started GET "/assets/signup.self-03e555aa5e1ce2bb275bd90c162c436b99c203c5ae244c853b67cccb5c6f9dd9.css?body=1" for ::1 at 2015-09-13 10:48:43 +0100
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for ::1 at 2015-09-13 10:48:43 +0100
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-09-13 10:48:43 +0100
+
+
+Started GET "/assets/assignments.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:48:43 +0100
+
+
+Started GET "/assets/events.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:48:43 +0100
+
+
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:48:43 +0100
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:48:43 +0100
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:48:43 +0100
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-09-13 10:48:43 +0100
+
+
+Started GET "/assets/logo-2689d7212a2c23911df645c4031e7d1d88db42153244c391eb4fd8ea6a2ee9cc.svg" for ::1 at 2015-09-13 10:48:43 +0100
+
+
+Started GET "/" for ::1 at 2015-09-13 10:49:03 +0100
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  Rendered welcome/_week_table.html.erb (0.6ms)
+  Rendered welcome/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 70ms (Views: 68.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/assignments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-13 10:49:03 +0100
+
+
+Started GET "/assets/application.self-e3a070bd9dd85b9ea2bc5fbd20b0a0c623d5940234dda1165ce81cefc8b25e8d.css?body=1" for ::1 at 2015-09-13 10:49:03 +0100
+
+
+Started GET "/assets/events.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-13 10:49:03 +0100
+
+
+Started GET "/assets/reset.self-e0f342360c42897e95d6a73aaf2373e8fd4e6b29498ae5e540a584fd4b252ec8.css?body=1" for ::1 at 2015-09-13 10:49:03 +0100
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-13 10:49:03 +0100
+
+
+Started GET "/assets/signup.self-03e555aa5e1ce2bb275bd90c162c436b99c203c5ae244c853b67cccb5c6f9dd9.css?body=1" for ::1 at 2015-09-13 10:49:03 +0100
+
+
+Started GET "/assets/welcome.self-ea1f26656565215fc9a684ab489a2cc810032cd0e9871dc58d535bac3287a413.css?body=1" for ::1 at 2015-09-13 10:49:03 +0100
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-09-13 10:49:03 +0100
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for ::1 at 2015-09-13 10:49:03 +0100
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-09-13 10:49:03 +0100
+
+
+Started GET "/assets/assignments.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:49:03 +0100
+
+
+Started GET "/assets/events.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:49:03 +0100
+
+
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:49:03 +0100
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:49:03 +0100
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:49:03 +0100
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-09-13 10:49:03 +0100
+
+
+Started GET "/assets/logo-2689d7212a2c23911df645c4031e7d1d88db42153244c391eb4fd8ea6a2ee9cc.svg" for ::1 at 2015-09-13 10:49:03 +0100
+
+
+Started GET "/" for ::1 at 2015-09-13 10:50:03 +0100
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  Rendered welcome/_week_table.html.erb (1.1ms)
+  Rendered welcome/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 49ms (Views: 47.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.self-e3a070bd9dd85b9ea2bc5fbd20b0a0c623d5940234dda1165ce81cefc8b25e8d.css?body=1" for ::1 at 2015-09-13 10:50:03 +0100
+
+
+Started GET "/assets/events.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-13 10:50:03 +0100
+
+
+Started GET "/assets/assignments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-13 10:50:03 +0100
+
+
+Started GET "/assets/signup.self-03e555aa5e1ce2bb275bd90c162c436b99c203c5ae244c853b67cccb5c6f9dd9.css?body=1" for ::1 at 2015-09-13 10:50:03 +0100
+
+
+Started GET "/assets/reset.self-e0f342360c42897e95d6a73aaf2373e8fd4e6b29498ae5e540a584fd4b252ec8.css?body=1" for ::1 at 2015-09-13 10:50:03 +0100
+
+
+Started GET "/assets/welcome.self-ea1f26656565215fc9a684ab489a2cc810032cd0e9871dc58d535bac3287a413.css?body=1" for ::1 at 2015-09-13 10:50:03 +0100
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-13 10:50:03 +0100
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-09-13 10:50:03 +0100
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for ::1 at 2015-09-13 10:50:03 +0100
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-09-13 10:50:03 +0100
+
+
+Started GET "/assets/assignments.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:50:03 +0100
+
+
+Started GET "/assets/events.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:50:03 +0100
+
+
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:50:03 +0100
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:50:03 +0100
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:50:03 +0100
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-09-13 10:50:03 +0100
+
+
+Started GET "/assets/logo-2689d7212a2c23911df645c4031e7d1d88db42153244c391eb4fd8ea6a2ee9cc.svg" for ::1 at 2015-09-13 10:50:03 +0100
+
+
+Started GET "/" for ::1 at 2015-09-13 10:50:51 +0100
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  Rendered welcome/_week_table.html.erb (1.0ms)
+  Rendered welcome/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 49ms (Views: 48.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.self-e3a070bd9dd85b9ea2bc5fbd20b0a0c623d5940234dda1165ce81cefc8b25e8d.css?body=1" for ::1 at 2015-09-13 10:50:51 +0100
+
+
+Started GET "/assets/assignments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-13 10:50:51 +0100
+
+
+Started GET "/assets/signup.self-03e555aa5e1ce2bb275bd90c162c436b99c203c5ae244c853b67cccb5c6f9dd9.css?body=1" for ::1 at 2015-09-13 10:50:51 +0100
+
+
+Started GET "/assets/events.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-13 10:50:51 +0100
+
+
+Started GET "/assets/reset.self-e0f342360c42897e95d6a73aaf2373e8fd4e6b29498ae5e540a584fd4b252ec8.css?body=1" for ::1 at 2015-09-13 10:50:51 +0100
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-13 10:50:51 +0100
+
+
+Started GET "/assets/welcome.self-ea1f26656565215fc9a684ab489a2cc810032cd0e9871dc58d535bac3287a413.css?body=1" for ::1 at 2015-09-13 10:50:51 +0100
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-09-13 10:50:51 +0100
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for ::1 at 2015-09-13 10:50:51 +0100
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-09-13 10:50:51 +0100
+
+
+Started GET "/assets/assignments.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:50:51 +0100
+
+
+Started GET "/assets/events.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:50:51 +0100
+
+
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:50:51 +0100
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:50:51 +0100
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:50:51 +0100
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-09-13 10:50:51 +0100
+
+
+Started GET "/assets/logo-2689d7212a2c23911df645c4031e7d1d88db42153244c391eb4fd8ea6a2ee9cc.svg" for ::1 at 2015-09-13 10:50:51 +0100
+
+
+Started GET "/" for ::1 at 2015-09-13 10:53:38 +0100
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  Rendered welcome/_week_table.html.erb (1.0ms)
+  Rendered welcome/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 49ms (Views: 47.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-e3a070bd9dd85b9ea2bc5fbd20b0a0c623d5940234dda1165ce81cefc8b25e8d.css?body=1" for ::1 at 2015-09-13 10:53:38 +0100
+
+
+Started GET "/assets/events.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-13 10:53:38 +0100
+
+
+Started GET "/assets/assignments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-13 10:53:38 +0100
+
+
+Started GET "/assets/reset.self-e0f342360c42897e95d6a73aaf2373e8fd4e6b29498ae5e540a584fd4b252ec8.css?body=1" for ::1 at 2015-09-13 10:53:38 +0100
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-13 10:53:38 +0100
+
+
+Started GET "/assets/signup.self-03e555aa5e1ce2bb275bd90c162c436b99c203c5ae244c853b67cccb5c6f9dd9.css?body=1" for ::1 at 2015-09-13 10:53:38 +0100
+
+
+Started GET "/assets/welcome.self-ea1f26656565215fc9a684ab489a2cc810032cd0e9871dc58d535bac3287a413.css?body=1" for ::1 at 2015-09-13 10:53:38 +0100
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-09-13 10:53:38 +0100
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for ::1 at 2015-09-13 10:53:38 +0100
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-09-13 10:53:38 +0100
+
+
+Started GET "/assets/assignments.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:53:38 +0100
+
+
+Started GET "/assets/events.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:53:38 +0100
+
+
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:53:38 +0100
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:53:38 +0100
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:53:38 +0100
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-09-13 10:53:38 +0100
+
+
+Started GET "/assets/logo-2689d7212a2c23911df645c4031e7d1d88db42153244c391eb4fd8ea6a2ee9cc.svg" for ::1 at 2015-09-13 10:53:38 +0100
+
+
+Started GET "/" for ::1 at 2015-09-13 10:57:31 +0100
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  Rendered welcome/_week_table.html.erb (1.0ms)
+  Rendered welcome/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 49ms (Views: 47.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.self-e3a070bd9dd85b9ea2bc5fbd20b0a0c623d5940234dda1165ce81cefc8b25e8d.css?body=1" for ::1 at 2015-09-13 10:57:31 +0100
+
+
+Started GET "/assets/assignments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-13 10:57:31 +0100
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-13 10:57:31 +0100
+
+
+Started GET "/assets/reset.self-e0f342360c42897e95d6a73aaf2373e8fd4e6b29498ae5e540a584fd4b252ec8.css?body=1" for ::1 at 2015-09-13 10:57:31 +0100
+
+
+Started GET "/assets/signup.self-03e555aa5e1ce2bb275bd90c162c436b99c203c5ae244c853b67cccb5c6f9dd9.css?body=1" for ::1 at 2015-09-13 10:57:31 +0100
+
+
+Started GET "/assets/welcome.self-ea1f26656565215fc9a684ab489a2cc810032cd0e9871dc58d535bac3287a413.css?body=1" for ::1 at 2015-09-13 10:57:31 +0100
+
+
+Started GET "/assets/events.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-13 10:57:31 +0100
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-09-13 10:57:31 +0100
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for ::1 at 2015-09-13 10:57:31 +0100
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-09-13 10:57:31 +0100
+
+
+Started GET "/assets/assignments.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:57:31 +0100
+
+
+Started GET "/assets/events.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:57:31 +0100
+
+
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:57:31 +0100
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:57:31 +0100
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 10:57:31 +0100
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-09-13 10:57:31 +0100
+
+
+Started GET "/assets/logo-2689d7212a2c23911df645c4031e7d1d88db42153244c391eb4fd8ea6a2ee9cc.svg" for ::1 at 2015-09-13 10:57:31 +0100
+
+
+Started GET "/signup/sign_up" for ::1 at 2015-09-13 11:16:20 +0100
+Processing by SignupController#sign_up as HTML
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (23.9ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["email", nil], ["created_at", "2015-09-13 10:16:20.114332"], ["updated_at", "2015-09-13 10:16:20.114332"]]
+PG::NotNullViolation: ERROR:  null value in column "email" violates not-null constraint
+DETAIL:  Failing row contains (2, null, null, null, 2015-09-13 10:16:20.114332, 2015-09-13 10:16:20.114332, null).
+: INSERT INTO "users" ("email", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 24.4ms)
+
+PG::NotNullViolation - ERROR:  null value in column "email" violates not-null constraint
+DETAIL:  Failing row contains (2, null, null, null, 2015-09-13 10:16:20.114332, 2015-09-13 10:16:20.114332, null).
+:
+  activerecord (4.2.3) lib/active_record/connection_adapters/postgresql_adapter.rb:606:in `block in exec_cache'
+  activerecord (4.2.3) lib/active_record/connection_adapters/abstract_adapter.rb:473:in `block in log'
+  activesupport (4.2.3) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activerecord (4.2.3) lib/active_record/connection_adapters/abstract_adapter.rb:467:in `log'
+  activerecord (4.2.3) lib/active_record/connection_adapters/postgresql_adapter.rb:605:in `exec_cache'
+  activerecord (4.2.3) lib/active_record/connection_adapters/postgresql_adapter.rb:589:in `execute_and_clear'
+  activerecord (4.2.3) lib/active_record/connection_adapters/postgresql/database_statements.rb:160:in `exec_query'
+  activerecord (4.2.3) lib/active_record/connection_adapters/postgresql/database_statements.rb:192:in `exec_insert'
+  activerecord (4.2.3) lib/active_record/connection_adapters/abstract/database_statements.rb:108:in `insert'
+  activerecord (4.2.3) lib/active_record/connection_adapters/abstract/query_cache.rb:14:in `insert'
+  activerecord (4.2.3) lib/active_record/relation.rb:64:in `insert'
+  activerecord (4.2.3) lib/active_record/persistence.rb:524:in `_create_record'
+  activerecord (4.2.3) lib/active_record/counter_cache.rb:139:in `_create_record'
+  activerecord (4.2.3) lib/active_record/locking/optimistic.rb:75:in `_create_record'
+  activerecord (4.2.3) lib/active_record/attribute_methods/dirty.rb:132:in `_create_record'
+  activerecord (4.2.3) lib/active_record/callbacks.rb:306:in `block in _create_record'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:115:in `call'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:553:in `block (2 levels) in compile'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:503:in `call'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:88:in `run_callbacks'
+  activerecord (4.2.3) lib/active_record/callbacks.rb:306:in `_create_record'
+  activerecord (4.2.3) lib/active_record/timestamp.rb:57:in `_create_record'
+  activerecord (4.2.3) lib/active_record/persistence.rb:504:in `create_or_update'
+  activerecord (4.2.3) lib/active_record/callbacks.rb:302:in `block in create_or_update'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:115:in `call'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:553:in `block (2 levels) in compile'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:503:in `call'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:88:in `run_callbacks'
+  activerecord (4.2.3) lib/active_record/callbacks.rb:302:in `create_or_update'
+  activerecord (4.2.3) lib/active_record/persistence.rb:120:in `save'
+  activerecord (4.2.3) lib/active_record/validations.rb:37:in `save'
+  activerecord (4.2.3) lib/active_record/attribute_methods/dirty.rb:21:in `save'
+  activerecord (4.2.3) lib/active_record/transactions.rb:286:in `block (2 levels) in save'
+  activerecord (4.2.3) lib/active_record/transactions.rb:351:in `block in with_transaction_returning_status'
+  activerecord (4.2.3) lib/active_record/connection_adapters/abstract/database_statements.rb:213:in `block in transaction'
+  activerecord (4.2.3) lib/active_record/connection_adapters/abstract/transaction.rb:184:in `within_new_transaction'
+  activerecord (4.2.3) lib/active_record/connection_adapters/abstract/database_statements.rb:213:in `transaction'
+  activerecord (4.2.3) lib/active_record/transactions.rb:220:in `transaction'
+  activerecord (4.2.3) lib/active_record/transactions.rb:348:in `with_transaction_returning_status'
+  activerecord (4.2.3) lib/active_record/transactions.rb:286:in `block in save'
+  activerecord (4.2.3) lib/active_record/transactions.rb:301:in `rollback_active_record_state!'
+  activerecord (4.2.3) lib/active_record/transactions.rb:285:in `save'
+  activerecord (4.2.3) lib/active_record/persistence.rb:34:in `create'
+  app/controllers/signup_controller.rb:34:in `sign_up'
+  actionpack (4.2.3) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.2.3) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.3) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.3) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:115:in `call'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:553:in `block (2 levels) in compile'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:503:in `call'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:88:in `run_callbacks'
+  actionpack (4.2.3) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.3) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.3) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.3) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.3) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.3) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.3) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.3) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.3) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.3) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.3) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.3) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.3) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.3) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.3) lib/action_dispatch/routing/route_set.rb:76:in `dispatch'
+  actionpack (4.2.3) lib/action_dispatch/routing/route_set.rb:45:in `serve'
+  actionpack (4.2.3) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.3) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.3) lib/action_dispatch/routing/route_set.rb:821:in `call'
+  rack (1.6.4) lib/rack/etag.rb:24:in `call'
+  rack (1.6.4) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.4) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.3) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.3) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:84:in `run_callbacks'
+  actionpack (4.2.3) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.2.1) lib/web_console/middleware.rb:39:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.3) lib/rails/engine.rb:518:in `call'
+  railties (4.2.3) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/d33de7534682e654/variables" for ::1 at 2015-09-13 11:16:20 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to Assignments (20150913105405)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (26.8ms)[0m  [1mDROP TABLE "assignments"[0m
+  [1m[35mSQL (6.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150913105405"]]
+  [1m[36m (14.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (2.6ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'events'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.6ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (2.2ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'events'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.7ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to EventsUsersJoin (20150913112130)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (15.2ms)[0m  [1mCREATE TABLE "events_users" ("event_id" integer, "user_id" integer) [0m
+  [1m[35m (6.7ms)[0m  CREATE  INDEX  "index_events_users_on_event_id_and_user_id" ON "events_users"  ("event_id", "user_id")
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150913112130"]]
+  [1m[35m (6.2ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (2.2ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'events'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.6ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'events_users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.5ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("email", "first_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["email", "email@email.com"], ["first_name", "John"], ["created_at", "2015-09-13 11:30:15.745706"], ["updated_at", "2015-09-13 11:30:15.745706"]]
+  [1m[36m (6.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mEvent Load (1.2ms)[0m  [1mSELECT "events".* FROM "events" INNER JOIN "events_users" ON "events"."id" = "events_users"."event_id" WHERE "events_users"."user_id" = $1[0m  [["user_id", 3]]
+  [1m[35mEvent Load (0.4ms)[0m  SELECT "events".* FROM "events"
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "events" ("date", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["date", "2010-12-31"], ["created_at", "2015-09-13 11:44:01.225736"], ["updated_at", "2015-09-13 11:44:01.225736"]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "events_users" ("user_id", "event_id") VALUES ($1, $2)[0m  [["user_id", 3], ["event_id", 1]]
+  [1m[35m (5.9ms)[0m  COMMIT
+
+
+Started GET "/" for ::1 at 2015-09-13 12:45:03 +0100
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  Rendered welcome/_week_table.html.erb (0.9ms)
+  Rendered welcome/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 81ms (Views: 61.1ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/assignments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-13 12:45:04 +0100
+
+
+Started GET "/assets/events.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-13 12:45:04 +0100
+
+
+Started GET "/assets/application.self-e3a070bd9dd85b9ea2bc5fbd20b0a0c623d5940234dda1165ce81cefc8b25e8d.css?body=1" for ::1 at 2015-09-13 12:45:04 +0100
+
+
+Started GET "/assets/reset.self-e0f342360c42897e95d6a73aaf2373e8fd4e6b29498ae5e540a584fd4b252ec8.css?body=1" for ::1 at 2015-09-13 12:45:04 +0100
+
+
+Started GET "/assets/signup.self-03e555aa5e1ce2bb275bd90c162c436b99c203c5ae244c853b67cccb5c6f9dd9.css?body=1" for ::1 at 2015-09-13 12:45:04 +0100
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-13 12:45:04 +0100
+
+
+Started GET "/assets/welcome.self-ea1f26656565215fc9a684ab489a2cc810032cd0e9871dc58d535bac3287a413.css?body=1" for ::1 at 2015-09-13 12:45:04 +0100
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-09-13 12:45:04 +0100
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for ::1 at 2015-09-13 12:45:04 +0100
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-09-13 12:45:04 +0100
+
+
+Started GET "/assets/assignments.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 12:45:04 +0100
+
+
+Started GET "/assets/events.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 12:45:04 +0100
+
+
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 12:45:04 +0100
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 12:45:04 +0100
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-13 12:45:04 +0100
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-09-13 12:45:04 +0100
+
+
+Started GET "/assets/logo-2689d7212a2c23911df645c4031e7d1d88db42153244c391eb4fd8ea6a2ee9cc.svg" for ::1 at 2015-09-13 12:45:04 +0100
