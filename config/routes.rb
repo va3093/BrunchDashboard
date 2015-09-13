@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   #get "/index", to: "welcome#index"
   #get "/login_with_token", to: "signup#log_in_with_token"
-  #resources :users
+  #resources :users 
 
   match ':controller(/:action(/:id))', :via => :get
   match ':controller(/:action(/:id))', :via => :post

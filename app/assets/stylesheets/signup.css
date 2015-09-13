@@ -13,24 +13,45 @@
 	background-color: #EEEEEE;
 	max-width: 500px;
 	margin: 10px auto;
+	overflow:auto;	
+
 }
 
 p {
-	padding: 5px 0 0 0;
+	line-height: 1.5em;
 	text-align: center;
+	padding:5px;
 }
+
 
 .signUpForm {
 	display: block;	
+	width: 80%;
+		border: 0;	
+	margin: 5px auto;
+	height:25px; 
+	box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.0);
+
+
 }
 
-.signUpForm, input {
-	display: block;	
-	width: 80%;
-	margin: 5px auto;	
+.signUpForm, textarea:focus, input:focus{
+    outline: 0;
+    padding:5px;
+	font-size:16px;
+	font-family: Futura, 'Trebuchet MS', Arial, sans-serif; 
 }
-
-.signUpForm, form {
-	width: 80%;
-	padding: 5px 0;	
+.submitButton {
+	margin: 20px auto;
+    box-sizing: content-box; 
+    display:block; 
+    background-image:none; 
+    background-color:#30aa13; 
+    border:none; color:#fff; 
+    height:25px; 
+    font-size:16px;
+    padding: 5px;
+    width: 80%;
+    border-bottom-width: 5px;
+    border-bottom-color: clear;	
 }

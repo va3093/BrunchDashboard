@@ -30,14 +30,12 @@ class SignupController < ApplicationController
 
   def sign_up
     name = params[:first_name]
-    email = params[:email]
-    @user = User.create(first_name: name, email: email)
+    @email = params[:email]
+    @user = User.create(first_name: name, email: @email)
     @user.new_token!
     @user.save
   	UserMailer.loginUser(@user).deliver
   	puts "about to login"
-    render('signup/index')
-
 
   end
 
