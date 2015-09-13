@@ -1,12 +1,12 @@
-<table summary="Users for week">
-  <tr>
-    <th>
+<table class="week_table" summary="Users for week">
+  <tr align="center">
+    <th align="center" class="week_table_heading">
     <%= event.date.day.to_s + " " + event.date.strftime("%B") %>
     </th>
   </tr>
   <% event.users.each do |user| %>
-    <tr>
-      <td>
+    <tr >
+      <td class="week_table_row">
         <%= user.first_name %>
       </td>
     </tr>

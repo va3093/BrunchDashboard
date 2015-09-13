@@ -1,10 +1,9 @@
-<div>
+<div class="events clearfix">
+	
 	<% @events.each do |event| %>
-    <tr>
-      <td>
+    
         <%= render(:partial => "week_table", :locals => { :event => event}) %>
-      </td>
-    </tr>
+     	
   <% end %>
 	
 </div>

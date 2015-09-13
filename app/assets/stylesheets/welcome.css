@@ -1,5 +1,38 @@
 
 
 table, th, td {
-   border: 1px solid black;
+   border: 0px solid black;
+   width: 250px;
+   border: 5px solid #EEEEEE;	
+
+
+}
+
+.week_table {
+	background-color: #EEEEEE;	
+	margin: 10px;
+	display: inline-block;
+	text-align: center;	
+	vertical-align: top;
+}
+
+.week_table_heading {
+	padding	: 5px;
+}
+
+.events {
+	margin: 0 auto;
+	vertical-align: top;
+	text-align: center;
+	overflow-x: scroll;
+	width: auto;
+	position:relative;	
+    white-space: nowrap;
+
+}
+
+.week_table_row {
+	background-color: white;
+	vertical-align: middle;	
+	height: 2em;
 }
