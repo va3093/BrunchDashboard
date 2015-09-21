@@ -1,3 +1,11 @@
+
+<div class="prevMonthButton">
+	<p>
+		<%= @prevMonth %>
+			<%= image_tag('Back.svg', class: "BrunchLogo", height: "40", width: "40" ) %>
+
+	</p>
+</div>
 <div class="events clearfix">
 	
 	<% @events.each do |event| %>
@@ -6,4 +14,13 @@
      	
   <% end %>
 	
+</div>
+<div class="nextMonthButton">
+	<p>
+		<%= @nextMonth %>
+		<%= image_tag('forward.svg', class: "BrunchLogo", height: "40", width: "40" ) %>
+
+	</p>
+
+
 </div>

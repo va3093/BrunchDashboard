@@ -21,6 +21,7 @@ table, th, td {
 }
 
 .events {
+	float: left;
 	margin: 0 auto;
 	vertical-align: top;
 	text-align: center;
@@ -35,4 +36,21 @@ table, th, td {
 	background-color: white;
 	vertical-align: middle;	
 	height: 2em;
+}
+
+.prevMonthButton {
+	float: left;
+	width: 80px;
+	height: 100px;
+	margin: auto 8px;
+	background-color: #EEEEEE;
+	border-radius: 5px;
+}
+
+.nextMonthButton {
+	float: left;
+	width: 80px;
+	height: 100px;
+	background-color: #EEEEEE;
+	border-radius: 5px;
 }
