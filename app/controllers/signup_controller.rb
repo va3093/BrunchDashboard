@@ -15,7 +15,10 @@ class SignupController < ApplicationController
   	@user = User.find_by(email: @email)
   	if !@user
 		redirect_to :controller => 'signup', :action => 'new_user',  :email => @email
+    else 
+      redirect_to :controller => 'welcome'
   	end
+
   end
 
   def new_user 
@@ -34,7 +37,7 @@ class SignupController < ApplicationController
     @user = User.create(first_name: name, email: @email)
     @user.new_token!
     @user.save
-  	UserMailer.loginUser(@user).deliver
+  	UserMailer.loginUser(@user).deliver_now
   	puts "about to login"
 
   end
