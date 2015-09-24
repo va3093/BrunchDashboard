@@ -23,6 +23,15 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+## For the admin interface
+## We use activeadmin at master because the latest released version doesn't
+## yet support Rails 4.x: http://stackoverflow.com/questions/26044264/activeadmin-bundle-error
+gem 'activeadmin', github: 'activeadmin'
+gem 'devise'
+gem 'cancan' # or cancancan
+gem 'draper'
+gem 'pundit'
+
 # to make Windows happy
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 
