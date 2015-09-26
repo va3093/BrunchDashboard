@@ -3,30 +3,30 @@ class SignupController < ApplicationController
 
   	@signUpButton = "Log in"
   	@signUpAction = "log_in"
-  	@email 
+  	@email
   	@first_name
   	@isCurrentUser = true
   end
 
-  def log_in 
+  def log_in
   	@email = params[:email]
   	@first_name = params[:first_name]
   	puts params
   	@user = User.find_by(email: @email)
   	if !@user
 		redirect_to :controller => 'signup', :action => 'new_user',  :email => @email
-    else 
+    else
       redirect_to :controller => 'welcome'
   	end
 
   end
 
-  def new_user 
+  def new_user
   	@signUpButton = "Sign Up"
   	@signUpAction = "sign_up"
   	@isCurrentUser = false
   	@email = params[:email]
-  	puts params	
+  	puts params
   	render('signup/index')
 
   end
@@ -45,8 +45,8 @@ class SignupController < ApplicationController
   def log_in_with_token
     token = params[:token]
     @user = User.find_by(token: token)
-    if @user 
-      session[:current_user_id] = @user.id 
+    if @user
+      session[:current_user_id] = @user.id
       redirect_to :controller => 'welcome', :action => 'index'
     else
       render('signup/index')

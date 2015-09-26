@@ -6,8 +6,18 @@
   <body>
     <h1>Hey <%= @user.first_name %></h1>
     <p>
-      Just click into this link to log in to the brunch dashboard <%= @url %>.<br>
+      Just click on <a href="<%= @url %>">this link</a> to log into the brunch dashboard.
     </p>
-    <p>Thanks for joining and have a great day!</p>
+    <p>
+      If that doesn't work, try entering this into your browser's address bar: <%= @url %>.
+    </p>
+    <p>
+      Thanks for joining, and have a great day!
+    </p>
+    <p>
+      Sincerely,
+      <br/><br/>
+      The Brunch Team
+    </p>
   </body>
 </html>
