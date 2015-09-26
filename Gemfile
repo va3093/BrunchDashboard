@@ -35,6 +35,10 @@ gem 'pundit'
 # to make Windows happy
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 
+## For Mailtrap
+gem 'rest_client'
+gem 'json'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

@@ -76,4 +76,23 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  ############################### ACTION MAILER ###############################
+  response = RestClient::Resource.new("https://mailtrap.io/api/v1/inboxes.json?api_token=#{ENV['MAILTRAP_API_TOKEN']}", ssl_version: "TLSv1").get
+
+  first_inbox = JSON.parse(response)[0]
+
+  config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.raise_delivery_errors = true
+  # config.action_mailer.perform_deliveries = true
+  config.action_mailer.smtp_settings = {
+    :user_name => first_inbox['username'],
+    :password => first_inbox['password'],
+    :address => first_inbox['domain'],
+    :domain => first_inbox['domain'],
+    :port => first_inbox['smtp_ports'][0],
+    :authentication => :plain
+  }
+
+  config.action_mailer.default_url_options = { :host => "kx-brunch-dashboard.herokuapp.com" }
 end
