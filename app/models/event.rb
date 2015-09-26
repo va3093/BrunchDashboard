@@ -2,6 +2,10 @@ class Event < ActiveRecord::Base
 	has_many :assignments
 	has_many :users, through: :assignments
 
+	def remaining_spaces?
+		self.number_of_volunteers - self.users.count
+	end
+
 	def self.eventsForMonth(month, year)
 		events = []
 		for i in 1	..5

@@ -1,7 +1,12 @@
 <table class="week_table" summary="Users for week">
   <tr align="center">
     <th align="center" class="week_table_heading">
-    <%= event.date.day.to_s + " " + event.date.strftime("%B") %>
+      <td>
+        <%= event.date.day.to_s + " " + event.date.strftime("%B") %>
+      </td>
+      <td>
+        <%= event.remaining_spaces? %> 
+      </td>
     </th>
   </tr>
   <% event.users.each do |user| %>
