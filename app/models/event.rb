@@ -1,10 +1,12 @@
 class Event < ActiveRecord::Base
+	has_many :assignments
+	has_many :users, through: :assignments
 
 	def self.eventsForMonth(month, year)
 		events = []
 		for i in 1	..5
 			eventDate = Event.date_for_nth_sunday(i,month,year)
-			if eventDate 
+			if eventDate
 				event = Event.find_or_create_by(date: eventDate)
 				events << event
 			end
@@ -20,7 +22,7 @@ class Event < ActiveRecord::Base
 	  # get the last day of the month
 	  date = Date.new year, month, 1
 	  #subtract number of days we are ahead of sunday
-	  date += ((7 * n) - date.wday) 
+	  date += ((7 * n) - date.wday)
 	  if n > 1 && date.day < 7
 	  	return
 	  else
@@ -28,6 +30,4 @@ class Event < ActiveRecord::Base
 	  end
 
 	end
-  
-  has_and_belongs_to_many :users
 end
