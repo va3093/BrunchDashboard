@@ -81,8 +81,3 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  <<: *default
-  database: brunch_dashboard_production
-  username: brunch_dashboard
-  password: <%= ENV['BRUNCH_DASHBOARD_DATABASE_PASSWORD'] %>
