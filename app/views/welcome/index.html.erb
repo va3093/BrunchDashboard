@@ -1,25 +1,34 @@
 
-<div class="prevMonthButton">
-	<p>
-		<%= @prevMonth %>
-			<%= image_tag('Back.svg', class: "BrunchLogo", height: "40", width: "40" ) %>
 
-	</p>
-</div>
 <div class="events clearfix">
-
-	<% @events.each do |event| %>
-
-        <%= render(:partial => "week_table", :locals => { :event => event}) %>
-
-  <% end %>
-
-</div>
-<div class="nextMonthButton">
-	<p>
-		<%= @nextMonth %>
-		<%= image_tag('forward.svg', class: "BrunchLogo", height: "40", width: "40" ) %>
-
-	</p>
-
+	<div class="prevMonthButton">
+	<a href="">
+		<span class="linkSpan">
+		</span>
+	</a>
+		<p>
+			<%= @prevMonth %>
+			<%= image_tag('Back.svg', class: "BrunchLogo", height: "40", width: "40" ) %>
+		</p>
+		
+	</div>
+	<div class="eventWrapper">
+		
+		<% @events.each do |event| %>
+		
+		<%= render(:partial => "week_table", :locals => { :event => event}) %>
+		
+		<% end %>
+	</div>
+	<div class="nextMonthButton">
+	<a href="">
+		<span class="linkSpan">
+		</span>
+	</a>
+		<p>
+			<%= @nextMonth %>
+			<%= image_tag('forward.svg', class: "BrunchLogo", height: "40", width: "40" ) %>
+		</p>
+	</div>
+	
 </div>

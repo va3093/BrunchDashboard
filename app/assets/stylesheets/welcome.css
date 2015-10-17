@@ -1,56 +1,99 @@
 
-
 table, th, td {
-   border: 0px solid black;
-   width: 250px;
-   border: 5px solid #EEEEEE;	
+	width  : 250px;
 
-
+	border : 0px solid black;
+	border : 5px solid #EEEEEE;
 }
 
+html, body { height: 100%; width: 100%; margin: 0; }
+
 .week_table {
-	background-color: #EEEEEE;	
-	margin: 10px;
-	display: inline-block;
-	text-align: center;	
-	vertical-align: top;
+	display          : inline-block;
+	vertical-align   : top;
+
+	margin           : 10px;
+
+	background-color : #EEEEEE;
+	text-align       : center;
 }
 
 .week_table_heading {
-	padding	: 5px;
+	padding : 5px;
 }
 
 .events {
-	float: left;
-	margin: 0 auto;
-	vertical-align: top;
-	text-align: center;
-	overflow-x: scroll;
-	width: auto;
-	position:relative;	
-    white-space: nowrap;
+	position       : relative;
+	display        : inline-block;
+	vertical-align : top;
 
+	overflow-x     : scroll;
+	height         : 90%;
+	width          : 100%;
+	margin         : auto auto;
+
+	text-align     : center;
+	white-space    : nowrap;
+
+	
 }
 
 .week_table_row {
-	background-color: white;
-	vertical-align: middle;	
-	height: 2em;
+	vertical-align   : middle;
+
+	height           : 2em;
+
+	background-color : white;
+}
+
+.eventWrapper {
+	display        : inline-block;
+	vertical-align : top;
+
+	text-align     : center;
+	white-space    : nowrap;
+
+	
+	
 }
 
 .prevMonthButton {
-	float: left;
-	width: 80px;
-	height: 100px;
-	margin: auto 8px;
-	background-color: #EEEEEE;
-	border-radius: 5px;
+	position:relative;
+	display          : inline-block;
+	left             : 0%;
+
+	height           : 100px;
+	width            : 100px;
+	margin-top       : 30%;
+	margin-right     : 8px;
+
+	background-color : #EEEEEE;
+	border-radius    : 5px;
+
+	margin-bottom:   : 40%;
+	margin-left:     : 8px;
 }
 
 .nextMonthButton {
-	float: left;
-	width: 80px;
-	height: 100px;
-	background-color: #EEEEEE;
-	border-radius: 5px;
+	position:relative;
+
+	display          : inline-block;
+	top              : 50%;
+	right            : 5px;
+
+	height           : 100px;
+	width            : 100px;
+	margin           : auto 8px;
+
+	background-color : #EEEEEE;
+	border-radius    : 5px;
+}
+
+.linkSpan {
+	position : absolute;
+	top      : 0;
+	left     : 0;
+
+	height   : 100%;
+	width    : 100%;
 }
