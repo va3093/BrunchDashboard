@@ -6,7 +6,8 @@ class Event < ActiveRecord::Base
 	validates :number_of_volunteers, presence: true
 
 	def remaining_spaces?
-		self.number_of_volunteers - self.users.count
+		self.users.count
+		#self.number_of_volunteers - self.users.count
 	end
 
 	def self.eventsForMonth(month, year)

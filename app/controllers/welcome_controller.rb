@@ -5,7 +5,10 @@ class WelcomeController < ApplicationController
 		
 		if @user
 			if @monthToShowString
-				@events = Event.eventsForMonth(@monthToShowString, Time.now.year)
+				monthInt = Date::MONTHNAMES.index(@monthToShowString) 
+				@events = Event.eventsForMonth(monthInt, Time.now.year)
+				@prevMonth = Date::MONTHNAMES[monthInt - 1]
+				@nextMonth = Date::MONTHNAMES[monthInt + 1]
 			else
 				@events = Event.eventsForCurrentMonth
 				#@events = Event.where("date >= :today", {today: Date.today})
