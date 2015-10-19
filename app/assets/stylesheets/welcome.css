@@ -35,7 +35,7 @@ html, body { height: 100%; width: 100%; margin: 0; }
 	text-align     : center;
 	white-space    : nowrap;
 
-	
+
 }
 
 .week_table_row {
@@ -53,8 +53,8 @@ html, body { height: 100%; width: 100%; margin: 0; }
 	text-align     : center;
 	white-space    : nowrap;
 
-	
-	
+
+
 }
 
 .prevMonthButton {
@@ -70,8 +70,8 @@ html, body { height: 100%; width: 100%; margin: 0; }
 	background-color : #EEEEEE;
 	border-radius    : 5px;
 
-	margin-bottom:   : 40%;
-	margin-left:     : 8px;
+	margin-bottom		 : 40%;
+	margin-left			 : 8px;
 }
 
 .nextMonthButton {
