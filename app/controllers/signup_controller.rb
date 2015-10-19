@@ -14,7 +14,7 @@ class SignupController < ApplicationController
   	puts params
   	@user = User.find_by(email: @email)
   	if !@user
-		redirect_to :controller => 'signup', :action => 'new_user',  :email => @email
+      redirect_to :controller => 'signup', :action => 'new_user',  :email => @email
     else
       redirect_to :controller => 'welcome'
   	end
@@ -33,10 +33,12 @@ class SignupController < ApplicationController
 
   def sign_up
     name = params[:first_name]
-    @email = params[:email]
-    @user = User.create(first_name: name, email: @email)
+    email = params[:email]
+
+    @user = User.create(first_name: name, email: email)
     @user.new_token!
     @user.save
+    
   	UserMailer.loginUser(@user).deliver_now
   	puts "about to login"
 

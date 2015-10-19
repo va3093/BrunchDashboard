@@ -2,10 +2,10 @@ class WelcomeController < ApplicationController
 	def index
 		@user = User.find_by(id: session[:current_user_id])
 		@monthToShowString = params[:month]
-		
+
 		if @user
 			if @monthToShowString
-				monthInt = Date::MONTHNAMES.index(@monthToShowString) 
+				monthInt = Date::MONTHNAMES.index(@monthToShowString)
 				@events = Event.eventsForMonth(monthInt, Time.now.year)
 				@prevMonth = Date::MONTHNAMES[monthInt - 1]
 				@nextMonth = Date::MONTHNAMES[monthInt + 1]
