@@ -5,15 +5,24 @@
         <%= event.date.day.to_s + " " + event.date.strftime("%B") %>
       </td>
       <td>
-        <%= event.remaining_spaces? %> 
+        <%= event.remaining_spaces? %>
       </td>
     </th>
   </tr>
-  <% event.users.each do |user| %>
-    <tr >
-      <td class="week_table_row">
-        <%= user.first_name %>
-      </td>
-    </tr>
-  <% end %>
+<% event.users.each do |user| %>
+  <tr >
+    <td class="week_table_row">
+      <%= user.first_name %>
+    </td>
+  </tr>
+<% end %>
+  <tr align="center">
+    <td align="center">
+<% if !event.users.include?(@user) %>
+      <a href="#">Sign Up</a>
+<% else %>
+      <a href="#">Drop Out</a>
+<% end %>
+    </td>
+  </tr>
 </table>
