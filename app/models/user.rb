@@ -9,6 +9,10 @@ class User < ActiveRecord::Base
   validates :first_name, presence: true
   validates :email, presence: true
 
+  def password_required?
+    return false
+  end
+
   def new_token!
   	SecureRandom.hex(16).tap do |random_token|
     	update_attributes token: random_token

@@ -1,9 +1,8 @@
 class WelcomeController < ApplicationController
 	def index
-		@user = User.find_by(id: session[:current_user_id])
 		@monthToShowString = params[:month]
 
-		if @user
+		if user_signed_in?
 			if @monthToShowString
 				monthInt = Date::MONTHNAMES.index(@monthToShowString)
 				@events = Event.eventsForMonth(monthInt, Time.now.year)
@@ -16,10 +15,8 @@ class WelcomeController < ApplicationController
 				@nextMonth = 1.month.from_now.strftime("%B")
 				@users = User.all
 			end
-
 		else
 			redirect_to :controller => 'signup', :action => 'index'
 		end
-
 	end
 end
