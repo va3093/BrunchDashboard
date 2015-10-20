@@ -18,7 +18,7 @@
 <% end %>
   <tr align="center">
     <td align="center">
-<% if !event.users.include?(@user) %>
+<% if !event.users.include?(current_user) %>
       <a href="#">Sign Up</a>
 <% else %>
       <a href="#">Drop Out</a>

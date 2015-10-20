@@ -1,37 +1,30 @@
 <div class="events clearfix">
 	<div class="prevMonthButton">
-	<a href="/?month=<%=@prevMonth%>">
-		<span class="linkSpan">
-		</span>
-	</a>
+		<a href="/?month=<%=@prevMonth%>">
+			<span class="linkSpan"></span>
+		</a>
 		<p>
 			<%= @prevMonth %>
 			<%= image_tag('Back.svg', class: "BrunchLogo", height: "40", width: "40" ) %>
 		</p>
-
 	</div>
-	<div class="eventWrapper">
 
+	<div class="eventWrapper">
 		<% @events.each do |event| %>
 
 			<%= render(:partial => "week_table", :locals => { :event => event}) %>
 
 		<% end %>
 	</div>
+
 	<div class="nextMonthButton">
-	<a href="/?month=<%=@nextMonth%>">
-		<span class="linkSpan">
-		</span>
-	</a>
+		<a href="/?month=<%=@nextMonth%>">
+			<span class="linkSpan">
+			</span>
+		</a>
 		<p>
 			<%= @nextMonth %>
 			<%= image_tag('forward.svg', class: "BrunchLogo", height: "40", width: "40" ) %>
 		</p>
 	</div>
-
-	<% if user_signed_in? %>
-	  <li>
-	  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-	  </li>
-	<% end %>
 </div>
