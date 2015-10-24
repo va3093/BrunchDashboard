@@ -1,21 +1,26 @@
 <table class="week_table" summary="Users for week">
-  <tr align="center">
+  <thead >
+  <tr align="center" class="TableHeader">
     <th align="center" class="week_table_heading">
-      <td>
         <%= event.date.day.to_s + " " + event.date.strftime("%B") %>
-      </td>
-      <td>
-        <%= event.remaining_spaces? %>
-      </td>
     </th>
   </tr>
+  </thead>
+<!--  <tr>
+    <td>
+      <%= event.remaining_spaces? %>
+    </td>
+</tr>-->
+
 <% event.users.each do |user| %>
   <tr >
-    <td class="week_table_row">
-      <%= user.first_name %>
-      <% if user == current_user %>
-        <a href=<%="welcome/remove_from_month?event_id="+event.id.to_s%>>remove </a>
+      <td class="week_table_row">
+       <% if user == current_user %>
+        <a class="RemoveButton"href=<%="welcome/remove_from_month?event_id="+event.id.to_s%>>remove </a>
       <%end%>
+      <span class="UserName">
+      <%= user.first_name %>
+      </span>
     </td>
   </tr>
 <% end %>

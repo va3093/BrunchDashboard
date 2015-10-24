@@ -6,6 +6,24 @@ table, th, td {
 	border : 5px solid #EEEEEE;
 }
 
+.TableHeader {
+	text-align: center;
+}
+
+.RemoveButton {
+	right: 0;
+	padding-right: 4px;
+	display: inline-block;
+	float: right;
+
+}
+
+.UserName {
+	display: inline-block;
+	vertical-align: middle;
+	position: absolute;
+}
+
 html, body { height: 100%; width: 100%; margin: 0; }
 
 .week_table {
