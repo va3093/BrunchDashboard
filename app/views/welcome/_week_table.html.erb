@@ -13,6 +13,9 @@
   <tr >
     <td class="week_table_row">
       <%= user.first_name %>
+      <% if user == current_user %>
+        <a href=<%="welcome/remove_from_month?event_id="+event.id.to_s%>>remove </a>
+      <%end%>
     </td>
   </tr>
 <% end %>

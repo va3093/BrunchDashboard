@@ -23,9 +23,16 @@ class WelcomeController < ApplicationController
 	def sign_up_month
 		event = Event.find_by_id(params[:event_id])
 		event.users << current_user
-		puts event
 
 		redirect_to :controller => 'welcome', :action => 'index'
 
+	end
+
+	def remove_from_month
+		event = Event.find_by_id(params[:event_id])
+		puts params
+		event.users.delete(current_user)
+
+		redirect_to :controller => 'welcome', :action => 'index'
 	end
 end
