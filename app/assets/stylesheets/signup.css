@@ -3,6 +3,20 @@
 	background-color: #FFD041; 
 }
 
+.LogoutButton {
+	float: right;
+	padding-right: 8px;
+	padding-top : 8px;
+	clear: right;
+}
+
+.WelcomeText {
+	float: right;
+	padding-right: 8px;
+	padding-top : 30px;
+
+}
+
 .BrunchLogo {
 	display: block;
 	margin: 0 auto;
