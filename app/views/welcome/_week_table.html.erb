@@ -19,9 +19,8 @@
   <tr align="center">
     <td align="center">
 <% if !event.users.include?(current_user) %>
-      <a href="#">Sign Up</a>
-<% else %>
-      <a href="#">Drop Out</a>
+      <a href=<%="welcome/sign_up_month?event_id="+event.id.to_s%>>Sign Up</a>
+
 <% end %>
     </td>
   </tr>

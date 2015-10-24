@@ -3,7 +3,7 @@ class Event < ActiveRecord::Base
 	has_many :users, through: :assignments
 
 	validates :date, presence: true
-	validates :number_of_volunteers, presence: true
+	#validates :number_of_volunteers, presence: true
 
 	def remaining_spaces?
 		self.users.count
@@ -16,6 +16,7 @@ class Event < ActiveRecord::Base
 			eventDate = Event.date_for_nth_sunday(i,month,year)
 			if eventDate
 				event = Event.find_or_create_by(date: eventDate)
+				puts event.id
 				events << event
 			end
 		end

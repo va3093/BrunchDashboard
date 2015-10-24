@@ -19,4 +19,13 @@ class WelcomeController < ApplicationController
 			redirect_to :controller => 'signup', :action => 'index'
 		end
 	end
+
+	def sign_up_month
+		event = Event.find_by_id(params[:event_id])
+		event.users << current_user
+		puts event
+
+		redirect_to :controller => 'welcome', :action => 'index'
+
+	end
 end
