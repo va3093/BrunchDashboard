@@ -1,7 +1,7 @@
 class WelcomeController < ApplicationController
 	def index
 		@monthToShowString = params[:month]
-
+		puts params
 		if user_signed_in?
 			if @monthToShowString
 				monthInt = Date::MONTHNAMES.index(@monthToShowString)
@@ -24,7 +24,7 @@ class WelcomeController < ApplicationController
 		event = Event.find_by_id(params[:event_id])
 		event.users << current_user
 
-		redirect_to :controller => 'welcome', :action => 'index'
+		redirect_to :controller => 'welcome', :action => 'index', :month => event.date.strftime("%B")
 
 	end
 
@@ -33,6 +33,6 @@ class WelcomeController < ApplicationController
 		puts params
 		event.users.delete(current_user)
 
-		redirect_to :controller => 'welcome', :action => 'index'
+		redirect_to :controller => 'welcome', :action => 'index', :month => event.date.strftime("%B")
 	end
 end
