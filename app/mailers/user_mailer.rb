@@ -7,4 +7,14 @@ class UserMailer < ApplicationMailer
     mail(to: @user.email, subject: 'Welcome to My Awesome Site')
   end
 
+   def monthlySignupReminder()
+    users = User.all
+    users.each do |user|
+    	base_url = url_for :controller => 'signup', :action => 'log_in_with_token'
+    	@url  =  "#{base_url}?email=#{user.email}&token=#{user.token}"
+    	mail(to: user.email, subject: 'Welcome to My Awesome Site')
+    end
+
+  end
+
 end
