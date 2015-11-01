@@ -78,20 +78,14 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   ############################### ACTION MAILER ###############################
-  response = RestClient::Resource.new("https://mailtrap.io/api/v1/inboxes.json?api_token=#{ENV['MAILTRAP_API_TOKEN']}", ssl_version: "TLSv1").get
+  API_KEY = ENV['MAILGUN_API_KEY']
+  MAILGUN_DOMAIN = 'appc831e67782994603841f34dd187a04a2.mailgun.org'
+  API_URL = "https://api:#{API_KEY}@api.mailgun.net/v2/#{MAILGUN_DOMAIN}"
 
-  first_inbox = JSON.parse(response)[0]
-
-  config.action_mailer.delivery_method = :smtp
-  # config.action_mailer.raise_delivery_errors = true
-  # config.action_mailer.perform_deliveries = true
-  config.action_mailer.smtp_settings = {
-    :user_name => first_inbox['username'],
-    :password => first_inbox['password'],
-    :address => first_inbox['domain'],
-    :domain => first_inbox['domain'],
-    :port => first_inbox['smtp_ports'][0],
-    :authentication => :plain
+  config.action_mailer.delivery_method = :mailgun
+  config.action_mailer.mailgun_settings = {
+          api_key: API_KEY,
+          domain: MAILGUN_DOMAIN
   }
 
   config.action_mailer.default_url_options = { :host => "kx-brunch-dashboard.herokuapp.com" }
