@@ -35,6 +35,9 @@ gem 'pundit'
 # to make Windows happy
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 
+## For Mailgun
+gem 'mailgun_rails'
+
 ## For Mailtrap
 gem 'rest_client'
 gem 'json'

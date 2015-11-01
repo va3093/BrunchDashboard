@@ -3,11 +3,13 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
   has_many :assignments
   has_many :events, through: :assignments
 
   validates :first_name, presence: true
   validates :email, presence: true
+  validates :token, presence: true
 
   def password_required?
     return false

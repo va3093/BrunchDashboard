@@ -14,7 +14,6 @@ class SignupController < ApplicationController
         return redirect_to :controller => 'signup', :action => 'new_user',  :email => email
       else
         @user = User.create(first_name: first_name, email: email)
-        @user.save
       end
   	end
 
