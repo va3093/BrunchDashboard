@@ -31,12 +31,14 @@
     </td>
   </tr>
 <% end %>
-  <tr align="center">
-    <td align="center">
 <% if !event.users.include?(current_user) %>
-      <a href=<%="welcome/sign_up_month?event_id="+event.id.to_s%>>Sign Up</a>
 
-<% end %>
+  <tr align="center">
+    <td class="signupRow" align="center">
+      <a class="signUpRowButton" href=<%="welcome/sign_up_month?event_id="+event.id.to_s%>> <%= "+" + " " + current_user.first_name%></a>
+
     </td>
   </tr>
+  <% end %>
+
 </table>

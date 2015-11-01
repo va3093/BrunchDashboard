@@ -68,26 +68,31 @@ html, body { height: 100%; width: 100%; margin: 0; }
 	height           : 2em;
 	text-align: center;
 	background-color : white;
-	border-width: 2px;
 
 }
 
-.week_table_row_with_border {
-	vertical-align   : middle;
-	height           : 2em;
-	text-align: center;
-	background-color : white;
-	/*border-width: 2px;
-	border-color: #78AD68;
-*/	border : 5px solid #78AD68;
-
-}
 
 .border_wrapper {
 	width: 98.4%;
 	height: 1.96em;
 	margin: auto;
 	border : 2.5px solid #78AD68;
+}
+
+.signupRow {
+	vertical-align   : middle;
+	height           : 2em;
+	text-align: center;
+	background-color : #78AD68;
+	color: white;
+	border-width: 2px;
+}
+
+.signUpRowButton {
+	padding-top:0.5em;
+	color: white;
+	text-decoration: none;
+
 }
 
 .eventWrapper {
