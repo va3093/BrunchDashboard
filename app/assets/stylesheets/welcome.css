@@ -1,8 +1,7 @@
 
 table, th, td {
 	width  : 250px;
-
-	border : 0px solid black;
+	margin: 5px;
 	border : 5px solid #EEEEEE;
 }
 
@@ -15,14 +14,22 @@ table, th, td {
 	padding-right: 4px;
 	display: inline-block;
 	float: right;
-
+	font-size: 0.5em;
+	color: #F07818;
+	text-decoration: none;
+	margin-top: 1.25em;
 }
 
 .UserName {
 	display: inline-block;
+	top: 0.5em;
+	margin: 	auto;
 	vertical-align: middle;
-	position: absolute;
+	position: relative;
+	height: 100%	;
 }
+
+
 
 html, body { height: 100%; width: 100%; margin: 0; }
 
@@ -58,10 +65,29 @@ html, body { height: 100%; width: 100%; margin: 0; }
 
 .week_table_row {
 	vertical-align   : middle;
-
 	height           : 2em;
-
+	text-align: center;
 	background-color : white;
+	border-width: 2px;
+
+}
+
+.week_table_row_with_border {
+	vertical-align   : middle;
+	height           : 2em;
+	text-align: center;
+	background-color : white;
+	/*border-width: 2px;
+	border-color: #78AD68;
+*/	border : 5px solid #78AD68;
+
+}
+
+.border_wrapper {
+	width: 98.4%;
+	height: 1.96em;
+	margin: auto;
+	border : 2.5px solid #78AD68;
 }
 
 .eventWrapper {

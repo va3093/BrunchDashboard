@@ -15,12 +15,19 @@
 <% event.users.each do |user| %>
   <tr >
       <td class="week_table_row">
-       <% if user == current_user %>
+      <% if user == current_user %>
         <a class="RemoveButton"href=<%="welcome/remove_from_month?event_id="+event.id.to_s%>>remove </a>
-      <%end%>
+        <div class="border_wrapper">
+          <span class="UserName">
+          <%= user.first_name %>
+          </span>
+        </div>
+      <%else%>
       <span class="UserName">
-      <%= user.first_name %>
+        <%= user.first_name %>
       </span>
+      <%end%>
+       
     </td>
   </tr>
 <% end %>

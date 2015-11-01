@@ -4,20 +4,15 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Hey</h1>
+    <h1>Hey<%= @user.name%></h1>
     <p>
-      Just click on <a href="<%= @url %>">this link</a> to log into the brunch dashboard.
+      Brunch Bot here. Just sending you your monthly reminder to sign up for next months brunch. Click on any of the buttons below to sign up for that date
     </p>
-    <p>
-      If that doesn't work, try entering this into your browser's address bar: <%= @url %>.
-    </p>
-    <p>
-      Thanks for joining, and have a great day!
-    </p>
+    <a class="EventSignUpButton" href=""> </a>
     <p>
       Sincerely,
       <br/><br/>
-      The Brunch Team
+      Brunch Bot
     </p>
   </body>
 </html>
