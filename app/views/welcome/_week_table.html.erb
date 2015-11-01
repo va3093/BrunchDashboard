@@ -1,44 +1,30 @@
-<table class="week_table" summary="Users for week">
-  <thead >
-  <tr align="center" class="TableHeader">
-    <th align="center" class="week_table_heading">
+
+
+<div class="week" summary="Users for week">
+  <div class="date">
         <%= event.date.day.to_s + " " + event.date.strftime("%B") %>
-    </th>
-  </tr>
-  </thead>
-<!--  <tr>
-    <td>
-      <%= event.remaining_spaces? %>
-    </td>
-</tr>-->
-
-<% event.users.each do |user| %>
-  <tr >
-      <td class="week_table_row">
-      <% if user == current_user %>
-        <a class="RemoveButton"href=<%="welcome/remove_from_month?event_id="+event.id.to_s%>>remove </a>
-        <div class="border_wrapper">
-          <span class="UserName">
-          <%= user.first_name %>
+  </div>
+  <ul>
+    <% event.users.each do |user| %>
+    <li >
+        <% if user == current_user %>
+          <a class="user_name" href=<%="welcome/remove_from_month?event_id="+event.id.to_s%>>
+            <%= user.first_name %>
+          </a>
+        <% else %>
+          <span class="user_name">
+            <%= user.first_name %>
           </span>
-        </div>
-      <%else%>
-      <span class="UserName">
-        <%= user.first_name %>
-      </span>
-      <%end%>
-       
-    </td>
-  </tr>
-<% end %>
-<% if !event.users.include?(current_user) %>
+        <%end %>
 
-  <tr align="center">
-    <td class="signupRow" align="center">
-      <a class="signUpRowButton" href=<%="welcome/sign_up_month?event_id="+event.id.to_s%>> <%= "+" + " " + current_user.first_name%></a>
+    <% end %>
 
-    </td>
-  </tr>
-  <% end %>
+    <% if !event.users.include?(current_user) %>
+    <li>
+        <a class="signUpRowButton" href=<%="welcome/sign_up_month?event_id="+event.id.to_s%>> <%= "+" + " " + current_user.first_name%></a>
 
-</table>
+    </li>
+    <% end %>
+  </ul>
+</div>
+  

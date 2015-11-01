@@ -1,19 +1,20 @@
 
 .NavBar {
 	background-color: #FFD041; 
+	flex: 0 0 auto;
 }
 
 .LogoutButton {
-	float: right;
-	padding-right: 8px;
-	padding-top : 8px;
+	position: absolute;
+	right: 8px;
+	top : 3em;
 	clear: right;
 }
 
 .WelcomeText {
-	float: right;
-	padding-right: 8px;
-	padding-top : 30px;
+position: absolute;
+	right: 8px;
+	top : 1.5em;
 
 }
 

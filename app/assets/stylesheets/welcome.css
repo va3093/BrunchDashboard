@@ -18,6 +18,7 @@ table, th, td {
 	color: #F07818;
 	text-decoration: none;
 	margin-top: 1.25em;
+	position: absolute;
 }
 
 .UserName {
@@ -26,10 +27,13 @@ table, th, td {
 	margin: 	auto;
 	vertical-align: middle;
 	position: relative;
-	height: 100%	;
+	height: 100%;
 }
 
-
+body{
+	display: flex;
+	flex-flow:column;
+}
 
 html, body { height: 100%; width: 100%; margin: 0; }
 
@@ -49,18 +53,15 @@ html, body { height: 100%; width: 100%; margin: 0; }
 
 .events {
 	position       : relative;
-	display        : inline-block;
-	vertical-align : top;
+
 
 	overflow-x     : scroll;
-	height         : 90%;
-	width          : 100%;
-	margin         : auto auto;
+
 
 	text-align     : center;
 	white-space    : nowrap;
-
-
+	display: flex;
+	flex: 1 1 auto;
 }
 
 .week_table_row {
@@ -68,7 +69,9 @@ html, body { height: 100%; width: 100%; margin: 0; }
 	height           : 2em;
 	text-align: center;
 	background-color : white;
-
+	position: relative;
+	border: none;
+    border-bottom: 3px solid transparent
 }
 
 
@@ -85,7 +88,8 @@ html, body { height: 100%; width: 100%; margin: 0; }
 	text-align: center;
 	background-color : #78AD68;
 	color: white;
-	border-width: 2px;
+	border-left: none;
+    border-right: none;
 }
 
 .signUpRowButton {
@@ -101,48 +105,161 @@ html, body { height: 100%; width: 100%; margin: 0; }
 
 	text-align     : center;
 	white-space    : nowrap;
-
-
+	display: flex;
+	align-items:flex-start;
+	flex: 1 1 auto;
+	justify-content:center;
 
 }
 
-.prevMonthButton {
-	position:relative;
-	display          : inline-block;
-	left             : 0%;
+.sideButton {
+	height: 100%;
+	display: flex;
+	flex-flow:column;
+	justify-content:center;
+	flex: 0 0 auto;
+	align-self:center;
+}
 
+.sideButton a{
 	height           : 100px;
 	width            : 100px;
-	margin-top       : 30%;
-	margin-right     : 8px;
-
 	background-color : #EEEEEE;
 	border-radius    : 5px;
-
-	margin-bottom		 : 40%;
-	margin-left			 : 8px;
+	margin: 8px;
+	text-decoration: none;
+	color: black;
+	display: flex;
+	justify-content:center;
+	flex-flow:column;
+	border: 1px solid transparent;
 }
 
-.nextMonthButton {
-	position:relative;
-
-	display          : inline-block;
-	top              : 50%;
-	right            : 5px;
-
-	height           : 100px;
-	width            : 100px;
-	margin           : auto 8px;
-
-	background-color : #EEEEEE;
-	border-radius    : 5px;
+.sideButton a:hover{
+	background-color: white;
+	color: black;
+	border: 1px solid black;
 }
 
-.linkSpan {
-	position : absolute;
-	top      : 0;
-	left     : 0;
+.week{
+    min-width:10em;
+    width:25%;
+    text-align       : center;
+    margin-top: 1em;
+    margin-right: 1em;
+    margin-left: 0;
+    box-sizing:border-box;
+    background-color : #EEEEEE;
+    display: inline-block;
+    
 
-	height   : 100%;
-	width    : 100%;
-}
+  }
+
+  .date{
+    padding: 1em;
+  }
+
+  .week ul{
+    width:100%;
+  }
+
+  .week li{
+    width: calc(100% - 1em);
+    position:relative;
+    background-color: white;
+    margin:0.5em;
+    box-sizing:border-box;
+    display: block;
+  }
+
+  .week a, .week .user_name{
+    width:100%;
+    height:100%;
+    display: block;
+    padding: 0.5em;
+    box-sizing:border-box;
+  }
+
+  .signUpRowButton{
+    background-color:  #78AD68;
+  }
+
+  .signUpRowButton:focus, .signUpRowButton:hover{
+    background-color: white;
+    color: black;
+  }
+
+  .week a.user_name::after{
+    content:'remove';
+    position: absolute;
+    right:1em;
+    top:1em;
+    width:initial;
+    font-size: 0.5em;
+    color: #F07818;
+    height:4em;
+    line-height: 2em;
+    text-decoration: none;
+  }
+
+  .week a.user_name{
+    border: 2px solid #78AD68;
+    text-decoration: none;
+    color: black;
+  }
+
+  .week a.user_name:hover{
+    background-color: #78AD68;
+  }
+
+  .week a.user_name:hover::after{
+    color: white;
+  }
+  .mobile {
+  	display: none;
+  }
+
+  @media screen and (min-width: 601px) and (max-width: 940px ){
+  	.sideButton a{
+  		font-size: 0.1px;
+  		width:initial;
+  	}
+  }
+
+  @media screen and (max-width: 600px) {
+  	.mobile{
+  		display: block;
+  	}
+
+  	.desktop{
+  		display: none;
+  	}
+
+  	.events{
+  		flex-flow:column;
+  	}
+
+  	.sideButton{
+  		width:100%;
+  	}
+
+  	.sideButton a {
+  		width: initial;
+  		height:initial;
+  		padding: 1em;
+  	}
+
+  	.eventWrapper{
+  		justify-content: flex-start;
+	    flex-flow: column;
+	    padding: 1em;
+	    padding-top: 0;
+  	}
+
+  	.eventWrapper .week{
+  		width:100%;
+
+  	}
+
+  }
+
