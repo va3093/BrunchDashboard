@@ -6,9 +6,15 @@
 
 .LogoutButton {
 	position: absolute;
-	right: 8px;
-	top : 3em;
+	right: 0;
+	top : 1.5em;
 	clear: right;
+	text-decoration: none;
+	color: #F07818;
+}
+
+.LogoutButton:hover {
+	text-decoration: underline;
 }
 
 .WelcomeText {
