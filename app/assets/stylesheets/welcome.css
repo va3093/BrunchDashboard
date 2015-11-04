@@ -216,11 +216,15 @@ html, body { height: 100%; width: 100%; margin: 0; }
 
 
   .week a.user_name:hover{
-    background-color: #78AD68;
+/*    background-color: #78AD68;
+*/    color: #F07818;
+	border-color: #F07818;
   }
 
   .week a.user_name:hover::after{
-    color: white;
+/*    color: white;
+*/    color: #F07818;
+border-color: #F07818;
   }
   .mobile {
   	display: none;
