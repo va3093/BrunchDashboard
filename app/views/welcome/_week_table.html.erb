@@ -11,6 +11,10 @@
           <a class="user_name" href=<%="welcome/remove_from_month?event_id="+event.id.to_s%>>
             <%= user.first_name %>
           </a>
+        <%elsif user.role == "leader"%>
+          <span class="leader_cell">
+            <%= user.first_name + " (Lead)" %>
+          </span>
         <% else %>
           <span class="user_name">
             <%= user.first_name %>

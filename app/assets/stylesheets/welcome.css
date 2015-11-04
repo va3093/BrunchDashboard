@@ -172,7 +172,7 @@ html, body { height: 100%; width: 100%; margin: 0; }
     display: block;
   }
 
-  .week a, .week .user_name{
+  .week a, .week .user_name, .week .leader_cell{
     width:100%;
     height:100%;
     display: block;
@@ -186,6 +186,12 @@ html, body { height: 100%; width: 100%; margin: 0; }
 
   .signUpRowButton:focus, .signUpRowButton:hover{
     background-color: white;
+    color: black;
+  }
+
+  .week .leader_cell {
+  	border: 2px solid #FFD041;
+    text-decoration: none;
     color: black;
   }
 
@@ -207,6 +213,7 @@ html, body { height: 100%; width: 100%; margin: 0; }
     text-decoration: none;
     color: black;
   }
+
 
   .week a.user_name:hover{
     background-color: #78AD68;
