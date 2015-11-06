@@ -1,5 +1,7 @@
 class WelcomeController < ApplicationController
 	def index
+		#UserMailer.monthlySignupReminder().deliver_now
+
 		@monthToShowString = params[:month]
 		puts params
 		if user_signed_in?
