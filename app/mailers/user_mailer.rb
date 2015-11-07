@@ -24,4 +24,12 @@ class UserMailer < ApplicationMailer
 
   end
 
+  def usersNotComingAlertMail(leader,user)
+    attachments.inline['logo.png'] = File.read(Rails.root.join('app/assets/images/logo.png'))
+    @user = user
+    @leader = leader
+    mail(to: leader.email, subject: 'Welcome to My Awesome Site')
+
+  end
+
 end
