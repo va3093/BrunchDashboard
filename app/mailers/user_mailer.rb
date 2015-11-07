@@ -9,6 +9,7 @@ class UserMailer < ApplicationMailer
 
    def monthlySignupReminder()
     users = User.all
+    attachments.inline['logo.png'] = File.read(Rails.root.join('app/assets/images/logo.png'))
     @events = 	Event.eventsForMonth(Time.now.month + 1, Time.now.year) 
     puts @events
     users.each do |user|
