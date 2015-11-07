@@ -1,7 +1,10 @@
 class WelcomeController < ApplicationController
 	def index
-		UserMailer.monthlySignupReminder().deliver_now
-
+	users = User.all
+    events = 	Event.eventsForMonth(Time.now.month + 1, Time.now.year) 
+    users.each do |user|
+		UserMailer.monthlySignupReminder(user,events ).deliver
+    end
 		@monthToShowString = params[:month]
 		puts params
 		if user_signed_in?
@@ -35,8 +38,11 @@ class WelcomeController < ApplicationController
 		user = User.find_by_id(params[:userId]) || current_user
 		event = Event.find_by_id(params[:event_id])
 		puts params
+		puts params[:userId]
 		event.users.delete(user)
 
 		redirect_to :controller => 'welcome', :action => 'index', :month => event.date.strftime("%B")
 	end
+
+
 end

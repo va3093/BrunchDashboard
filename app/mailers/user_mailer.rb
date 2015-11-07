@@ -7,17 +7,20 @@ class UserMailer < ApplicationMailer
     mail(to: @user.email, subject: 'Welcome to My Awesome Site')
   end
 
-   def monthlySignupReminder()
-    users = User.all
+   def monthlySignupReminder(user, events)
     attachments.inline['logo.png'] = File.read(Rails.root.join('app/assets/images/logo.png'))
-    @events = 	Event.eventsForMonth(Time.now.month + 1, Time.now.year) 
-    puts @events
-    users.each do |user|
-    	base_url = url_for :controller => 'signup', :action => 'log_in_with_token'
-    	@url  =  "#{base_url}?email=#{user.email}&token=#{user.token}"
-    	@user = user
-    	mail(to: user.email, subject: 'Welcome to My Awesome Site')
-    end
+    @events =  events     
+    @user = user
+    mail(to: user.email, subject: 'Welcome to My Awesome Site')
+    
+
+  end
+
+  def upComingEventReminder(event, user)
+    @nextEvent = event
+    attachments.inline['logo.png'] = File.read(Rails.root.join('app/assets/images/logo.png'))
+    @user = user
+    mail(to: user.email, subject: 'Welcome to My Awesome Site')
 
   end
 
