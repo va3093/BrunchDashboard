@@ -5,7 +5,7 @@ class UserMailer < ApplicationMailer
     attachments.inline['logo.png'] = File.read(Rails.root.join('app/assets/images/logo.png'))
     base_url = url_for :controller => 'signup', :action => 'log_in_with_token'
     @url  =  "#{base_url}?email=#{user.email}&token=#{user.token}"
-    mail(to: @user.email, subject: 'Welcome to My Awesome Site')
+    mail(to: @user.email, subject: 'Brunch Dashboard: Login')
   end
 
    def monthlySignupReminder(user, events)
@@ -14,7 +14,7 @@ class UserMailer < ApplicationMailer
     @user = user
     @base_remove_url = url_for :controller => 'welcome', :action => 'remove_from_month'
     @add_url = url_for :controller => 'welcome', :action => 'sign_up_month'
-    mail(to: user.email, subject: 'Welcome to My Awesome Site')
+    mail(to: user.email, subject: 'Brunch Dashboard: Next Month')
     
 
   end
@@ -25,7 +25,7 @@ class UserMailer < ApplicationMailer
     @base_remove_url = url_for :controller => 'welcome', :action => 'remove_from_month'
 
     @user = user
-    mail(to: user.email, subject: 'Welcome to My Awesome Site')
+    mail(to: user.email, subject: 'Brunch Dashboard: Reminder')
 
   end
 
@@ -33,7 +33,14 @@ class UserMailer < ApplicationMailer
     attachments.inline['logo.png'] = File.read(Rails.root.join('app/assets/images/logo.png'))
     @user = user
     @leader = leader
-    mail(to: leader.email, subject: 'Welcome to My Awesome Site')
+    mail(to: leader.email, subject: 'Brunch Dashboard: #{user.first_name} has pulled out')
+
+  end
+
+  def welcomeEmail(user)
+    attachments.inline['logo.png'] = File.read(Rails.root.join('app/assets/images/logo.png'))
+    @user = user
+    mail(to: user.email, subject: 'Brunch Dashboard: Welcome')
 
   end
 
