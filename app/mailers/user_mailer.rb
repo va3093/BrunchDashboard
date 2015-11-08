@@ -2,6 +2,7 @@ class UserMailer < ApplicationMailer
 
   def loginUser(user)
     @user = user
+    attachments.inline['logo.png'] = File.read(Rails.root.join('app/assets/images/logo.png'))
     base_url = url_for :controller => 'signup', :action => 'log_in_with_token'
     @url  =  "#{base_url}?email=#{user.email}&token=#{user.token}"
     mail(to: @user.email, subject: 'Welcome to My Awesome Site')
