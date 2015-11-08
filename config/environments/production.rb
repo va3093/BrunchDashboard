@@ -88,5 +88,5 @@ Rails.application.configure do
           domain: MAILGUN_DOMAIN
   }
 
-  config.action_mailer.default_url_options = { :host => "kx-brunch-dashboard.herokuapp.com" }
+  config.action_mailer.default_url_options = { :host => "kx-brunch.volunteerdashboard.org" }
 end

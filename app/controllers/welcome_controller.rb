@@ -1,5 +1,10 @@
 class WelcomeController < ApplicationController
 	def index
+			users = User.all
+    events = 	Event.eventsForMonth(Time.now.month + 1, Time.now.year) 
+    users.each do |user|
+		UserMailer.monthlySignupReminder(user,events ).deliver
+    end
 		@monthToShowString = params[:month]
 		puts params
 		if user_signed_in?

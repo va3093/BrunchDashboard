@@ -11,6 +11,8 @@ class UserMailer < ApplicationMailer
     attachments.inline['logo.png'] = File.read(Rails.root.join('app/assets/images/logo.png'))
     @events =  events     
     @user = user
+    @base_remove_url = url_for :controller => 'welcome', :action => 'remove_from_month'
+    @add_url = url_for :controller => 'welcome', :action => 'sign_up_month'
     mail(to: user.email, subject: 'Welcome to My Awesome Site')
     
 
@@ -19,6 +21,8 @@ class UserMailer < ApplicationMailer
   def upComingEventReminder(event, user)
     @nextEvent = event
     attachments.inline['logo.png'] = File.read(Rails.root.join('app/assets/images/logo.png'))
+    @base_remove_url = url_for :controller => 'welcome', :action => 'remove_from_month'
+
     @user = user
     mail(to: user.email, subject: 'Welcome to My Awesome Site')
 
