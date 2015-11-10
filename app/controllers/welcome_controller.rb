@@ -1,4 +1,5 @@
 class WelcomeController < ApplicationController
+
 	def index
 		@monthToShowString = params[:month]
 		puts params
@@ -12,7 +13,7 @@ class WelcomeController < ApplicationController
 				@prevMonthYear = (monthInt == 1 ? (currentYear - 1).to_s : currentYear).to_s
 				@nextMonthYear = (monthInt == 12 ? (currentYear + 1).to_s : currentYear).to_s
 
-				 
+				 raise
 		else
 			redirect_to :controller => 'signup', :action => 'index'
 		end
@@ -43,6 +44,5 @@ class WelcomeController < ApplicationController
 
 		redirect_to :controller => 'welcome', :action => 'index', :month => event.date.strftime("%B")
 	end
-
 
 end

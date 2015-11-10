@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root "welcome#index"
-  #get "/signup", to: "signup#index" 
+  #The route below is to test the exception handler
+  get "/test_exception_notifier", to: "application#test_exception_notifier" 
   #get "/signup", to: "signup#index" 
 
   #post "/loginnew", to: "signup#log_in" 
