@@ -31,8 +31,13 @@ table, th, td {
 }
 
 body{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
 	display: flex;
-	flex-flow:column;
+	-webkit-flex-flow:column;
+	    -ms-flex-flow:column;
+	        flex-flow:column;
 }
 
 html, body { height: 100%; width: 100%; margin: 0; }
@@ -60,8 +65,14 @@ html, body { height: 100%; width: 100%; margin: 0; }
 
 	text-align     : center;
 	white-space    : nowrap;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
 	display: flex;
-	flex: 1 1 auto;
+	-webkit-box-flex: 1;
+	-webkit-flex: 1 1 auto;
+	    -ms-flex: 1 1 auto;
+	        flex: 1 1 auto;
 }
 
 .week_table_row {
@@ -105,20 +116,45 @@ html, body { height: 100%; width: 100%; margin: 0; }
 
 	text-align     : center;
 	white-space    : nowrap;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
 	display: flex;
-	align-items:flex-start;
-	flex: 1 1 auto;
-	justify-content:center;
+	-webkit-box-align:start;
+	-webkit-align-items:flex-start;
+	    -ms-flex-align:start;
+	        align-items:flex-start;
+	-webkit-box-flex: 1;
+	-webkit-flex: 1 1 auto;
+	    -ms-flex: 1 1 auto;
+	        flex: 1 1 auto;
+	-webkit-box-pack:center;
+	-webkit-justify-content:center;
+	    -ms-flex-pack:center;
+	        justify-content:center;
 
 }
 
 .sideButton {
 	height: 100%;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
 	display: flex;
-	flex-flow:column;
-	justify-content:center;
-	flex: 0 0 auto;
-	align-self:center;
+	-webkit-flex-flow:column;
+	    -ms-flex-flow:column;
+	        flex-flow:column;
+	-webkit-box-pack:center;
+	-webkit-justify-content:center;
+	    -ms-flex-pack:center;
+	        justify-content:center;
+	-webkit-box-flex: 0;
+	-webkit-flex: 0 0 auto;
+	    -ms-flex: 0 0 auto;
+	        flex: 0 0 auto;
+	-webkit-align-self:center;
+	    -ms-flex-item-align:center;
+	        align-self:center;
 }
 
 .sideButton a{
@@ -129,9 +165,17 @@ html, body { height: 100%; width: 100%; margin: 0; }
 	margin: 8px;
 	text-decoration: none;
 	color: black;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
 	display: flex;
-	justify-content:center;
-	flex-flow:column;
+	-webkit-box-pack:center;
+	-webkit-justify-content:center;
+	    -ms-flex-pack:center;
+	        justify-content:center;
+	-webkit-flex-flow:column;
+	    -ms-flex-flow:column;
+	        flex-flow:column;
 	border: 1px solid transparent;
 }
 
@@ -244,11 +288,14 @@ html, body { height: 100%; width: 100%; margin: 0; }
   	}
 
   	.events{
-  		flex-flow:column;
+  		-webkit-flex-flow:column;
+  		    -ms-flex-flow:column;
+  		        flex-flow:column;
   	}
 
   	.sideButton{
   		width:100%;
+      height:initial;
   	}
 
   	.sideButton a {
@@ -258,14 +305,21 @@ html, body { height: 100%; width: 100%; margin: 0; }
   	}
 
   	.eventWrapper{
-  		justify-content: flex-start;
-	    flex-flow: column;
+  		-webkit-box-pack: start;
+  		-webkit-justify-content: flex-start;
+  		    -ms-flex-pack: start;
+  		        justify-content: flex-start;
+	    -webkit-flex-flow: column;
+	        -ms-flex-flow: column;
+	            flex-flow: column;
 	    padding: 1em;
 	    padding-top: 0;
+      flex: 1 0 auto;
   	}
 
   	.eventWrapper .week{
   		width:100%;
+      flex: 1 0 auto;
 
   	}
 
