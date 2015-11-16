@@ -314,12 +314,18 @@ html, body { height: 100%; width: 100%; margin: 0; }
 	            flex-flow: column;
 	    padding: 1em;
 	    padding-top: 0;
-      flex: 1 0 auto;
+      -webkit-box-flex: 1;
+      -webkit-flex: 1 0 auto;
+          -ms-flex: 1 0 auto;
+              flex: 1 0 auto;
   	}
 
   	.eventWrapper .week{
   		width:100%;
-      flex: 1 0 auto;
+      -webkit-box-flex: 1;
+      -webkit-flex: 1 0 auto;
+          -ms-flex: 1 0 auto;
+              flex: 1 0 auto;
 
   	}
 
