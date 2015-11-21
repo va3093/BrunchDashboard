@@ -22,7 +22,7 @@ class WelcomeController < ApplicationController
 	def sign_up_month
 		user = User.find_by(token: params[:token])
 		@event 
-    	if !user.nil?
+    	if !user.nil? 
       		sign_in user
 			@event = Event.find_by_id(params[:event_id])
 			@event.users << user

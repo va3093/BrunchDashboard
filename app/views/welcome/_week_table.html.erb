@@ -8,7 +8,7 @@
     <% event.users.each do |user| %>
     <li >
         <% if user == current_user %>
-          <a class="user_name" href=<%="welcome/remove_from_month?event_id="+event.id.to_s%>>
+          <a class="user_name" href=<%="welcome/remove_from_month?event_id="+event.id.to_s+"&token="+current_user.token.to_s%>>
             <%= user.first_name %>
           </a>
         <%elsif user.role == "leader"%>
@@ -25,7 +25,7 @@
 
     <% if !event.users.include?(current_user) %>
     <li>
-          <%= link_to "+" + " " + current_user.first_name, {:controller => "welcome", :action => "sign_up_month", :event_id => event.id.to_s}, data: { disable_with:"<i class='fa fa-spinner fa-spin'></i> Adding"}, class: "signUpRowButton" %>
+          <%= link_to "+" + " " + current_user.first_name, {:controller => "welcome", :action => "sign_up_month", :event_id => event.id.to_s, :token => current_user.token.to_s}, data: { disable_with:"<i class='fa fa-spinner fa-spin'></i> Adding"}, class: "signUpRowButton" %>
 
     </li>
     <% end %>
