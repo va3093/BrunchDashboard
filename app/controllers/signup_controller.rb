@@ -18,8 +18,9 @@ class SignupController < ApplicationController
 
       end
   	end
-
-    @user.new_token!
+    if @user.token.nil? then
+      @user.new_token!
+    end 
     UserMailer.loginUser(@user).deliver_now
   end
 

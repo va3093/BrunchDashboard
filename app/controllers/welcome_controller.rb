@@ -20,29 +20,43 @@ class WelcomeController < ApplicationController
 	end
 
 	def sign_up_month
-		user = User.find_by_id(params[:userId]) || current_user
-		event = Event.find_by_id(params[:event_id])
-		event.users << user
+		user = User.find_by(token: params[:token])
+		@event 
+    	if !user.nil?
+      		sign_in user
+			@event = Event.find_by_id(params[:event_id])
+			@event.users << user
+			redirect_to :controller => 'welcome', :action => 'index', :month => @event.date.strftime("%B")
+		else
+			redirect_to :controller => 'signup', :action => 'index'
 
-		redirect_to :controller => 'welcome', :action => 'index', :month => event.date.strftime("%B")
+    	end
+		
+
 
 	end
 
 	def remove_from_month
-		user = User.find_by_id(params[:userId]) || current_user
-		event = Event.find_by_id(params[:event_id])
-		
-		if event.users.include?(user)
-			event.users.delete(user)
-			event.users.each do |tempUser|
-				if tempUser.role == "leader"
-					UserMailer.usersNotComingAlertMail(tempUser, user).deliver_now
-				end
-			end
-			
-		end
+		user = User.find_by(token: params[:token])
+		@event 
+    	if !user.nil?
+      		sign_in user
+			@event = Event.find_by_id(params[:event_id])
+			@event.users << user
 
-		redirect_to :controller => 'welcome', :action => 'index', :month => event.date.strftime("%B")
+			if @event.users.include?(user)
+				@event.users.delete(user)
+				@event.users.each do |tempUser|
+					if tempUser.role == "leader"
+						UserMailer.usersNotComingAlertMail(tempUser, user).deliver_now
+					end
+				end
+			
+			end
+			redirect_to :controller => 'welcome', :action => 'index', :month => @event.date.strftime("%B")
+		else
+			redirect_to :controller => 'signup', :action => 'index'
+    	end
 	end
 
 end
