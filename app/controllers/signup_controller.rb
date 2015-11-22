@@ -6,14 +6,25 @@ class SignupController < ApplicationController
 
   def log_in
   	email = params[:email]
-  	first_name = params[:first_name]
-
+    first_name = params[:first_name]
+  
     @user = User.find_by(email: email)
   	if @user.nil? then
       if first_name.nil? then
         return redirect_to :controller => 'signup', :action => 'new_user',  :email => email
       else
-        @user = User.create(first_name: first_name, email: email)
+
+        first_name_array = first_name.gsub(/\s+/m, ' ').strip.split(" ")
+        name = ""
+        last_name = ""
+        if first_name_array.count > 1 then
+          name = first_name_array[0] 
+          las_name = first_name_array[1]
+        else
+          name = first_name_array[0]
+        end
+
+        @user = User.create(first_name: name, last_name:last_name, email: email)
         UserMailer.welcomeEmail(@user).deliver_now
 
       end
