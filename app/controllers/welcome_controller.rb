@@ -59,4 +59,12 @@ class WelcomeController < ApplicationController
     	end
 	end
 
+	def get_more_volunteers
+		nextEvent = Event.where("date > ?", Date.today)[0]
+		usersToEmail = User.all() - nextEvent.users
+		usersToEmail.each do |user|
+			UserMailer.needVolunteersEmail(user, nextEvent).deliver_now
+		end
+	end
+
 end
