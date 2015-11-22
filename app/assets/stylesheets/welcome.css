@@ -278,9 +278,33 @@ html, body { height: 100%; width: 100%; margin: 0; }
   	}
   }
 
+  .mobile_month_toggle_down {
+  	display: none;
+  	margin: auto;
+  }
+
+  .mobile_month_toggle_up {
+  	display: none;
+  	margin: auto;
+  }
+
   @media screen and (max-width: 600px) {
   	.mobile{
   		display: block;
+  	}
+
+  	.mobile_month_toggle_down {
+  		display: block;
+  		margin: auto;
+  		padding: 0;
+  		padding-top: 0.1em;
+  	}
+
+  	.mobile_month_toggle_up {
+  		display: block;
+  		margin: auto;
+  		padding: 0;
+  		padding-bottom: 0.1em;
   	}
 
   	.desktop{
@@ -301,8 +325,9 @@ html, body { height: 100%; width: 100%; margin: 0; }
   	.sideButton a {
   		width: initial;
   		height:initial;
-  		padding: 1em;
-  	}
+  		padding: 0.5em;
+/*  		padding-bottom: 0.4em;
+*/  	}
 
   	.eventWrapper{
   		-webkit-box-pack: start;

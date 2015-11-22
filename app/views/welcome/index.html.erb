@@ -1,8 +1,8 @@
 <div class="events clearfix">
 	<div class="prevMonthButton sideButton">
 		<a href=<%="/?month=#{@prevMonth}&year=#{@prevMonthYear}"%>>
-		<%= @prevMonth %>
-
+			<%= image_tag('up_arrow.svg', class: "BrunchLogo mobile_month_toggle_up", height: "14", width: "20" ) %>
+			<%= @prevMonth %>
 			<%= image_tag('Back.svg', class: "BrunchLogo desktop", height: "40", width: "40" ) %>
 
 		</a>
@@ -18,7 +18,9 @@
 
 	<div class="nextMonthButton sideButton">
 		<a href=<%="/?month=#{@nextMonth}&year=#{@nextMonthYear}"%>>
+
 			<%= @nextMonth %>
+			<%= image_tag('down_arrow.svg', class: "BrunchLogo mobile_month_toggle_down", height: "14", width: "20" ) %>
 			<%= image_tag('forward.svg', class: "BrunchLogo desktop", height: "40", width: "40" ) %>
 
 		</a>
