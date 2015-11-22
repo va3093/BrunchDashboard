@@ -16,7 +16,7 @@
   <header class="NavBar">
     <div class="WelcomeText">
       <% if user_signed_in?  %>
-        Welcome, <%= current_user.first_name %>
+        <span class="desktop">Welcome, <%= current_user.first_name %></span>
         <%= link_to('Logout', destroy_user_session_path, :method => :delete, :class => "LogoutButton") %>
       <% end %>
     </div>
