@@ -48,7 +48,7 @@ class WelcomeController < ApplicationController
 				@event.users.delete(user)
 				@event.users.each do |tempUser|
 					if tempUser.role == "leader"
-						UserMailer.usersNotComingAlertMail(tempUser, user).deliver_now
+						UserMailer.usersNotComingAlertMail(tempUser, user, @event).deliver_now
 					end
 				end
 			
