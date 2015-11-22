@@ -2,7 +2,7 @@
 
 <div class="week" summary="Users for week">
   <div class="date">
-        <%= event.date.day.to_s + " " + event.date.strftime("%B") %>
+        <%= event.date.day.to_s + " " + event.date.strftime("%B") + (event.status == "Cancelled" ? " (Cancelled)" : "") %>
   </div>
   <ul>
     <% event.users.each do |user| %>
