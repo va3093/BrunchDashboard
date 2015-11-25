@@ -1,3 +1,5 @@
+require 'csv' 
+
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -20,5 +22,23 @@ class User < ActiveRecord::Base
     	update_attributes token: random_token
   		Rails.logger.info("Set new token for user #{ id }")
   	end
+  end
+
+  def self.importFromCSV(path) 
+      CSV.foreach(File.join(File.dirname(__FILE__), path)) do |row|
+        if User.find_by(email: row[2]).nil? then
+          user = User.create({
+          :first_name => row[0],
+          :last_name => row[1],
+          :email => row[2],
+          }
+        )
+      user.new_token!
+      user.save()
+      puts user
+        else
+          puts "User already exists"
+        end
+    end
   end
 end
