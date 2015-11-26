@@ -30,11 +30,11 @@ class UserMailer < ApplicationMailer
   end
 
   def usersNotComingAlertMail(leader,user,event)
-    attachments.inline['logo.png'] = File.read(Rails.root.join('app/assets/images/logo.png'))
-    @user = user
-    @leader = leader
-    @event = event
-    mail(to: leader.email, bcc: ["va3093@gmail.com"], subject: "Brunch Dashboard: #{@user.first_name} has pulled out")
+    # attachments.inline['logo.png'] = File.read(Rails.root.join('app/assets/images/logo.png'))
+    # @user = user
+    # @leader = leader
+    # @event = event
+    # mail(to: leader.email, bcc: ["va3093@gmail.com"], subject: "Brunch Dashboard: #{@user.first_name} has pulled out")
 
   end
 
