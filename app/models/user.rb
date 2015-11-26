@@ -51,7 +51,7 @@ class User < ActiveRecord::Base
   def self.sendMonthlyReminderEmailToAllUsers() 
     events =  Event.eventsForMonth(Time.now.month + 1, Time.now.year) 
     User.all().each do |user|
-      UserMailer.monthlySignupReminder(user,events).deliver_now
+      UserMailer.monthlySignupReminder(user,events).deliver
     end
   end
 end
