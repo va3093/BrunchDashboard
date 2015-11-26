@@ -41,4 +41,17 @@ class User < ActiveRecord::Base
         end
     end
   end
+
+  def self.sendWelcomeEmailToAllUsers() 
+    User.all().each do |user|
+      UserMailer.welcomeEmail(user).deliver_now
+    end
+  end
+
+  def self.sendMonthlyReminderEmailToAllUsers() 
+    events =  Event.eventsForMonth(Time.now.month + 1, Time.now.year) 
+    User.all().each do |user|
+      UserMailer.monthlySignupReminder(user,events).deliver_now
+    end
+  end
 end
