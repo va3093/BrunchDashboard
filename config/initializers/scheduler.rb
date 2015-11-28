@@ -12,23 +12,9 @@ scheduler = Rufus::Scheduler.new
 # end
 
 scheduler.cron('00 12 * * THU') do
-	nextEvent = Event.where("date > ?", Date.today)[0]
-	nextEvent.users.each do |user|
-		UserMailer.upComingEventReminder(nextEvent,user).deliver
-	end
+	Event.remindUsersAboutUpcommingEvent()
 end
 
 scheduler.cron('00 12 * * THU') do
-	nextEvent = Event.where("date > ?", Date.today)[0]
-	leaders = []
-	if nextEvent.users.count < 8 then
-		nextEvent.users.each do |user|
-			if user.role == "leader"
-				leaders << user
-			end
-		end
-		leaders.each do |leader|
-			UserMailer.permissionToGetMoreVolunteers(leader, nextEvent.users.count).deliver
-		end
-	end
+	Event.getPermissionToGetMoreVolunteers()
 end

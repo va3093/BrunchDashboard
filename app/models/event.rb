@@ -46,4 +46,32 @@ class Event < ActiveRecord::Base
 	  new_date = date + delta
 	  return Event.where("date = ?", new_date.beginning_of_day.to_s())
 	end
+
+	def self.remindUsersAboutUpcommingEvent
+		events = Event.event_of_next_sunday()
+		if events.count > 0 
+			nextEvent = events[0]
+			nextEvent.users.each do |user|
+				UserMailer.upComingEventReminder(nextEvent,user).deliver
+			end
+		end
+	end
+
+	def self.getPermissionToGetMoreVolunteers() 
+		events = Event.event_of_next_sunday()
+		leaders = []
+		if events.count > 0 
+			nextEvent = events[0]
+			if nextEvent.users.count < 8 then
+				nextEvent.users.each do |user|
+					if user.role == "leader"
+						leaders << user
+					end
+				end
+				leaders.each do |leader|
+					UserMailer.permissionToGetMoreVolunteers(leader, nextEvent.users.count).deliver
+				end
+			end
+		end
+	end
 end
