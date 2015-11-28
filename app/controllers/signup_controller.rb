@@ -8,7 +8,7 @@ class SignupController < ApplicationController
   	email = params[:email]
     first_name = params[:first_name]
   
-    @user = User.find_by(email: email)
+    @user = User.find_by(email: email) || User.find_by(email: email.downcase)
   	if @user.nil? then
       if first_name.nil? then
         return redirect_to :controller => 'signup', :action => 'new_user',  :email => email
