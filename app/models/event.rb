@@ -39,4 +39,11 @@ class Event < ActiveRecord::Base
 	  end
 
 	end
+
+	def self.event_of_next_sunday()
+	  date  = Date.parse("Sunday")
+	  delta = date > Date.today ? 0 : 7
+	  new_date = date + delta
+	  return Event.where("date = ?", new_date.beginning_of_day.to_s())
+	end
 end
