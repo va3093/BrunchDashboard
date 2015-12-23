@@ -31,6 +31,7 @@ class SignupController < ApplicationController
   	end
     if @user.token.nil? then
       @user.new_token!
+      cookies.permanent[:token] = @user.token
     end 
     UserMailer.loginUser(@user).deliver_now
   end
@@ -46,9 +47,11 @@ class SignupController < ApplicationController
   def log_in_with_token
     email = params[:email]
     token = params[:token]
+    cookies.permanent[:token] = token
 
     @user = User.find_by(email: email, token: token)
     if !@user.nil?
+      @user.remember_me = true
       sign_in @user
       redirect_to :controller => 'welcome', :action => 'index'
     else
