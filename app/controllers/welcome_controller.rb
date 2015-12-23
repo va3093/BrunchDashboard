@@ -3,7 +3,11 @@ class WelcomeController < ApplicationController
 	def index
 		@monthToShowString = params[:month]
 		puts params
-		if user_signed_in?
+		user = @current_user || User.find_by(token: cookies[:token])
+		if user != nil
+			if !user_signed_in? then
+				sign_in user
+			end
 			@monthToShowString = params[:month] || Date::MONTHNAMES[Time.now.month]
 				monthInt = Date::MONTHNAMES.index(@monthToShowString)
 				@currentYear = (params[:year] || Time.now.year).to_i
