@@ -29,7 +29,9 @@ class WelcomeController < ApplicationController
     	if !user.nil? 
       		sign_in user
 			@event = Event.find_by_id(params[:event_id])
-			@event.users << user
+			if !@event.users.include? user then 
+				@event.users << user
+			end
 			redirect_to :controller => 'welcome', :action => 'index', :month => @event.date.strftime("%B"), :year => params[:year]
 		else
 			redirect_to :controller => 'signup', :action => 'index'
