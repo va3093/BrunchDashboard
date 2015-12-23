@@ -6,12 +6,12 @@ class WelcomeController < ApplicationController
 		if user_signed_in?
 			@monthToShowString = params[:month] || Date::MONTHNAMES[Time.now.month]
 				monthInt = Date::MONTHNAMES.index(@monthToShowString)
-				currentYear = (params[:year] || Time.now.year).to_i
-				@events = Event.eventsForMonth(monthInt, currentYear)
+				@currentYear = (params[:year] || Time.now.year).to_i
+				@events = Event.eventsForMonth(monthInt, @currentYear)
 				@prevMonth = Date::MONTHNAMES[(monthInt - 1)%13] || "December"
 				@nextMonth = Date::MONTHNAMES[(monthInt + 1)%13] || "January"
-				@prevMonthYear = (monthInt == 1 ? (currentYear - 1).to_s : currentYear).to_s
-				@nextMonthYear = (monthInt == 12 ? (currentYear + 1).to_s : currentYear).to_s
+				@prevMonthYear = (monthInt == 1 ? (@currentYear - 1).to_s : @currentYear).to_s
+				@nextMonthYear = (monthInt == 12 ? (@currentYear + 1).to_s : @currentYear).to_s
 
 				 
 		else
@@ -26,7 +26,7 @@ class WelcomeController < ApplicationController
       		sign_in user
 			@event = Event.find_by_id(params[:event_id])
 			@event.users << user
-			redirect_to :controller => 'welcome', :action => 'index', :month => @event.date.strftime("%B")
+			redirect_to :controller => 'welcome', :action => 'index', :month => @event.date.strftime("%B"), :year => params[:year]
 		else
 			redirect_to :controller => 'signup', :action => 'index'
 
@@ -53,7 +53,7 @@ class WelcomeController < ApplicationController
 				end
 			
 			end
-			redirect_to :controller => 'welcome', :action => 'index', :month => @event.date.strftime("%B")
+			redirect_to :controller => 'welcome', :action => 'index', :month => @event.date.strftime("%B"), :year => params[:year]
 		else
 			redirect_to :controller => 'signup', :action => 'index'
     	end
