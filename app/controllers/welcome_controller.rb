@@ -2,7 +2,7 @@ require "pry"
 class WelcomeController < ApplicationController
 	
 	def self.max_number_of_volunteers
-		return 4
+		return 11
 	end
 
 	def index
@@ -77,12 +77,16 @@ class WelcomeController < ApplicationController
 	end
 
 	def update_event_states(events)
-		events.each do |event| 
-			if event.users.count > WelcomeController.max_number_of_volunteers() then
-				event.status = "full"
-			else
-				event.status = "open"
+		events.each do |event|
+			if event.status != 'cancelled' then
+				if event.users.count > WelcomeController.max_number_of_volunteers() then
+					event.status = "full"
+				else
+					event.status = "open"
+					
+				end
 			end
+			event.save
 		end
 	end
 
