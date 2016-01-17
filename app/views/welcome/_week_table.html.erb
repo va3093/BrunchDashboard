@@ -2,7 +2,7 @@
 
 <div class="week" summary="Users for week">
   <div class="date">
-        <%= event.date.day.to_s + " " + event.date.strftime("%B") + (event.status == "cancelled" ? " (Cancelled)" : "") %>
+        <%= event.date.day.to_s + " " + event.date.strftime("%B") + (event.status == "cancelled" ? " (Cancelled)" : "") + (event.status == "full" ? " (Full)" : "") %>
   </div>
   <ul>
     <% event.users.each do |user| %>
@@ -23,7 +23,7 @@
 
     <% end %>
 
-    <% if !event.users.include?(current_user) %>
+    <% if !event.users.include?(current_user) && event.status != "cancelled" && event.status != "full" %>
     <li>
           <%= link_to "+" + " " + current_user.first_name, {:controller => "welcome", :action => "sign_up_month", :event_id => event.id.to_s, year: @currentYear, :token => current_user.token.to_s}, data: { disable_with:"<i class='fa fa-spinner fa-spin'></i> Adding"}, class: "signUpRowButton" %>
 

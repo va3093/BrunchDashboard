@@ -1,4 +1,9 @@
+require "pry"
 class WelcomeController < ApplicationController
+	
+	def self.max_number_of_volunteers
+		return 4
+	end
 
 	def index
 		@monthToShowString = params[:month]
@@ -8,6 +13,7 @@ class WelcomeController < ApplicationController
 				monthInt = Date::MONTHNAMES.index(@monthToShowString)
 				@currentYear = (params[:year] || Time.now.year).to_i
 				@events = Event.eventsForMonth(monthInt, @currentYear)
+				update_event_states(@events)
 				@prevMonth = Date::MONTHNAMES[(monthInt - 1)%13] || "December"
 				@nextMonth = Date::MONTHNAMES[(monthInt + 1)%13] || "January"
 				@prevMonthYear = (monthInt == 1 ? (@currentYear - 1).to_s : @currentYear).to_s
@@ -26,6 +32,8 @@ class WelcomeController < ApplicationController
       		sign_in user
 			@event = Event.find_by_id(params[:event_id])
 			@event.users << user
+			update_event_states([@event])
+			@event.save
 			redirect_to :controller => 'welcome', :action => 'index', :month => @event.date.strftime("%B"), :year => params[:year]
 		else
 			redirect_to :controller => 'signup', :action => 'index'
@@ -53,6 +61,7 @@ class WelcomeController < ApplicationController
 				end
 			
 			end
+			update_event_states([@event])
 			redirect_to :controller => 'welcome', :action => 'index', :month => @event.date.strftime("%B"), :year => params[:year]
 		else
 			redirect_to :controller => 'signup', :action => 'index'
@@ -64,6 +73,16 @@ class WelcomeController < ApplicationController
 		usersToEmail = User.all() - nextEvent.users
 		usersToEmail.each do |user|
 			UserMailer.needVolunteersEmail(user, nextEvent).deliver_now
+		end
+	end
+
+	def update_event_states(events)
+		events.each do |event| 
+			if event.users.count > WelcomeController.max_number_of_volunteers() then
+				event.status = "full"
+			else
+				event.status = "open"
+			end
 		end
 	end
 
