@@ -35,13 +35,13 @@ class WelcomeController < ApplicationController
     	if !user.nil?
       		sign_in user
 			@event = Event.find_by_id(params[:event_id])
+			update_event_states([@event])
 			if @event.status == "full" then
     			redirect_to :controller => 'general_message', :action => 'message', :message => 'Hmmm. It seems the month you are trying to sign up to has fulled up. Tap the "Continue" button to go to the home page and try another date'
     		else
 				if !@event.users.include? user then
 					@event.users << user
 				end
-				update_event_states([@event])
 				@event.save
 				redirect_to :controller => 'welcome', :action => 'index', :month => @event.date.strftime("%B"), :year => params[:year]
     		end 
