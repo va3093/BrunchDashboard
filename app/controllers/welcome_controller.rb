@@ -2,7 +2,7 @@ require "pry"
 class WelcomeController < ApplicationController
 	
 	def self.max_number_of_volunteers
-		return 11
+		return 10
 	end
 
 	def index
@@ -28,13 +28,17 @@ class WelcomeController < ApplicationController
 	def sign_up_month
 		user = User.find_by(token: params[:token])
 		@event 
-    	if !user.nil? 
+    	if !user.nil?
       		sign_in user
 			@event = Event.find_by_id(params[:event_id])
-			@event.users << user
-			update_event_states([@event])
-			@event.save
-			redirect_to :controller => 'welcome', :action => 'index', :month => @event.date.strftime("%B"), :year => params[:year]
+			if @event.status == "open" then
+    			redirect_to :controller => 'general_message', :action => 'message', :message => 'Hmmm. It seems the month you are trying to sign up to has fulled up. Tap the "Continue" button to go to the home page and try another date'
+    		else
+    			@event.users << user
+				update_event_states([@event])
+				@event.save
+				redirect_to :controller => 'welcome', :action => 'index', :month => @event.date.strftime("%B"), :year => params[:year]
+    		end 
 		else
 			redirect_to :controller => 'signup', :action => 'index'
 
