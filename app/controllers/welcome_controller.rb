@@ -89,7 +89,7 @@ class WelcomeController < ApplicationController
 	def update_event_states(events)
 		events.each do |event|
 			if event.status != 'cancelled' then
-				if event.users.count > WelcomeController.max_number_of_volunteers() then
+				if event.users.count >= WelcomeController.max_number_of_volunteers() then
 					event.status = "full"
 				else
 					event.status = "open"
