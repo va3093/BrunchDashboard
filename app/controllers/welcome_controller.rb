@@ -2,7 +2,7 @@ require "pry"
 class WelcomeController < ApplicationController
 	
 	def self.max_number_of_volunteers
-		return 10
+		return 1
 	end
 
 	def index
@@ -31,7 +31,7 @@ class WelcomeController < ApplicationController
     	if !user.nil?
       		sign_in user
 			@event = Event.find_by_id(params[:event_id])
-			if @event.status == "open" then
+			if @event.status == "full" then
     			redirect_to :controller => 'general_message', :action => 'message', :message => 'Hmmm. It seems the month you are trying to sign up to has fulled up. Tap the "Continue" button to go to the home page and try another date'
     		else
     			@event.users << user
