@@ -2,7 +2,7 @@ require "pry"
 class WelcomeController < ApplicationController
 	
 	def self.max_number_of_volunteers
-		return 1
+		return 10
 	end
 
 	def index
@@ -13,7 +13,7 @@ class WelcomeController < ApplicationController
 			if !user_signed_in? then
 				sign_in user
 			end
-			@monthToShowString = params[:month] || Date::MONTHNAMES[Time.now.month]
+				@monthToShowString = params[:month] || Date::MONTHNAMES[Time.now.month]
 				monthInt = Date::MONTHNAMES.index(@monthToShowString)
 				@currentYear = (params[:year] || Time.now.year).to_i
 				@events = Event.eventsForMonth(monthInt, @currentYear)
@@ -41,7 +41,6 @@ class WelcomeController < ApplicationController
 				if !@event.users.include? user then
 					@event.users << user
 				end
-				redirect_to :controller => 'welcome', :action => 'index', :month => @event.date.strftime("%B"), :year => params[:year]
 				update_event_states([@event])
 				@event.save
 				redirect_to :controller => 'welcome', :action => 'index', :month => @event.date.strftime("%B"), :year => params[:year]
