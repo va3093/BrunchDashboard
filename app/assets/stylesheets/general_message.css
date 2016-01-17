@@ -1,0 +1,27 @@
+
+
+.GeneralMessageBox {
+	background-color: #EEEEEE;
+	width: 300px;
+	margin: 10px auto;
+	overflow:auto;	
+	padding: 10px;
+    border-radius: 3px;
+
+}
+
+.continueButton {
+	background-color: #EEEEEE;
+	width: 300px;
+	margin: 0px auto;
+	padding: 10px;
+    border-radius: 3px;
+
+}
+
+.link {
+	display: block;
+	text-align: center;
+	text-decoration: initial;
+    color: #78AD68;
+}

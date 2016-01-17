@@ -1,4 +1,9 @@
+require "pry"
 class WelcomeController < ApplicationController
+	
+	def self.max_number_of_volunteers
+		return 10
+	end
 
 	def index
 		@monthToShowString = params[:month]
@@ -8,10 +13,11 @@ class WelcomeController < ApplicationController
 			if !user_signed_in? then
 				sign_in user
 			end
-			@monthToShowString = params[:month] || Date::MONTHNAMES[Time.now.month]
+				@monthToShowString = params[:month] || Date::MONTHNAMES[Time.now.month]
 				monthInt = Date::MONTHNAMES.index(@monthToShowString)
 				@currentYear = (params[:year] || Time.now.year).to_i
 				@events = Event.eventsForMonth(monthInt, @currentYear)
+				update_event_states(@events)
 				@prevMonth = Date::MONTHNAMES[(monthInt - 1)%13] || "December"
 				@nextMonth = Date::MONTHNAMES[(monthInt + 1)%13] || "January"
 				@prevMonthYear = (monthInt == 1 ? (@currentYear - 1).to_s : @currentYear).to_s
@@ -26,13 +32,19 @@ class WelcomeController < ApplicationController
 	def sign_up_month
 		user = User.find_by(token: params[:token])
 		@event 
-    	if !user.nil? 
+    	if !user.nil?
       		sign_in user
 			@event = Event.find_by_id(params[:event_id])
-			if !@event.users.include? user then 
-				@event.users << user
-			end
-			redirect_to :controller => 'welcome', :action => 'index', :month => @event.date.strftime("%B"), :year => params[:year]
+			if @event.status == "full" then
+    			redirect_to :controller => 'general_message', :action => 'message', :message => 'Hmmm. It seems the month you are trying to sign up to has fulled up. Tap the "Continue" button to go to the home page and try another date'
+    		else
+				if !@event.users.include? user then
+					@event.users << user
+				end
+				update_event_states([@event])
+				@event.save
+				redirect_to :controller => 'welcome', :action => 'index', :month => @event.date.strftime("%B"), :year => params[:year]
+    		end 
 		else
 			redirect_to :controller => 'signup', :action => 'index'
 
@@ -59,6 +71,7 @@ class WelcomeController < ApplicationController
 				end
 			
 			end
+			update_event_states([@event])
 			redirect_to :controller => 'welcome', :action => 'index', :month => @event.date.strftime("%B"), :year => params[:year]
 		else
 			redirect_to :controller => 'signup', :action => 'index'
@@ -70,6 +83,20 @@ class WelcomeController < ApplicationController
 		usersToEmail = User.all() - nextEvent.users
 		usersToEmail.each do |user|
 			UserMailer.needVolunteersEmail(user, nextEvent).deliver_now
+		end
+	end
+
+	def update_event_states(events)
+		events.each do |event|
+			if event.status != 'cancelled' then
+				if event.users.count > WelcomeController.max_number_of_volunteers() then
+					event.status = "full"
+				else
+					event.status = "open"
+					
+				end
+			end
+			event.save
 		end
 	end
 
