@@ -1,0 +1,2 @@
+module GeneralMessageHelper
+end

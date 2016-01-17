@@ -6,4 +6,9 @@ class ApplicationController < ActionController::Base
   def test_exception_notifier
     raise 'This is a test. This is only a test.'
   end
+
+  def after_sign_out_path_for(resource_or_scope)
+  	cookies.permanent[:token] = ""
+    root_path
+  end
 end
