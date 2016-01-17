@@ -8,7 +8,11 @@ class WelcomeController < ApplicationController
 	def index
 		@monthToShowString = params[:month]
 		puts params
-		if user_signed_in?
+		user = @current_user || User.find_by(token: cookies[:token])
+		if user != nil
+			if !user_signed_in? then
+				sign_in user
+			end
 			@monthToShowString = params[:month] || Date::MONTHNAMES[Time.now.month]
 				monthInt = Date::MONTHNAMES.index(@monthToShowString)
 				@currentYear = (params[:year] || Time.now.year).to_i
@@ -34,7 +38,10 @@ class WelcomeController < ApplicationController
 			if @event.status == "full" then
     			redirect_to :controller => 'general_message', :action => 'message', :message => 'Hmmm. It seems the month you are trying to sign up to has fulled up. Tap the "Continue" button to go to the home page and try another date'
     		else
-    			@event.users << user
+				if !@event.users.include? user then
+					@event.users << user
+				end
+				redirect_to :controller => 'welcome', :action => 'index', :month => @event.date.strftime("%B"), :year => params[:year]
 				update_event_states([@event])
 				@event.save
 				redirect_to :controller => 'welcome', :action => 'index', :month => @event.date.strftime("%B"), :year => params[:year]
