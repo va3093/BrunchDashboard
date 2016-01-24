@@ -1,6 +1,9 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  config.max_number_of_volunteers = 10
+  config.min_number_of_volunteers = 8
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 

@@ -2,7 +2,7 @@ require "pry"
 class WelcomeController < ApplicationController
 	
 	def self.max_number_of_volunteers
-		return 10
+		return Rails.application.config.max_number_of_volunteers
 	end
 
 	def index
@@ -79,7 +79,8 @@ class WelcomeController < ApplicationController
 	end
 
 	def get_more_volunteers
-		nextEvent = Event.where("date > ?", Date.today)[0]
+		nextEvent = Event.find(params[:event_id])
+		binding.pry
 		usersToEmail = User.all() - nextEvent.users
 		usersToEmail.each do |user|
 			UserMailer.needVolunteersEmail(user, nextEvent).deliver_now

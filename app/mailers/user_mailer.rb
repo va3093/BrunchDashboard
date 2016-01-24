@@ -56,20 +56,20 @@ class UserMailer < ApplicationMailer
 
   end
 
-  def permissionToGetMoreVolunteers(leader, count)
-    # attachments.inline['logo.png'] = File.read(Rails.root.join('app/assets/images/logo.png'))
-    # @leader = leader
-    # @count = count
-    # @get_more_volunteers_email_url = url_for :controller => 'welcome', :action => 'get_more_volunteers'
-    # mail(to: leader.email, bcc: ["va3093@gmail.com"], subject: 'Brunch Dashboard: Should I get more volunteers')
+  def permissionToGetMoreVolunteers(leader, event)
+    attachments.inline['logo.png'] = File.read(Rails.root.join('app/assets/images/logo.png'))
+    @leader = leader
+    @count = event.users.count
+    @get_more_volunteers_email_url = url_for :controller => 'welcome', :action => 'get_more_volunteers', :event_id => event.id
+    mail(to: leader.email, bcc: ["va3093@gmail.com"], subject: 'Brunch Dashboard: Should I get more volunteers')
   end
 
   def needVolunteersEmail(user, event)
-    # attachments.inline['logo.png'] = File.read(Rails.root.join('app/assets/images/logo.png'))
-    # @user = user
-    # @event = event
-    # @add_url = url_for :controller => 'welcome', :action => 'sign_up_month'    
-    # mail(to: user.email, bcc: ["va3093@gmail.com"], subject: 'Brunch Dashboard: Need some help this weekend')
+    attachments.inline['logo.png'] = File.read(Rails.root.join('app/assets/images/logo.png'))
+    @user = user
+    @event = event
+    @add_url = url_for :controller => 'welcome', :action => 'sign_up_month'    
+    mail(to: user.email, bcc: ["va3093@gmail.com"], subject: 'Brunch Dashboard: Need some help this weekend')
 
   end
 
