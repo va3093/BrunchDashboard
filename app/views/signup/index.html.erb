@@ -10,7 +10,7 @@
   	  <% if @is_new_user  %>
 	  	  <br/>
 		    <p> This seems to be your first time logging in. Please provide your name here </p>
-		    <%= text_field_tag(:first_name, @first_name,  placeholder:"first name", class: "signUpForm") %>
+		    <%= text_field_tag(:first_name, @first_name,  placeholder:"full name", class: "signUpForm") %>
   	  <% end %>
       <%= button_tag @signUpButton, class: 'submitButton', data: {disable_with:"<i class='fa fa-spinner fa-spin'></i> Signing in..."} %>
 		<% end %>
