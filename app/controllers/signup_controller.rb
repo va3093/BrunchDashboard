@@ -1,3 +1,5 @@
+require 'pry'
+
 class SignupController < ApplicationController
   def index
   	@signUpButton = "Log in"
@@ -19,7 +21,7 @@ class SignupController < ApplicationController
         last_name = ""
         if first_name_array.count > 1 then
           name = first_name_array[0] 
-          las_name = first_name_array[1]
+          last_name = first_name_array[1..(first_name_array.count - 1)].join(" ") 
         else
           name = first_name_array[0]
         end

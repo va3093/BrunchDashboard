@@ -62,14 +62,14 @@ class Event < ActiveRecord::Base
 		leaders = []
 		if events.count > 0 
 			nextEvent = events[0]
-			if nextEvent.users.count < 8 then
+			if nextEvent.users.count < Rails.application.config.min_number_of_volunteers then
 				nextEvent.users.each do |user|
 					if user.role == "leader"
 						leaders << user
 					end
 				end
 				leaders.each do |leader|
-					UserMailer.permissionToGetMoreVolunteers(leader, nextEvent.users.count).deliver
+					UserMailer.permissionToGetMoreVolunteers(leader, nextEvent).deliver
 				end
 			end
 		end

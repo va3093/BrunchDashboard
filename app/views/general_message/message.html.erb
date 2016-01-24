@@ -6,5 +6,5 @@
 </div>
 
 <div class="continueButton">
-	<%=link_to "Continue", {:controller => @redirect_controller, :action => @redirect_action	}, data: { disable_with:"<i class='fa fa-spinner fa-spin'></i> Loading"}, class: "link" %>
+	<%=link_to @redirect_button_text, {:controller => @redirect_controller, :action => @redirect_action, :params => @redirect_params}, data: { disable_with:"<i class='fa fa-spinner fa-spin'></i> Loading"}, class: "link" %>
 </div>

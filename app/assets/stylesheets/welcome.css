@@ -222,6 +222,7 @@ html, body { height: 100%; width: 100%; margin: 0; }
     display: block;
     padding: 0.5em;
     box-sizing:border-box;
+    
   }
 
   .signUpRowButton{
