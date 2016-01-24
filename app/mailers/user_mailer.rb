@@ -60,7 +60,7 @@ class UserMailer < ApplicationMailer
     attachments.inline['logo.png'] = File.read(Rails.root.join('app/assets/images/logo.png'))
     @leader = leader
     @count = event.users.count
-    @get_more_volunteers_email_url = url_for :controller => 'welcome', :action => 'get_more_volunteers', :event_id => event.id
+    @get_more_volunteers_email_url = url_for :controller => 'general_message', :action => 'message', :redirect_controller => 'welcome', :redirect_action => 'get_more_volunteers', :redirect_params => {:event_id => event.id, :token => leader.token}, :redirect_button_text => "Send the emails", :message => "Are you sure you want to send an email asking for more help. This will email all #{User.all.count} brunch volunteers asking for a few more signups for this week. Before you send this make sure that another leader has not already told me to send these emails."
     mail(to: leader.email, bcc: ["va3093@gmail.com"], subject: 'Brunch Dashboard: Should I get more volunteers')
   end
 
@@ -70,7 +70,6 @@ class UserMailer < ApplicationMailer
     @event = event
     @add_url = url_for :controller => 'welcome', :action => 'sign_up_month'    
     mail(to: user.email, bcc: ["va3093@gmail.com"], subject: 'Brunch Dashboard: Need some help this weekend')
-
   end
 
 end

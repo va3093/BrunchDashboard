@@ -79,12 +79,18 @@ class WelcomeController < ApplicationController
 	end
 
 	def get_more_volunteers
-		nextEvent = Event.find(params[:event_id])
-		binding.pry
-		usersToEmail = User.all() - nextEvent.users
-		usersToEmail.each do |user|
-			UserMailer.needVolunteersEmail(user, nextEvent).deliver_now
+		user = User.find_by(token: params[:token])
+		if !user.nil? && user.role == "leader" then
+			nextEvent = Event.find(params[:event_id])
+			usersToEmail = User.all() - nextEvent.users
+			usersToEmail.each do |user|
+				UserMailer.needVolunteersEmail(user, nextEvent).deliver_now
+			end
+
+		else
+			redirect_to :controller => 'general_message', :action => 'message', :message => 'There seems to have been a problem authenticating your account. Please contact the maintainer of this site for assistance. Tap continue to go to the home screen'
 		end
+		
 	end
 
 	def update_event_states(events)
