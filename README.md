@@ -4,7 +4,7 @@ The Brunch dashboard is a simple volunteer dashboard built for the "Kings Cross 
 
 The brunch dashboard is a tool to take some of the admin load off of the leaders of the brunch so that they can focus on doing what they do best, which is serving the community.
 
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Brunch dashboard")
+![alt text](https://github.com/va3093/BrunchDashboard/blob/master/Readme_assets/screenshot1.png "Brunch dashboard")
 
 
 # Current features
