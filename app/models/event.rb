@@ -12,7 +12,7 @@ class Event < ActiveRecord::Base
 
 	def self.eventsForMonth(month, year)
 		events = []
-		for i in 1	..5
+		for i in 0 ..5
 			eventDate = Event.date_for_nth_sunday(i,month,year)
 			if eventDate
 				event = Event.find_or_create_by(date: eventDate)
@@ -32,7 +32,7 @@ class Event < ActiveRecord::Base
 	  date = Date.new year, month, 1
 	  #subtract number of days we are ahead of sunday
 	  date += ((7 * n) - date.wday)
-	  if n > 1 && date.day < 7
+	  if n > 1 && date.day < 7 || date.month != month
 	  	return
 	  else
 	  	date
