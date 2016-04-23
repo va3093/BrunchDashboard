@@ -27,7 +27,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 ## We use activeadmin at master because the latest released version doesn't
 ## yet support Rails 4.x: http://stackoverflow.com/questions/26044264/activeadmin-bundle-error
 gem 'activeadmin', github: 'activeadmin'
-gem 'devise'
+gem 'devise' '~> 3.5.2'
 gem 'cancan' # or cancancan
 gem 'draper'
 gem 'pundit'
