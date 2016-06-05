@@ -74,4 +74,8 @@ class Event < ActiveRecord::Base
 			end
 		end
 	end
+
+	def checkEventVolunteerState()
+
+	end
 end

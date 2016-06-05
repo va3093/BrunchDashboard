@@ -18,3 +18,7 @@ end
 scheduler.cron('00 12 * * TUE') do
 	Event.getPermissionToGetMoreVolunteers()
 end
+
+scheduler.cron('00 12 * * 3-6') do
+	Event.checkEventVolunteerState()
+end
