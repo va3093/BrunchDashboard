@@ -278,7 +278,7 @@ DEPENDENCIES
   byebug
   cancan
   coffee-rails (~> 4.1.0)
-  devise
+  devise (~> 3.5.2)
   draper
   exception_notification
   jbuilder (~> 2.0)

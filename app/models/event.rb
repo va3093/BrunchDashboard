@@ -3,6 +3,7 @@ class Event < ActiveRecord::Base
 	has_many :users, through: :assignments
 
 	validates :date, presence: true
+	validates :last_checked_volunteer_count, presence: true
 	#validates :number_of_volunteers, presence: true
 
 	def remaining_spaces?
@@ -75,7 +76,27 @@ class Event < ActiveRecord::Base
 		end
 	end
 
-	def checkEventVolunteerState()
+	def self.checkEventVolunteerState(event)
+		event = event || Event.event_of_next_sunday()[0]
+		if event.last_checked_volunteer_count != nil && event.users.count < event.last_checked_volunteer_count 
+			leaders = Event.leadersForEvent(event)
+			leaders.each do |leader|
+				UserMailer.eventVolutneerStateHasChanged(leader, event, event.last_checked_volunteer_count, event.users.count).deliver_now
+			end
+		end	
+		event.last_checked_volunteer_count = event.users.count
+		event.save()
+	end 
 
+	def self.leadersForEvent(event)
+		leaders = []
+		event.users.each do |user|
+			if user.role == "leader"
+				leaders << user
+			end
+		end
+		return leaders
 	end
 end
+
+
