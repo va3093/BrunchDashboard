@@ -11,10 +11,14 @@ scheduler = Rufus::Scheduler.new
 #     end
 # end
 
-scheduler.cron('00 12 * * THU') do
+scheduler.cron('00 12 * * TUE') do
 	Event.remindUsersAboutUpcommingEvent()
 end
 
-scheduler.cron('00 12 * * THU') do
+scheduler.cron('00 12 * * TUE') do
 	Event.getPermissionToGetMoreVolunteers()
+end
+
+scheduler.cron('00 12 * * 3-6') do
+	Event.checkEventVolunteerState()
 end
