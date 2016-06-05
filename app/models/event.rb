@@ -76,7 +76,7 @@ class Event < ActiveRecord::Base
 		end
 	end
 
-	def self.checkEventVolunteerState(event)
+	def self.checkEventVolunteerState(event=nil)
 		event = event || Event.event_of_next_sunday()[0]
 		if event.last_checked_volunteer_count != nil && event.users.count < event.last_checked_volunteer_count 
 			leaders = Event.leadersForEvent(event)
