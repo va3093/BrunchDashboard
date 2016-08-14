@@ -1,69 +1,28 @@
 class Analytics
-  class_attribute :backend
-  self.backend = AnalyticsRuby
 
-  def initialize(user, client_id = nil)
-    @user = user
-    @client_id = client_id
-  end
-
-  def track_user_creation
-    identify
-    track(
-      {
-        user_id: user.id,
-        event: 'Create User',
-        properties: {
-          city_state: user.zip.to_region
-        }
-      }
-    )
-  end
-
-  def track_user_sign_in
-    identify
-    track(
-      {
-        user_id: user.id,
-        event: 'Sign In User'
-      }
-    )
-  end
-
-  private
-
-  def identify
-    backend.identify(identify_params)
-  end
-
-  attr_reader :user, :client_id
-
-  def identify_params
-    {
-      user_id: user.id,
-      traits: user_traits
-    }
-  end
-
-  def user_traits
-    {
-      email: user.email,
-      first_name: user.first_name,
-      last_name: user.last_name,
-      city_state: user.city_state,
-    }.reject { |key, value| value.blank? }
-  end
-
-  def track(options)
-    if client_id.present?
-      options.merge!(
-        context: {
-          'Google Analytics' => {
-            clientId: client_id
-          }
-        }
-      )
+  class CustomError < Mixpanel::ErrorHandler
+    def handle(error)
+      asdfs
     end
-    backend.track(options)
+  end
+
+  def initialize(user)
+    @user = user
+
+    @tracker = Mixpanel::Tracker.new(ENV['MIXPANEL_ID'], CustomError.new)
+  end
+
+
+  def track_event(event, user=nil, properties={})
+    _user = user || @user
+    @tracker.track(_user.id.to_s, event, properties)
+  end
+
+  def set_user_properties(user=nil)
+    _user = user || @user
+    @tracker.people.set(_user.id.to_s, {
+      '$first_name'       => _user.first_name,
+      '$last_name'        => _user.last_name,
+    });
   end
 end

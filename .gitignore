@@ -12,3 +12,6 @@ public/assets/
 ## IDE files
 brunch_dashboard.iml
 .idea/
+
+# Ignore application configuration
+/config/application.yml

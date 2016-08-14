@@ -1,15 +1,7 @@
 class ApplicationController < ActionController::Base
 
   def analytics
-    @analytics ||= Analytics.new(current_user, google_analytics_client_id)
-  end
-
-  def google_analytics_client_id
-    google_analytics_cookie.gsub(/^GA\d\.\d\./, '')
-  end
-
-  def google_analytics_cookie
-    cookies['_ga'] || ''
+    @analytics ||= Analytics.new(current_user)
   end
 
   # Prevent CSRF attacks by raising an exception.
