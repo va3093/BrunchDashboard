@@ -22,7 +22,7 @@ class WelcomeController < ApplicationController
 				@nextMonth = Date::MONTHNAMES[(monthInt + 1)%13] || "January"
 				@prevMonthYear = (monthInt == 1 ? (@currentYear - 1).to_s : @currentYear).to_s
 				@nextMonthYear = (monthInt == 12 ? (@currentYear + 1).to_s : @currentYear).to_s
-
+				analytics.track_event('Viewed month', user, {'Event date'=> @monthToShowString})
 				 
 		else
 			redirect_to :controller => 'signup', :action => 'index'
@@ -37,10 +37,12 @@ class WelcomeController < ApplicationController
 			@event = Event.find_by_id(params[:event_id])
 			update_event_states([@event])
 			if @event.status == "full" then
+				analytics.track_event('Attempted to sign up for full week', user) 
     			redirect_to :controller => 'general_message', :action => 'message', :message => 'Hmmm. It seems the month you are trying to sign up to has fulled up. Tap the "Continue" button to go to the home page and try another date'
     		else
 				if !@event.users.include? user then
 					@event.users << user
+					analytics.track_event('Signed up to Event', user, {'Event date'=> @event.date.strftime("%d %b")})
 				end
 				@event.save
 				redirect_to :controller => 'welcome', :action => 'index', :month => @event.date.strftime("%B"), :year => params[:year]
@@ -64,6 +66,7 @@ class WelcomeController < ApplicationController
 
 			if @event.users.include?(user)
 				@event.users.delete(user)
+				analytics.track_event('Removed from Event', user, {'Event date'=> @event.date.strftime("%d %b")})
 				@event.users.each do |tempUser|
 					if tempUser.role == "leader"
 						UserMailer.usersNotComingAlertMail(tempUser, user, @event).deliver_now

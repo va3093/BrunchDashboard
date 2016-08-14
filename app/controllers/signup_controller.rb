@@ -33,8 +33,11 @@ class SignupController < ApplicationController
   	end
     if @user.token.nil? then
       @user.new_token!
+      @user.save
       cookies.permanent[:token] = @user.token
-    end 
+      analytics.set_user_properties(@user)
+      analytics.track_event('Sign_up', @user) 
+    end
     UserMailer.loginUser(@user).deliver_now
   end
 
@@ -55,6 +58,7 @@ class SignupController < ApplicationController
     if !@user.nil?
       @user.remember_me = true
       sign_in @user
+      analytics.track_event('login') 
       redirect_to :controller => 'welcome', :action => 'index'
     else
       ## Should display an error message, not just show this page!

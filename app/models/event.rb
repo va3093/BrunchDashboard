@@ -3,7 +3,6 @@ class Event < ActiveRecord::Base
 	has_many :users, through: :assignments
 
 	validates :date, presence: true
-	validates :last_checked_volunteer_count, presence: true
 	#validates :number_of_volunteers, presence: true
 
 	def remaining_spaces?
