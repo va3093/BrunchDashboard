@@ -33,7 +33,7 @@ class SignupController < ApplicationController
   	end
     if @user.token.nil? then
       @user.new_token!
-      @user.save!
+      @user.save
       cookies.permanent[:token] = @user.token
       analytics.set_user_properties(@user)
       analytics.track_event('Sign_up', @user) 

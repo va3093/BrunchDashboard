@@ -2,7 +2,7 @@ class Analytics
 
   class CustomError < Mixpanel::ErrorHandler
     def handle(error)
-      asdfs
+      puts error
     end
   end
 
