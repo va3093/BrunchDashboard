@@ -80,13 +80,6 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  #Configure the exeption handler
- Rails.application.config.middleware.use ExceptionNotification::Rack,
-  :email => {
-    :email_prefix => "[ExceptionNotification] ",
-    :sender_address => %{"notifier" <va3093@gmail.com>},
-    :exception_recipients => %w{va3093@gmail.com}
-  }
 
   ############################### ACTION MAILER ###############################
   API_KEY = ENV['MAILGUN_API_KEY']
