@@ -83,7 +83,7 @@ Rails.application.configure do
 
   ############################### ACTION MAILER ###############################
   API_KEY = ENV['MAILGUN_API_KEY']
-  MAILGUN_DOMAIN = 'appc831e67782994603841f34dd187a04a2.mailgun.org'
+  MAILGUN_DOMAIN = 'mg.volunteerdashboard.org'
   API_URL = "https://api:#{API_KEY}@api.mailgun.net/v2/#{MAILGUN_DOMAIN}"
 
   config.action_mailer.delivery_method = :mailgun
