@@ -40,7 +40,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 gem 'mailgun_rails'
 
 ## For Mailtrap
-gem 'rest_client'
+gem 'rest-client'
 gem 'json'
 
 ## for scheduling

@@ -99,9 +99,6 @@ GEM
       activesupport (>= 3.0)
       request_store (~> 1.0)
     erubis (2.7.0)
-    exception_notification (4.1.4)
-      actionmailer (~> 4.0)
-      activesupport (~> 4.0)
     execjs (2.6.0)
     ffi (1.9.10-x86-mingw32)
     figaro (1.1.1)
@@ -225,8 +222,6 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
-    rest_client (1.8.3)
-      netrc (~> 0.7.7)
     rufus-scheduler (3.2.0)
     sass (3.4.21)
     sass-rails (5.0.4)
@@ -283,7 +278,6 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   devise (~> 3.5.2)
   draper
-  exception_notification
   figaro
   jbuilder (~> 2.0)
   jquery-rails
@@ -297,7 +291,7 @@ DEPENDENCIES
   pundit
   rails (= 4.2.3)
   rails_12factor
-  rest_client
+  rest-client
   rufus-scheduler
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
@@ -308,4 +302,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.12.5
+   1.15.4

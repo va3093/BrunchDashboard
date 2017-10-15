@@ -87,7 +87,7 @@ class WelcomeController < ApplicationController
 			nextEvent = Event.find(params[:event_id])
 			usersToEmail = User.all() - nextEvent.users
 			usersToEmail.each do |user|
-				#UserMailer.needVolunteersEmail(user, nextEvent).deliver_now
+				UserMailer.needVolunteersEmail(user, nextEvent).deliver_now
 			end
 
 		else
